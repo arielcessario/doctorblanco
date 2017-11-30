@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {PrincipalComponent} from "./principal/principal.component";
 import {Routing} from "./app.routes";
-import {NavComponent} from "./shared/nav/nav.component";
+//import {NavComponent} from "./shared/nav/nav.component";
 import {CoreService} from "./core/core.service";
 import {AuthenticationService} from "./core/auth/authentication.service";
 import {Angular2FontawesomeModule} from 'angular2-fontawesome/angular2-fontawesome';
@@ -12,7 +12,7 @@ import {Angular2FontawesomeModule} from 'angular2-fontawesome/angular2-fontaweso
 @NgModule({
     declarations: [
         AppComponent,
-        NavComponent,
+        //NavComponent,
         PrincipalComponent
     ],
     imports: [
