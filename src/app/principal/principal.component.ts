@@ -1,3 +1,26 @@
-/**
- * Created by Matute on 30/11/2017.
- */
+import {Component, OnInit} from '@angular/core';
+
+
+@Component({
+    selector: 'app-principal',
+    templateUrl: './principal.component.html',
+    styleUrls: ['./principal.component.scss']
+})
+
+export class PrincipalComponent implements OnInit {
+    loged = false;
+
+    constructor() {
+    }
+
+    ngOnInit() {
+
+        //this.loged = localStorage.getItem('currentUser') != null;
+
+    }
+
+    setUp() {
+
+    }
+
+}

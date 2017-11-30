@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
+import {PrincipalComponent} from "./principal/principal.component";
 import {Routing} from "./app.routes";
 import {NavComponent} from "./shared/nav/nav.component";
 import {CoreService} from "./core/core.service";
@@ -11,7 +12,8 @@ import {Angular2FontawesomeModule} from 'angular2-fontawesome/angular2-fontaweso
 @NgModule({
     declarations: [
         AppComponent,
-        NavComponent
+        NavComponent,
+        PrincipalComponent
     ],
     imports: [
         BrowserModule,

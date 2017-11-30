@@ -1,6 +1,6 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-// import {PrincipalComponent} from "./principal/principal.component";
+import {PrincipalComponent} from "./principal/principal.component";
 // import {ProductosComponent} from "./productos/productos.component";
 // import {ProductoDetalleComponent} from "./producto-detalle/producto-detalle.component";
 // import {CarritoComponent} from "./carrito/carrito.component";
@@ -14,8 +14,8 @@ import {AuthGuard} from "./core/auth/auth-guard.service";
 
 
 const routes: Routes = [
-    // {path: '', redirectTo: 'principal', pathMatch: 'full'},
-    // {path: 'principal', component: PrincipalComponent},
+    {path: '', redirectTo: 'principal', pathMatch: 'full'},
+    {path: 'principal', component: PrincipalComponent},
     // {path: 'productos', component: ProductosComponent},
     // {path: 'producto/:id', component: ProductoDetalleComponent},
     // {path: 'carrito', component: CarritoComponent},

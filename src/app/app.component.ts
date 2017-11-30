@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
     title = 'app';
     estado = 'compacted';
+    test = true;
 
     toggleSideBar() {
         if (this.estado == 'compacted') {

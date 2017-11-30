@@ -1,42 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<nb-layout>
-    <nb-layout-header fixed>
 
-    </nb-layout-header>
+<router-outlet>
 
-    <nb-sidebar [state]="estado">
-        <!--<nav-component></nav-component>-->
-    </nb-sidebar>
+</router-outlet>
+<nav-component>
 
-    <nb-layout-column>
-        <nb-card>
-            <nb-card-header>
-
-                <fa [name]="'rocket'" [border]="true" [size]="1"></fa>
-                titulo
-            </nb-card-header>
-            <nb-card-body>
-                hola
-                <button class="btn btn-hero-danger btn-demo" (click)="toggleSideBar();">
-                    Button
-                </button>
-            </nb-card-body>
-            <nb-card-footer>
-                footer
-            </nb-card-footer>
-            <!--<nb-layout>-->
-            <!--<nb-layout-header>Great Company</nb-layout-header>-->
-
-            <!--<nb-layout-column>-->
-            <!--Hello World!-->
-            <!--</nb-layout-column>-->
-
-            <!--<nb-layout-footer>Contact us</nb-layout-footer>-->
-            <!--</nb-layout>-->
-
-        </nb-card>
-
-        <!--<router-outlet></router-outlet>-->
-    </nb-layout-column>
-</nb-layout>
-
+</nav-component>
