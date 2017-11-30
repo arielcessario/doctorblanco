@@ -58,3 +58,19 @@
   background: -webkit-linear-gradient(top, #466946, #d2f373, #466946);
   background: linear-gradient(to bottom, #466946, #d2f373, #466946);
 }
+
+.container-1{
+  background-color: #eeeeee;
+}
+.container-2{
+  background-color: #FFFFFF;
+}
+
+.container-1, .container-2{
+  height: 300px;
+}
+.footer{
+  height: 50px;
+  background-color: #122C39;
+  color:#FFFFFF;
+}
