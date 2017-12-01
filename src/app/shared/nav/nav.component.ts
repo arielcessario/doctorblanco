@@ -1,9 +1,11 @@
-import {Component, OnInit, NgZone} from '@angular/core';
-import {style, animate, state, transition, trigger} from "@angular/animations";
-import {Router} from '@angular/router';
-import {CoreService} from '../../core/core.service';
-import {AuthenticationService} from '../../core/auth/authentication.service';
 
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
+import { style, animate, state, transition, trigger } from "@angular/animations";
+import { Router } from '@angular/router';
+import { CoreService } from '../../core/core.service';
+import { AuthenticationService } from '../../core/auth/authentication.service';
+
+import { ScrollTo } from "ng2-scroll-to"
 
 @Component({
     selector: 'nav-component',
@@ -66,24 +68,16 @@ export class NavComponent implements OnInit {
     nombre: string = '';
     categoria_caption: string = 'Categorías';
 
+    @ViewChild(ScrollTo) vc: ScrollTo;
+
 
     constructor(private _ngZone: NgZone, private router: Router, private coreService: CoreService, private authenticationService: AuthenticationService) {
     }
 
-    changeCategoria(value) {
-        this.categoria_caption = value.nombre;
-        this.goTo('productos');
-        setTimeout(()=> {
-            this.coreService.setSearch({key: 'categoria_id', value: value.id});
-        }, 0);
 
-        // NavService.setCategoria(value);
-        // this.router.navigate(['productos']);
-
-    }
 
     login() {
-        this.coreService.setLoginStatus({showLogin: true});
+        this.coreService.setLoginStatus({ showLogin: true });
     }
 
     isSelected(path) {
@@ -95,17 +89,14 @@ export class NavComponent implements OnInit {
         // }
     }
 
-    goTo(link): void {
-        // console.log('entra');
-        // let link = ['/detail', hero.id];
+    goTo(link, event): void {
+        this.router.navigate([link]).then(() => {
+            this.vc.onClick(event);
+        });
 
-        // LoginMessageService.to = link;
-        this.router.navigate([link]);
-        setTimeout(()=> {
-            this.coreService.refreshAll();
-        }, 0);
 
-        // this.filterSearch = '';
+
+
     }
 
     ngOnInit() {
@@ -116,7 +107,7 @@ export class NavComponent implements OnInit {
             this.nombre = JSON.parse(localStorage.getItem('currentUser')).user.nombre;
         }
 
-        this.coreService.getLoginStatus.subscribe(data=> {
+        this.coreService.getLoginStatus.subscribe(data => {
             this._ngZone.run(() => {
                 if (localStorage.getItem('currentUser')) {
                     this.nombre = JSON.parse(localStorage.getItem('currentUser')).user.nombre;
@@ -129,7 +120,7 @@ export class NavComponent implements OnInit {
 
         });
 
-        this.coreService.getCategorias.subscribe(data=> {
+        this.coreService.getCategorias.subscribe(data => {
             if (data.length == 0) {
                 return;
             }
@@ -159,12 +150,12 @@ export class NavComponent implements OnInit {
             }
         });
 
-        this.coreService.getLogOut.subscribe(()=> {
+        this.coreService.getLogOut.subscribe(() => {
             this.logOut();
         });
 
 
-        this.coreService.getCartStatus.subscribe((data)=> {
+        this.coreService.getCartStatus.subscribe((data) => {
             this.total = data.total;
             this.cantidad = data.cantidad;
         });
@@ -172,7 +163,7 @@ export class NavComponent implements OnInit {
 
     }
 
-    changeModel(){
+    changeModel() {
         this.categoria_caption = 'Categorías'
     }
 
@@ -198,7 +189,7 @@ export class NavComponent implements OnInit {
 
     logOut() {
         this.authenticationService.logout();
-        this.coreService.setLoginStatus({showLogin: false});
+        this.coreService.setLoginStatus({ showLogin: false });
         this.goTo('/principal');
         // this.router.navigate(['/principal']);
         this.loged = false;

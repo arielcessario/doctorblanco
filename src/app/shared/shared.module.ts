@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import {ScrollToModule} from 'ng2-scroll-to';
         ContactoComponent
     ],
     imports: [
+        RouterModule,
         CommonModule,
         ReactiveFormsModule,
         FormsModule,

@@ -6,8 +6,8 @@
     <div>Tratamientos
         <div [ngClass]="{'nav-categoria-selected': categoria_caption==el}"></div>
     </div>
-    <a scrollTo href="#noticias">Noticias</a>
-    <button>Contacto</button>
+    <a [routerLink]="['/principal']" scrollTo  scrollTargetSelector="#noticias" >Noticias</a>
+    <button (click)="goTo('/principal', $event)" scrollTargetSelector="#contacto">Contacto</button>
     <button>Ubicación</button>
     <button>Login</button>
 </div>

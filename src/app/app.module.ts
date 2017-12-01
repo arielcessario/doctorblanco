@@ -1,3 +1,5 @@
+import { NoticiaComponent } from './noticia/noticia.component';
+import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { SharedModule } from './shared/shared.module';
 import { DbConnectService } from './core/db-connect/db-connect.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +16,9 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 @NgModule({
     declarations: [
         AppComponent,
-        PrincipalComponent
+        PrincipalComponent,
+        TratamientoComponent,
+        NoticiaComponent
     ],
     imports: [
         BrowserModule,

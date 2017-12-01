@@ -1,3 +1,5 @@
+import { TratamientoComponent } from './tratamiento/tratamiento.component';
+import { NoticiaComponent } from './noticia/noticia.component';
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PrincipalComponent} from "./principal/principal.component";
@@ -16,6 +18,9 @@ import {AuthGuard} from "./core/auth/auth-guard.service";
 const routes: Routes = [
     {path: '', redirectTo: 'principal', pathMatch: 'full'},
     {path: 'principal', component: PrincipalComponent},
+    {path: 'noticia', component: NoticiaComponent},
+    {path: 'tratamiento', component: TratamientoComponent},
+
     // {path: 'productos', component: ProductosComponent},
     // {path: 'producto/:id', component: ProductoDetalleComponent},
     // {path: 'carrito', component: CarritoComponent},
