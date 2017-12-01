@@ -8,6 +8,7 @@ import {style, state, animate, transition, trigger} from "@angular/animations";
 import {CoreService} from "../../core/core.service";
 import {DbConnectService} from "../../core/db-connect/db-connect.service";
 import {Router} from "@angular/router";
+
 declare var ga: Function;
 @Component({
     selector: 'slider-component',
@@ -34,51 +35,34 @@ declare var ga: Function;
  */
 export class SliderComponent implements OnInit {
 
-
     visible: number = 1;
     @ViewChild('tpl') tpl;
     timer: any;
 
     items: Array<any> = [
         {
-            producto_id: 0,
-            nombre: '',
-            descripcion: '',
-            foto: '',
-            precios: [{precio: 0}],
-            fotos: [{nombre: 'logo_top.png'}]
+            slider_id: 0,
+            texto: '',
+            orden: '',
+            foto: ''
         },
         {
-            producto_id: 0,
-            nombre: '',
-            descripcion: '',
-            foto: '',
-            precios: [{precio: 0}],
-            fotos: [{nombre: 'logo_top.png'}]
+            slider_id: 1,
+            texto: '',
+            orden: '',
+            foto: ''
         },
         {
-            producto_id: 0,
-            nombre: '',
-            descripcion: '',
-            foto: '',
-            precios: [{precio: 0}],
-            fotos: [{nombre: 'logo_top.png'}]
+            slider_id: 2,
+            texto: '',
+            orden: '',
+            foto: ''
         },
         {
-            producto_id: 0,
-            nombre: '',
-            descripcion: '',
-            foto: '',
-            precios: [{precio: 0}],
-            fotos: [{nombre: 'logo_top.png'}]
-        },
-        {
-            producto_id: 0,
-            nombre: '',
-            descripcion: '',
-            foto: '',
-            precios: [{precio: 0}],
-            fotos: [{nombre: 'logo_top.png'}]
+            slider_id: 3,
+            texto: '',
+            orden: '',
+            foto: ''
         }
     ];
 
@@ -99,7 +83,6 @@ export class SliderComponent implements OnInit {
 
 
     ngOnInit() {
-
         this.coreService.getProductos.subscribe((productos)=>{
             var leng = productos.length;
             this.items = [];
@@ -108,16 +91,11 @@ export class SliderComponent implements OnInit {
                     this.items.push(productos[leng]);
                 }
             }
-
         });
-
-
 
         this.timer = setInterval(() => {
             this.visible = this.visible == 6 ? 1 : this.visible + 1;
         }, 5000);
-
-
     }
 
     interval() {
@@ -170,7 +148,7 @@ export class SliderComponent implements OnInit {
     goTo(id): void {
         // console.log('entra');
         // let link = ['/detail', hero.id];
-        this.router.navigate(['/producto', id]);
+        this.router.navigate(['/institucional']);
         ga('send', 'event', 'Detalle', '' + id, 'Producto');
 
         setTimeout(()=> {
