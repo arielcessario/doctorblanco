@@ -15,6 +15,7 @@ import { LoaderComponent } from "./loader/loader.component";
 import { TratamientosComponent } from './tratamientos/tratamientos.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import {ScrollToModule} from 'ng2-scroll-to';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        ScrollToModule.forRoot()
     ],
     providers: [],
     exports: [
