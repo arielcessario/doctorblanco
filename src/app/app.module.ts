@@ -12,6 +12,7 @@ import { Routing } from "./app.routes";
 import { CoreService } from "./core/core.service";
 import { AuthenticationService } from "./core/auth/authentication.service";
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
         Routing,
         BrowserAnimationsModule,
         SharedModule,
+        AdminModule
     ],
     providers: [CoreService, AuthenticationService, DbConnectService],
     bootstrap: [AppComponent]

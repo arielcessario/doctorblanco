@@ -1,0 +1,29 @@
+@import '../app.component.scss';
+
+@include breakpoint('medium') {
+  .nav-admin-desktop {
+    visibility: visible !important;
+  }
+
+  .nav-admin-mobile {
+    visibility: collapse !important;
+    display: none !important;
+  }
+}
+
+:host{
+  width: 100% !important;
+  margin-top: 60px !important;
+  height: 100% !important;
+}
+
+.nav-admin-desktop{
+  margin-top: 60px;
+  background-color: gray;
+  height: 60px;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

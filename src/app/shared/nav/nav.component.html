@@ -9,7 +9,7 @@
     <a [routerLink]="['/principal']" scrollTo  scrollTargetSelector="#noticias" >Noticias</a>
     <button (click)="goTo('/principal', $event)" scrollTargetSelector="#contacto">Contacto</button>
     <button>Ubicación</button>
-    <button>Login</button>
+    <button [routerLink]="['/admin']">Login</button>
 </div>
 
 <div class="nav-mobile">
