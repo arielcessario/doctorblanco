@@ -18,7 +18,7 @@ class DBConnect{
 
 private $db_server = 'localhost';
 private $db_pass = '';
-private $db_schema = 'arielces_bayres';
+private $db_schema = 'doctor_blanco';
 private $db_user = '';
 
     public function getServer(){
