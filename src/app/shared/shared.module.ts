@@ -1,17 +1,20 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {LoginComponent} from './login/login.component';
-import {CommonModule} from '@angular/common';
-import {ProductoComponent} from "./producto/producto.component";
-import {DescLengthPipe} from "./pipes/desc-length.pipe";
-import {SliderComponent} from "./slider/slider.component";
-import {CarrouselComponent} from "./carrousel/carrousel.component";
-import {VirtualScrollComponent} from "./infinite-scroll/infinite-scroll";
-import {AutocompleteComponent} from "./autocomplete/autocomplete.component";
-import {NavComponent} from "./nav/nav.component";
-import {FooterComponent} from "./footer/footer.component";
-import {LoaderComponent} from "./loader/loader.component";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CommonModule } from '@angular/common';
+import { ProductoComponent } from "./producto/producto.component";
+import { DescLengthPipe } from "./pipes/desc-length.pipe";
+import { SliderComponent } from "./slider/slider.component";
+import { CarrouselComponent } from "./carrousel/carrousel.component";
+import { VirtualScrollComponent } from "./infinite-scroll/infinite-scroll";
+import { AutocompleteComponent } from "./autocomplete/autocomplete.component";
+import { NavComponent } from "./nav/nav.component";
+import { FooterComponent } from "./footer/footer.component";
+import { LoaderComponent } from "./loader/loader.component";
+import { TratamientosComponent } from './tratamientos/tratamientos.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import {LoaderComponent} from "./loader/loader.component";
         NavComponent,
         FooterComponent,
         LoaderComponent,
+        TratamientosComponent,
+        NoticiasComponent,
+        ContactoComponent
     ],
     imports: [
         CommonModule,
@@ -43,7 +49,10 @@ import {LoaderComponent} from "./loader/loader.component";
         AutocompleteComponent,
         NavComponent,
         FooterComponent,
-        LoaderComponent
+        LoaderComponent,
+        TratamientosComponent,
+        NoticiasComponent,
+        ContactoComponent
     ]
 })
 export class SharedModule {

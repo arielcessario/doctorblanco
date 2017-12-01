@@ -3,11 +3,12 @@ import {
     OnInit,
     ElementRef,
     ViewChild
-}      from '@angular/core';
-import {style, state, animate, transition, trigger} from "@angular/animations";
-import {CoreService} from "../../core/core.service";
-import {DbConnectService} from "../../core/db-connect/db-connect.service";
-import {Router} from "@angular/router";
+} from '@angular/core';
+import { style, state, animate, transition, trigger } from "@angular/animations";
+import { CoreService } from "../../core/core.service";
+import { DbConnectService } from "../../core/db-connect/db-connect.service";
+import { Router } from "@angular/router";
+import { log } from 'util';
 
 declare var ga: Function;
 @Component({
@@ -18,12 +19,12 @@ declare var ga: Function;
         trigger(
             'enterAnimation', [
                 transition(':enter', [
-                    style({opacity: 0}),
-                    animate('500ms', style({opacity: 1}))
+                    style({ opacity: 0 }),
+                    animate('500ms', style({ opacity: 1 }))
                 ]),
                 transition(':leave', [
-                    style({opacity: 1}),
-                    animate('500ms', style({opacity: 0}))
+                    style({ opacity: 1 }),
+                    animate('500ms', style({ opacity: 0 }))
                 ])
             ]
         )
@@ -83,15 +84,26 @@ export class SliderComponent implements OnInit {
 
 
     ngOnInit() {
-        this.coreService.getProductos.subscribe((productos)=>{
-            var leng = productos.length;
-            this.items = [];
-            while(leng --){
-                if(productos[leng]['en_slider']){
-                    this.items.push(productos[leng]);
-                }
+        // var leng = productos.length;
+        
+        var productos = [
+            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 1', 'descripcion': 'prueba de producto 1'},
+            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 2', 'descripcion': 'prueba de producto 2'},
+            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 3', 'descripcion': 'prueba de producto 3'},
+            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 4', 'descripcion': 'prueba de producto 4'},
+            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
+            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
+        ]
+        var leng = 6;
+
+        this.items = [];
+        while (leng--) {
+            if (productos[leng]['en_slider']) {
+                this.items.push(productos[leng]);
             }
-        });
+        }
+
+        console.log(this.items);
 
         this.timer = setInterval(() => {
             this.visible = this.visible == 6 ? 1 : this.visible + 1;
@@ -129,15 +141,15 @@ export class SliderComponent implements OnInit {
             ga('send', 'event', 'Deseo', '' + item.producto_id, 'Producto');
         }
 
-        let ret = this.dbConnectService.post('productos', 'desear', {producto_id: item.producto_id});
+        let ret = this.dbConnectService.post('productos', 'desear', { producto_id: item.producto_id });
 
-        ret.subscribe(data=> {
+        ret.subscribe(data => {
             console.log(data);
         });
 
-        this.coreService.showToast.subscribe(data=> {
+        this.coreService.showToast.subscribe(data => {
             if (data.type == 'error' || data.message.indexOf('Por favor ingrese con su usuario y contraseña')) {
-                this.coreService.setLoginStatus({showLogin: true});
+                this.coreService.setLoginStatus({ showLogin: true });
                 delete item['deseado'];
             }
         });
@@ -151,7 +163,7 @@ export class SliderComponent implements OnInit {
         this.router.navigate(['/institucional']);
         ga('send', 'event', 'Detalle', '' + id, 'Producto');
 
-        setTimeout(()=> {
+        setTimeout(() => {
             this.coreService.refreshAll();
         }, 0);
     }
