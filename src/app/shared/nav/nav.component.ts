@@ -151,7 +151,7 @@ export class NavComponent implements OnInit {
         });
 
         this.coreService.getLogOut.subscribe(() => {
-            this.logOut();
+            // this.logOut();
         });
 
 
@@ -171,28 +171,28 @@ export class NavComponent implements OnInit {
         this.visibility = true;
     }
 
-    getId(event) {
+    // getId(event) {
 
 
-        if (event.search != undefined) {
+    //     if (event.search != undefined) {
 
-            this.event = event;
+    //         this.event = event;
 
-            this.goTo('productos');
-            // this.router.navigate(['productos']);
+    //         this.goTo('productos');
+    //         // this.router.navigate(['productos']);
 
-        } else {
-            this.goTo('producto/' + event.id);
-            // this.router.navigate(['producto/' + event.id]);
-        }
-    }
+    //     } else {
+    //         this.goTo('producto/' + event.id);
+    //         // this.router.navigate(['producto/' + event.id]);
+    //     }
+    // }
 
-    logOut() {
-        this.authenticationService.logout();
-        this.coreService.setLoginStatus({ showLogin: false });
-        this.goTo('/principal');
-        // this.router.navigate(['/principal']);
-        this.loged = false;
-    }
+    // logOut() {
+    //     this.authenticationService.logout();
+    //     this.coreService.setLoginStatus({ showLogin: false });
+    //     this.goTo('/principal');
+    //     // this.router.navigate(['/principal']);
+    //     this.loged = false;
+    // }
 
 }
