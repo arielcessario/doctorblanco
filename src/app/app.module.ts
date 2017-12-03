@@ -1,3 +1,4 @@
+
 import { NoticiaComponent } from './noticia/noticia.component';
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { SharedModule } from './shared/shared.module';
@@ -15,6 +16,7 @@ import { CoreService } from "./core/core.service";
 import { AuthenticationService } from "./core/auth/authentication.service";
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { AdminModule } from './admin/admin.module';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
     declarations: [
@@ -30,7 +32,8 @@ import { AdminModule } from './admin/admin.module';
         BrowserAnimationsModule,
         SharedModule,
         AdminModule,
-        NgbModule.forRoot()
+        NgbModule.forRoot(),
+        HttpModule
     ],
     providers: [CoreService, AuthenticationService, DbConnectService],
     bootstrap: [AppComponent]

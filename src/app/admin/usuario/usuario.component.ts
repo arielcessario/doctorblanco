@@ -10,24 +10,27 @@ import { DbConnectService } from '../../core/db-connect/db-connect.service';
 import { AuthenticationService } from '../../core/auth/authentication.service';
 
 @Component({
-    selector: 'doctor',
-    templateUrl: './doctor.component.html',
-    styleUrls: ['./doctor.component.scss']
+    selector: 'usuario',
+    templateUrl: './usuario.component.html',
+    styleUrls: ['./usuario.component.scss']
 })
 
-export class DoctorComponent implements OnInit {
+export class UsuarioComponent implements OnInit {
     loged = false;
+
+    usuarios: Array<any> = [];
 
     uploader = new FileUploader({ url: `YOUR URL` });
 
-    formCreateUsuario: FormGroup;
+    formUsuario: FormGroup;
     private fb: FormBuilder;
 
     // Login Form
     public mail: string;
     public nombre: string;
+    public apellido: string;
     public password: string;
-    public social_login: number;
+    public rol: number;
 
 
     constructor(private coreService: CoreService, private http: Http, 
@@ -38,37 +41,50 @@ export class DoctorComponent implements OnInit {
 
         //this.loged = localStorage.getItem('currentUser') != null;
 
+        this.dbConnectService.get('usuarios', 'getAll', {}).subscribe((data)=> {
+            this.usuarios = data;
+        });
+
+        this.formUsuario = this.buildForm(this.formUsuario);
+
     }
 
     setUp() {
 
     }
 
-    buildFormCreate(form: FormGroup): FormGroup {
+    buildForm(form: FormGroup): FormGroup {
 
         this.fb = new FormBuilder();
         form = this.fb.group({
             'mail': [this.mail, [Validators.required, Validators.email]],
             'nombre': [this.nombre, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+            'apellido': [this.apellido, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
             'password': [this.password, [Validators.required, Validators.minLength(3)]],
-            'social_login': this.social_login
+            'rol': this.rol
         });
 
         form.valueChanges
-            .subscribe(data => this.dbConnectService.onValueChanged(data, form, this.formErrorsCreate, this.validationMessagesCreate));
+            .subscribe(data => this.dbConnectService.onValueChanged(data, form, this.formErrors, this.validationMessages));
 
         this.dbConnectService.onValueChanged(); // (re)set validation messages now);
 
         return form;
     }
 
-    formErrorsCreate = {
+    formErrors = {
         'mail': '',
         'nombre': '',
+        'apellido': '',
         'password': ''
     };
-    validationMessagesCreate = {
+    validationMessages = {
         'nombre': {
+            'required': 'Requerido',
+            'minlength': 'Mínimo 3 letras',
+            'maxlength': 'El nombre no puede tener mas de 24 letras'
+        },
+        'apellido': {
             'required': 'Requerido',
             'minlength': 'Mínimo 3 letras',
             'maxlength': 'El nombre no puede tener mas de 24 letras'

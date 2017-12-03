@@ -1,10 +1,10 @@
-import {ModuleWithProviders} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 // import {ProductosComponent} from "./productos/productos.component";
 // import {ProductoDetalleComponent} from "./producto-detalle/producto-detalle.component";
 // import {CarritoComponent} from "./carrito/carrito.component";
-// import {UsuarioComponent} from "./usuario/usuario.component";
-import {AuthGuard} from "../core/auth/auth-guard.service";
+import { UsuarioComponent } from "./usuario/usuario.component";
+import { AuthGuard } from "../core/auth/auth-guard.service";
 import { AdminComponent } from './admin.component';
 import { DoctorComponent } from './doctor/doctor.component';
 // import {PedidosComponent} from "./pedidos/pedidos.component";
@@ -15,15 +15,18 @@ import { DoctorComponent } from './doctor/doctor.component';
 
 
 const routes: Routes = [
-    {path: '', component: AdminComponent,
-    children: [
-        { path: 'doctor', component: DoctorComponent},
-        // { path: 'facilities/:id', component: FacilityComponent },
-        // { path: 'data-concentrators', component: DataConcentratorsComponent},
-        // { path: 'data-concentrators/:id', component: DataConcentratorComponent },
-        // { path: '', redirectTo: 'facilities', component: FacilitiesComponent }
-    ]},
-    
+    {
+        path: '', component: AdminComponent,
+        children: [
+            { path: 'doctor', component: DoctorComponent },
+            { path: 'usuario', component: UsuarioComponent },
+            // { path: 'facilities/:id', component: FacilityComponent },
+            // { path: 'data-concentrators', component: DataConcentratorsComponent},
+            // { path: 'data-concentrators/:id', component: DataConcentratorComponent },
+            // { path: '', redirectTo: 'facilities', component: FacilitiesComponent }
+        ]
+    },
+
 ];
 
 export const Routing: ModuleWithProviders = RouterModule.forRoot(routes);

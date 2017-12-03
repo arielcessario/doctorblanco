@@ -62,14 +62,37 @@ class Usuarios extends Main
 
         //validateRol(0);
 
-        $db = new MysqliDb();
-        $results = $db->get('usuarios');
+        // $$this->db = new MysqliDb();
+        $results = $this->db->get('usuarios');
 
         foreach ($results as $key => $row) {
-            $db->where('usuario_id', $row['usuario_id']);
+            $this->db->where('usuario_id', $row['usuario_id']);
             $results[$key]["password"] = '';
-            $direcciones = $db->get('direcciones');
+            $direcciones = $this->db->get('direcciones');
             $results[$key]['direcciones'] = $direcciones;
+        }
+        echo json_encode($results);
+    }
+
+    
+    /* @name: get
+     * @param
+     * @description: Obtiene todos los usuario con sus direcciones.
+     * todo: Sacar dirección y crear sus propias clases dentro de este mismo módulo.
+     */
+    function getAll()
+    {
+
+        //validateRol(0);
+
+        // $$this->db = new MysqliDb();
+        $results = $this->db->get('usuarios');
+
+        foreach ($results as $key => $row) {
+            // $this->db->where('usuario_id', $row['usuario_id']);
+            $results[$key]["password"] = '';
+            // $direcciones = $this->db->get('direcciones');
+            // $results[$key]['direcciones'] = $direcciones;
         }
         echo json_encode($results);
     }

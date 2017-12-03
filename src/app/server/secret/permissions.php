@@ -13,7 +13,8 @@ public $permissions = array(
             'update' => PermissionTypes::Client,
             'updateAddress' => PermissionTypes::Client,
             'generateTemporaryToken' => PermissionTypes::Allowed,
-            'setPassword' => PermissionTypes::Allowed
+            'setPassword' => PermissionTypes::Allowed,
+            'getAll' => PermissionTypes::Allowed
 
         ),
         'Productos' => array(

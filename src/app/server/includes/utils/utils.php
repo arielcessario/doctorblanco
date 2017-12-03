@@ -193,8 +193,8 @@ class Main
             $permissions = new Permissions();
 
             if ($permissions->getPermission($class, $fnc) > PermissionTypes::Allowed) {
-                checkSecurity();
-                validateRol($permissions->getPermission($class, $fnc));
+                // checkSecurity();
+                // validateRol($permissions->getPermission($class, $fnc));
             }
             $this->checkUserStatus();
 

@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { UsuarioComponent } from './usuario/usuario.component';
 import { AuthenticationService } from './../core/auth/authentication.service';
 import { CoreService } from './../core/core.service';
 import { SharedModule } from './../shared/shared.module';
@@ -16,6 +18,7 @@ import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
     declarations: [
         AdminComponent,
         DoctorComponent,
+        UsuarioComponent,
         FileDropDirective, 
         FileSelectDirective
     ],
@@ -24,6 +27,7 @@ import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
         Angular2FontawesomeModule,
         Routing,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
         SharedModule,
         QuillModule,
         

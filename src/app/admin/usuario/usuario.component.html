@@ -1,0 +1,62 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<form [formGroup]="formUsuario" novalidate (ngSubmit)="create()" accept-charset="utf-8" action="#" class="simform">
+    <div class="sminputs">
+        <div class="input string full">
+            <label class="string full" for="user-pw" [ngClass]="{'text-error': formErrors['nombre']}">Nombre * {{formErrors['nombre']}}</label>
+            <input class="string full" maxlength="255" id="user-pw" formControlName="nombre" placeholder="Nombre" type="text" size="50"
+            />
+
+        </div>
+    </div>
+    <div class="sminputs">
+        <div class="input full">
+            <label class="string full" for="user-name" [ngClass]="{'text-error': formErrors['mail']}">Email* {{formErrors['mail']}}</label>
+            <input class="string full" maxlength="255" id="user-email" formControlName="mail" placeholder="Email" type="email" size="50"
+            />
+
+        </div>
+    </div>
+    <div class="sminputs">
+        <div class="input full">
+            <label class="string full" for="user-pw" [ngClass]="{'text-error': formErrors['password']}">Password * {{formErrors['password']}}</label>
+            <input class="string full" maxlength="255" id="user-pw" formControlName="password" placeholder="Password" type="text" size="50"
+            />
+
+        </div>
+    </div>
+    <div class="simform__actions">
+        <input class="sumbit" name="commit" type="submit" value="Crear" />
+        <input class="sumbit" name="commit" type="submit" value="Editar" />
+        <input class="sumbit" name="commit" type="submit" value="Borrar" />
+    </div>
+</form>

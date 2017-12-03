@@ -1,0 +1,13 @@
+2017-12-03 16:44:20: MySQL host or socket is not set
+2017-12-03 16:44:26: MySQL host or socket is not set
+2017-12-03 16:52:43: MySQL host or socket is not set
+2017-12-03 17:00:42: MySQL host or socket is not set
+2017-12-03 17:09:24: MySQL host or socket is not set
+2017-12-03 17:09:33: MySQL host or socket is not set
+2017-12-03 17:10:09: MySQL host or socket is not set
+2017-12-03 17:15:43: MySQL host or socket is not set
+2017-12-03 17:26:32: MySQL host or socket is not set
+2017-12-03 17:27:18: MySQL host or socket is not set
+2017-12-03 17:27:45: MySQL host or socket is not set
+2017-12-03 17:54:28: Main->__construct - No existe el permiso: getAll
+2017-12-03 17:55:22: Table 'doctor_blanco.usuarios' doesn't exist query: SELECT  * FROM usuarios

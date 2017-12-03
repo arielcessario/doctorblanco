@@ -18,7 +18,7 @@ export class DbConnectService implements OnInit {
     private _dbHelper = new DbHelperService();
     private _http: Http;
     private _baseUrl: string = './server/api.php';
-    // private _baseUrl: string = 'http://localhost:80/bayres-web/src/app/server/api.php';
+    // private _baseUrl: string = 'http://localhost:80/doctorblanco/src/app/server/api.php';
 
     constructor(private coreService: CoreService) {
 
