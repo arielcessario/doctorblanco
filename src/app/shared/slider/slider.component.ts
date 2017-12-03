@@ -91,10 +91,10 @@ export class SliderComponent implements OnInit {
             {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 2', 'descripcion': 'prueba de producto 2'},
             {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 3', 'descripcion': 'prueba de producto 3'},
             {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 4', 'descripcion': 'prueba de producto 4'},
-            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
-            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
+            //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
+            //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
         ]
-        var leng = 6;
+        var leng = 4;
 
         this.items = [];
         while (leng--) {
@@ -106,14 +106,14 @@ export class SliderComponent implements OnInit {
         console.log(this.items);
 
         this.timer = setInterval(() => {
-            this.visible = this.visible == 6 ? 1 : this.visible + 1;
+            this.visible = this.visible == 4 ? 1 : this.visible + 1;
         }, 5000);
     }
 
     interval() {
         clearInterval(this.timer);
         this.timer = setInterval(() => {
-            this.visible = this.visible == 6 ? 1 : this.visible + 1;
+            this.visible = this.visible == 4 ? 1 : this.visible + 1;
         }, 5000);
     }
 

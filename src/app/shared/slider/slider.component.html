@@ -10,12 +10,12 @@
                     <span>{{items[items.length-1].descripcion | descLength}}</span>
 
                     <div class="slider-descr-actions">
-                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        <!--i class="fa fa-share-alt" aria-hidden="true"></i>
                         <i class="fa fa-heart" [ngClass]="{'deseado': items[items.length-1].deseado}" aria-hidden="true"
                            (click)="desear(items[items.length-1])"></i>
                         <i class="fa fa-search" (click)="goTo(items[items.length-1]['producto_id'])" aria-hidden="true"></i>
                         <i (click)="update(items[items.length-1])" class="fa fa-shopping-cart" *ngIf="items[items.length-1].en_carrito" aria-hidden="true" title="En Carrito"></i>
-                        <i (click)="update(items[items.length-1])" class="fa fa-cart-plus" *ngIf="!items[items.length-1].en_carrito" aria-hidden="true" title="Agregar"></i>
+                        <i (click)="update(items[items.length-1])" class="fa fa-cart-plus" *ngIf="!items[items.length-1].en_carrito" aria-hidden="true" title="Agregar"></i-->
                     </div>
                 </div>
             </div>
@@ -25,12 +25,12 @@
                     <h1>{{items[items.length-2].nombre}}</h1>
                     <span>{{items[items.length-2].descripcion | descLength}}</span>
                     <div class="slider-descr-actions">
-                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        <!--i class="fa fa-share-alt" aria-hidden="true"></i>
                         <i class="fa fa-heart" [ngClass]="{'deseado': items[items.length-2].deseado}" aria-hidden="true"
                            (click)="desear(items[items.length-2])"></i>
                         <i class="fa fa-search" (click)="goTo(items[items.length-2]['producto_id'])" aria-hidden="true"></i>
                         <i (click)="update(items[items.length-2])" class="fa fa-shopping-cart" *ngIf="items[items.length-2].en_carrito" aria-hidden="true" title="En Carrito"></i>
-                        <i (click)="update(items[items.length-2])" class="fa fa-cart-plus" *ngIf="!items[items.length-2].en_carrito" aria-hidden="true" title="Agregar"></i>
+                        <i (click)="update(items[items.length-2])" class="fa fa-cart-plus" *ngIf="!items[items.length-2].en_carrito" aria-hidden="true" title="Agregar"></i-->
                     </div>
                 </div>
             </div>
@@ -40,12 +40,12 @@
                     <h1>{{items[items.length-3].nombre}}</h1>
                     <span>{{items[items.length-3].descripcion | descLength}}</span>
                     <div class="slider-descr-actions" >
-                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        <!--i class="fa fa-share-alt" aria-hidden="true"></i>
                         <i class="fa fa-heart" [ngClass]="{'deseado': items[items.length-3].deseado}" aria-hidden="true"
                            (click)="desear(items[items.length-3])"></i>
                         <i class="fa fa-search" (click)="goTo(items[items.length-3]['producto_id'])" aria-hidden="true"></i>
                         <i (click)="update(items[items.length-3])" class="fa fa-shopping-cart" *ngIf="items[items.length-3].en_carrito" aria-hidden="true" title="En Carrito"></i>
-                        <i (click)="update(items[items.length-3])" class="fa fa-cart-plus" *ngIf="!items[items.length-3].en_carrito" aria-hidden="true" title="Agregar"></i>
+                        <i (click)="update(items[items.length-3])" class="fa fa-cart-plus" *ngIf="!items[items.length-3].en_carrito" aria-hidden="true" title="Agregar"></i-->
                     </div>
                 </div>
             </div>
@@ -55,17 +55,17 @@
                     <h1>{{items[items.length-4].nombre}}</h1>
                     <span>{{items[items.length-4].descripcion | descLength}}</span>
                     <div class="slider-descr-actions">
-                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        <!--i class="fa fa-share-alt" aria-hidden="true"></i>
                         <i class="fa fa-heart" [ngClass]="{'deseado': items[items.length-4].deseado}" aria-hidden="true"
                            (click)="desear(items[items.length-4])"></i>
                         <i class="fa fa-search" (click)="goTo(items[items.length-4]['producto_id'])" aria-hidden="true"></i>
                         <i (click)="update(items[items.length-4])" class="fa fa-shopping-cart" *ngIf="items[items.length-4].en_carrito" aria-hidden="true" title="En Carrito"></i>
-                        <i (click)="update(items[items.length-4])" class="fa fa-cart-plus" *ngIf="!items[items.length-4].en_carrito" aria-hidden="true" title="Agregar"></i>
+                        <i (click)="update(items[items.length-4])" class="fa fa-cart-plus" *ngIf="!items[items.length-4].en_carrito" aria-hidden="true" title="Agregar"></i-->
                     </div>
                 </div>
             </div>
 
-            <div id="slider-05" *ngIf="visible == 5" [@enterAnimation]="visible == 5">
+            <!--div id="slider-05" *ngIf="visible == 5" [@enterAnimation]="visible == 5">
                 <img [src]="items[4].src" alt="">
                 <div class="slider-descr">
                     <h1>{{items[items.length-5].nombre}}</h1>
@@ -94,7 +94,7 @@
                         <i (click)="update(items[items.length-6])" class="fa fa-cart-plus" *ngIf="!items[items.length-6].en_carrito" aria-hidden="true" title="Agregar"></i>
                     </div>
                 </div>
-            </div>
+            </div-->
 
         </div>
         <div id="slider-nav">
@@ -102,8 +102,8 @@
             <div (click)="visible = 2; interval()" [ngClass]="{'slider-nav-selected': visible == 2}"></div>
             <div (click)="visible = 3; interval()" [ngClass]="{'slider-nav-selected': visible == 3}"></div>
             <div (click)="visible = 4; interval()" [ngClass]="{'slider-nav-selected': visible == 4}"></div>
-            <div (click)="visible = 5; interval()" [ngClass]="{'slider-nav-selected': visible == 5}"></div>
-            <div (click)="visible = 6; interval()" [ngClass]="{'slider-nav-selected': visible == 6}"></div>
+            <!--div (click)="visible = 5; interval()" [ngClass]="{'slider-nav-selected': visible == 5}"></div>
+            <div (click)="visible = 6; interval()" [ngClass]="{'slider-nav-selected': visible == 6}"></div-->
         </div>
     </div>
 </div>

@@ -67,6 +67,7 @@ export class NavComponent implements OnInit {
     event = {};
     nombre: string = '';
     categoria_caption: string = 'Categorías';
+    toogle = false;
 
     @ViewChild(ScrollTo) vc: ScrollTo;
 
@@ -93,10 +94,11 @@ export class NavComponent implements OnInit {
         this.router.navigate([link]).then(() => {
             this.vc.onClick(event);
         });
+   }
 
-
-
-
+    toggle(): void {
+        this.toogle = !this.toogle;
+        console.log(this.toogle);
     }
 
     ngOnInit() {
