@@ -265,7 +265,7 @@ class Usuarios extends Main
                 'profesion_id' => 0,
                 'saldo' => 0,
                 'password' => $password,
-                'rol_id' => 3,
+                'rol_id' => $user_decoded->rol_id,
                 'news_letter' => $user_decoded->news_letter,
                 'social_login' => $user_decoded->social_login
             );
@@ -278,23 +278,23 @@ class Usuarios extends Main
                 return;
             }
 
-            $data = array(
-                'usuario_id' => $result,
-                'calle' => '',
-                'nro' => 0,
-                'piso' => $user_decoded->piso,
-                'puerta' => $user_decoded->puerta,
-                'ciudad_id' => $user_decoded->ciudad_id
-            );
+            // $data = array(
+            //     'usuario_id' => $result,
+            //     'calle' => '',
+            //     'nro' => 0,
+            //     'piso' => $user_decoded->piso,
+            //     'puerta' => $user_decoded->puerta,
+            //     'ciudad_id' => $user_decoded->ciudad_id
+            // );
 
-            $dir = $this->db->insert('direcciones', $data);
+            // $dir = $this->db->insert('direcciones', $data);
 
 
-            if (!$dir) {
-                $this->db->rollback();
-                $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
-                return;
-            }
+            // if (!$dir) {
+            //     $this->db->rollback();
+            //     $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
+            //     return;
+            // }
 
 
             $ret = array(
@@ -512,6 +512,7 @@ class Usuarios extends Main
         $usuario->piso = (!array_key_exists("piso", $usuario)) ? 0 : $usuario->piso;
         $usuario->nro = (!array_key_exists("nro", $usuario)) ? 0 : $usuario->nro;
         $usuario->ciudad_id = (!array_key_exists("ciudad_id", $usuario)) ? 0 : $usuario->ciudad_id;
+        $usuario->social_login = (!array_key_exists("social_login", $usuario)) ? 0 : $usuario->social_login;
 
         return $usuario;
     }

@@ -30,10 +30,12 @@ export class UsuarioComponent implements OnInit {
     public nombre: string;
     public apellido: string;
     public password: string;
-    public rol: number;
+    public rol_id: number;
+
+    private _get;
 
 
-    constructor(private coreService: CoreService, private http: Http, 
+    constructor(private coreService: CoreService, private http: Http,
         private dbConnectService: DbConnectService, private authService: AuthenticationService) {
     }
 
@@ -41,7 +43,9 @@ export class UsuarioComponent implements OnInit {
 
         //this.loged = localStorage.getItem('currentUser') != null;
 
-        this.dbConnectService.get('usuarios', 'getAll', {}).subscribe((data)=> {
+        this._get = this.dbConnectService.get('usuarios', 'getAll', {});
+
+        this._get.subscribe((data) => {
             this.usuarios = data;
         });
 
@@ -53,6 +57,29 @@ export class UsuarioComponent implements OnInit {
 
     }
 
+    create() {
+
+        this.dbConnectService.post('usuarios', 'create', {
+            mail: this.formUsuario.get('mail').value,
+            nombre: this.formUsuario.get('nombre').value,
+            apellido: this.formUsuario.get('apellido').value,
+            password: this.formUsuario.get('password').value,
+            rol_id: this.formUsuario.get('rol_id').value,
+        }).subscribe(response => {
+            // this.authService.login(this.formUsuario.get('mail').value, this.formUsuario.get('password').value)
+            //     .subscribe(data => {
+            //             this.coreService.setLoginStatus({
+            //                 showLogin: false
+            //             });
+            //     });
+
+            this._get.subscribe((data) => {
+                this.usuarios = data;
+            });
+
+        })
+    }
+
     buildForm(form: FormGroup): FormGroup {
 
         this.fb = new FormBuilder();
@@ -61,7 +88,7 @@ export class UsuarioComponent implements OnInit {
             'nombre': [this.nombre, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
             'apellido': [this.apellido, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
             'password': [this.password, [Validators.required, Validators.minLength(3)]],
-            'rol': this.rol
+            'rol_id': this.rol_id
         });
 
         form.valueChanges

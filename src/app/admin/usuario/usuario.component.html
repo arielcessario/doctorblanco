@@ -39,6 +39,14 @@
         </div>
     </div>
     <div class="sminputs">
+        <div class="input string full">
+            <label class="string full" for="user-pw" [ngClass]="{'text-error': formErrors['apellido']}">Nombre * {{formErrors['apellido']}}</label>
+            <input class="string full" maxlength="255" id="user-pw" formControlName="apellido" placeholder="Nombre" type="text" size="50"
+            />
+
+        </div>
+    </div>
+    <div class="sminputs">
         <div class="input full">
             <label class="string full" for="user-name" [ngClass]="{'text-error': formErrors['mail']}">Email* {{formErrors['mail']}}</label>
             <input class="string full" maxlength="255" id="user-email" formControlName="mail" placeholder="Email" type="email" size="50"
@@ -54,6 +62,12 @@
 
         </div>
     </div>
+
+    <select  name="" id="rol_id" formControlName="rol_id">
+        <option value="0">Admin</option>
+        <option value="1">User</option>
+    </select>
+
     <div class="simform__actions">
         <input class="sumbit" name="commit" type="submit" value="Crear" />
         <input class="sumbit" name="commit" type="submit" value="Editar" />
