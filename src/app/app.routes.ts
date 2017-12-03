@@ -21,7 +21,7 @@ const routes: Routes = [
     { path: 'principal', component: PrincipalComponent },
     { path: 'noticia', component: NoticiaComponent },
     { path: 'tratamiento', component: TratamientoComponent },
-    {path: 'admin', component: AdminComponent}
+    {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
     // {path: 'deseos', component: DeseosComponent, canActivate: [AuthGuard]},
 ];
 

@@ -9,12 +9,12 @@ public $permissions = array(
             'login' => PermissionTypes::Allowed,
             'loginSocial' => PermissionTypes::Allowed,
             'logout' => PermissionTypes::Allowed,
-            'create' => PermissionTypes::Allowed,
-            'update' => PermissionTypes::Client,
-            'updateAddress' => PermissionTypes::Client,
-            'generateTemporaryToken' => PermissionTypes::Allowed,
-            'setPassword' => PermissionTypes::Allowed,
-            'getAll' => PermissionTypes::Allowed
+            'create' => PermissionTypes::Admin,
+            'update' => PermissionTypes::Admin,
+            'updateAddress' => PermissionTypes::Admin,
+            'generateTemporaryToken' => PermissionTypes::Admin,
+            'setPassword' => PermissionTypes::Admin,
+            'getAll' => PermissionTypes::Admin
 
         ),
         'Productos' => array(
@@ -44,7 +44,7 @@ public $permissions = array(
 
     public function getPermission($class, $fnc){
         
-            if($this->permissions[$class][$fnc]){
+            if(isset($this->permissions[$class][$fnc])){
                 $this->permissions[$class][$fnc];
             }else{
                 throw new Exception( 'No existe el permiso: ' . $fnc);

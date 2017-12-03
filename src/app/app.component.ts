@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { CoreService } from './core/core.service';
 import { DbConnectService } from './core/db-connect/db-connect.service';
 import { SettingService } from './core/setting.service';
+import { log } from 'util';
 
 @Component({
     selector: 'app-root',
@@ -12,13 +13,14 @@ export class AppComponent {
     title = 'app';
     estado = 'compacted';
     test = true;
+    public showLogin: boolean = false;
 
     // Probar con el producto en el constructor
     constructor(
-        // private _ngZone: NgZone,
+        private _ngZone: NgZone,
         private coreService: CoreService,
         private dbConnectService: DbConnectService,
-        // private settingService: SettingService,
+        private settingService: SettingService,
         // private toasterService: ToasterService
     ) {
 
@@ -28,11 +30,13 @@ export class AppComponent {
         //     this.toasterService.pop(toast['type'], toast['title'], toast['body']);
         // });
 
-        // coreService.getLoginStatus.subscribe(data => {
-        //     this._ngZone.run(() => {
-        //         this.showLogin = data;
-        //     });
-        // });
+        coreService.getLoginStatus.subscribe(data => {
+            // console.log(data);
+            this._ngZone.run(() => {
+                // console.log(data)f;
+                this.showLogin = data;
+            });
+        });
 
         // coreService.getLoadingStatus.subscribe(data => {
         //     setTimeout(() => {

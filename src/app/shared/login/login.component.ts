@@ -1,13 +1,13 @@
-import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit, ReflectiveInjector} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import { Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit, ReflectiveInjector } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 
-import {AuthenticationService} from "../../core/auth/authentication.service";
-import {Http} from "@angular/http";
+import { AuthenticationService } from "../../core/auth/authentication.service";
+import { Http } from "@angular/http";
 // import {AuthService} from "angular2-social-login";
-import {Observable} from "rxjs/Observable";
-import {CoreService} from "../../core/core.service";
-import {DbConnectService} from "../../core/db-connect/db-connect.service";
+import { Observable } from "rxjs/Observable";
+import { CoreService } from "../../core/core.service";
+import { DbConnectService } from "../../core/db-connect/db-connect.service";
 // import {ToasterService} from "angular2-toaster";
 
 
@@ -36,21 +36,23 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     @ViewChild('pwSignIn') el: ElementRef;
 
-    constructor(){};
-    // constructor(private coreService: CoreService, private http: Http, public _auth: AuthService,
-    //             private dbConnectService: DbConnectService, private authService: AuthenticationService,
-    //             private toaster: ToasterService) {
-    //     this.coreService.getLoginStatus.subscribe(data => {
-    //         // console.log(data);
-    //     });
-    // }
+    // constructor(){};
+    constructor(private coreService: CoreService, private http: Http,
+        // public _auth: AuthService,
+        private dbConnectService: DbConnectService, private authService: AuthenticationService,
+        // private toaster: ToasterService
+    ) {
+        this.coreService.getLoginStatus.subscribe(data => {
+            // console.log(data);
+        });
+    }
     //
     //
     ngOnInit() {
-    //     this.formCreateUsuario = this.buildFormCreate(this.formCreateUsuario);
-    //     this.formLogin = this.buildFormLogin(this.formLogin);
-    //
-    //     this.formCreateUsuario.controls['social_login'].setValue(0);
+        //     this.formCreateUsuario = this.buildFormCreate(this.formCreateUsuario);
+            this.formLogin = this.buildFormLogin(this.formLogin);
+        //
+        //     this.formCreateUsuario.controls['social_login'].setValue(0);
     }
 
     ngAfterViewInit() {
@@ -75,16 +77,16 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // }
     //
     //
-    // fnLogin() {
-    //     if (!this.formLogin.valid) {
-    //         return;
-    //     }
-    //
-    //     this.authService.login(this.formLogin.get('mail').value, this.formLogin.get('password').value)
-    //         .subscribe(data => {
-    //             this.coreService.setLoginStatus({showLogin: false});
-    //         });
-    // }
+    fnLogin() {
+        if (!this.formLogin.valid) {
+            return;
+        }
+
+        this.authService.login(this.formLogin.get('mail').value, this.formLogin.get('password').value)
+            .subscribe(data => {
+                this.coreService.setLoginStatus({ showLogin: false });
+            });
+    }
     //
     // signIn(provider) {
     //     this.authService.signIn(provider).subscribe((data: Observable<Object>) => {
@@ -114,12 +116,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
     //     this.el.nativeElement.type = this.el.nativeElement.type == 'text' ? 'password' : 'text';
     // }
     //
-    // close() {
-    //     this.coreService.setLoginStatus({
-    //         showLogin: false
-    //     });
-    // }
-    //
+    close() {
+        this.coreService.setLoginStatus({
+            showLogin: false
+        });
+    }
+
     // getDeseos() {
     //
     // }
@@ -162,21 +164,21 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // }
     //
     //
-    // buildFormLogin(form: FormGroup): FormGroup {
-    //
-    //     this.fb = new FormBuilder();
-    //     form = this.fb.group({
-    //         'mail': [this.mail, [Validators.required, Validators.email]],
-    //         'password': [this.password, [Validators.required, Validators.minLength(1)]]
-    //     });
-    //
-    //     form.valueChanges
-    //         .subscribe(data => this.dbConnectService.onValueChanged(data, form, this.formErrorsLogin, this.validationMessagesLogin));
-    //
-    //     this.dbConnectService.onValueChanged(); // (re)set validation messages now);
-    //
-    //     return form;
-    // }
+    buildFormLogin(form: FormGroup): FormGroup {
+
+        this.fb = new FormBuilder();
+        form = this.fb.group({
+            'mail': [this.mail, [Validators.required, Validators.email]],
+            'password': [this.password, [Validators.required, Validators.minLength(1)]]
+        });
+
+        form.valueChanges
+            .subscribe(data => this.dbConnectService.onValueChanged(data, form, this.formErrorsLogin, this.validationMessagesLogin));
+
+        this.dbConnectService.onValueChanged(); // (re)set validation messages now);
+
+        return form;
+    }
     //
     //
     // formErrorsCreate = {
@@ -199,20 +201,20 @@ export class LoginComponent implements OnInit, AfterViewInit {
     //         'minlength': 'El password debe tener al menos tres letras y/o números',
     //     }
     // };
-    // public formErrorsLogin = {
-    //     'mail': '',
-    //     'password': '',
-    // };
-    // validationMessagesLogin = {
-    //     'mail': {
-    //         'required': 'Power is required.',
-    //         'maxlength': 'Sismbolo tiene que tener un máximo de 3 letras'
-    //     },
-    //     'password': {
-    //         'required': 'Debe ingresar un password',
-    //         'minlength': 'El password debe tener al menos tres letras y/o números',
-    //     }
-    // };
+    public formErrorsLogin = {
+        'mail': '',
+        'password': '',
+    };
+    validationMessagesLogin = {
+        'mail': {
+            'required': 'Power is required.',
+            'maxlength': 'Sismbolo tiene que tener un máximo de 3 letras'
+        },
+        'password': {
+            'required': 'Debe ingresar un password',
+            'minlength': 'El password debe tener al menos tres letras y/o números',
+        }
+    };
 
 
 }

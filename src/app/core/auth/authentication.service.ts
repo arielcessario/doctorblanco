@@ -11,13 +11,15 @@ export class AuthenticationService {
     public token: string;
     sub: Observable<Object>;
     ret: any;
-    constructor(){};
-    // constructor(private http: Http, public _auth: AuthService, public dbConnectService: DbConnectService, public coreService: CoreService) {
-    //     // set token if saved in local storage
-    //     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    //     this.token = currentUser && currentUser.token;
-    //
-    // }
+    // constructor(){};
+    constructor(private http: Http, 
+        // public _auth: AuthService, 
+        public dbConnectService: DbConnectService, public coreService: CoreService) {
+        // set token if saved in local storage
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
+    
+    }
     //
     // signIn(provider) {
     //     this.sub = this._auth.login(provider)
@@ -61,39 +63,39 @@ export class AuthenticationService {
     //
     // }
     //
-    // login(username: string, password: string): Observable<boolean> {
-    //
-    //     return this.ret = this.dbConnectService.post('usuarios', 'login', {
-    //         mail: username,
-    //         password: password,
-    //         sucursal_id: -2
-    //     }).map((response: Response) => {
-    //         this.persistLogin(response);
-    //     }).catch((err: Response, caught: Observable<any>) => {
-    //         return Observable.throw(err);
-    //     });
-    //
-    // }
-    //
-    // persistLogin(response) {
-    //     // login successful if there's a jwt token in the response
-    //     let token = response.token;
-    //     let user = response.user;
-    //     if (token) {
-    //         // set token property
-    //         this.token = token;
-    //
-    //         // store username and jwt token in local storage to keep user logged in between page refreshes
-    //         localStorage.setItem('currentUser', JSON.stringify({ user: user, token: token }));
-    //
-    //         // return true to indicate successful login
-    //         return true;
-    //     } else {
-    //         // return false to indicate failed login
-    //         return false;
-    //     }
-    // }
-    //
+    login(username: string, password: string): Observable<boolean> {
+    
+        return this.ret = this.dbConnectService.post('usuarios', 'login', {
+            mail: username,
+            password: password,
+            sucursal_id: -2
+        }).map((response: Response) => {
+            this.persistLogin(response);
+        }).catch((err: Response, caught: Observable<any>) => {
+            return Observable.throw(err);
+        });
+    
+    }
+    
+    persistLogin(response) {
+        // login successful if there's a jwt token in the response
+        let token = response.token;
+        let user = response.user;
+        if (token) {
+            // set token property
+            this.token = token;
+    
+            // store username and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('currentUser', JSON.stringify({ user: user, token: token }));
+    
+            // return true to indicate successful login
+            return true;
+        } else {
+            // return false to indicate failed login
+            return false;
+        }
+    }
+    
     logout(): void {
     //     // clear token remove user from local storage to log user out
     //     this.token = null;

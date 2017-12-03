@@ -11,3 +11,19 @@
 2017-12-03 17:27:45: MySQL host or socket is not set
 2017-12-03 17:54:28: Main->__construct - No existe el permiso: getAll
 2017-12-03 17:55:22: Table 'doctor_blanco.usuarios' doesn't exist query: SELECT  * FROM usuarios
+2017-12-03 19:28:58: Main->__construct - No existe el permiso: getAll
+2017-12-03 19:29:45: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:24:39: Usuarios->login - Caught exception: Table 'doctor_blanco.direcciones' doesn't exist query: select u.usuario_id, rol_id, social_login, nombre, apellido, mail, calle, nro, password, fecha_nacimiento, news_letter, provincia_id, telefono from usuarios u left join direcciones d on u.usuario_id = d.usuario_id where mail ='arielcessario@gmail.com';
+
+2017-12-03 20:27:20: Usuarios->login - Caught exception: Unknown column 'calle' in 'field list' query: select u.usuario_id, rol_id, social_login, nombre, apellido, mail, calle, nro, password, fecha_nacimiento, news_letter, provincia_id, telefono from usuarios u where mail ='arielcessario@gmail.com';
+
+2017-12-03 20:28:09: Usuarios->login - Caught exception: Table 'doctor_blanco.logins' doesn't exist query: INSERT  INTO logins (`usuario_id`, `sucursal_id`, `ok`)  VALUES (?, ?, ?)
+
+2017-12-03 20:40:05: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:40:45: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:41:49: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:42:03: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:42:18: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:44:12: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:46:29: Main->__construct - No existe el permiso: getAll
+2017-12-03 20:47:40: Main->__construct - No existe el permiso: getAll

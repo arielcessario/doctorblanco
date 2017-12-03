@@ -16,7 +16,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 
 const routes: Routes = [
     {
-        path: '', component: AdminComponent,
+        path: '', component: AdminComponent, canActivate: [AuthGuard],
         children: [
             { path: 'doctor', component: DoctorComponent },
             { path: 'usuario', component: UsuarioComponent },

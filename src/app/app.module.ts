@@ -1,3 +1,4 @@
+import { SettingService } from './core/setting.service';
 
 import { NoticiaComponent } from './noticia/noticia.component';
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
@@ -17,6 +18,7 @@ import { AuthenticationService } from "./core/auth/authentication.service";
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { AdminModule } from './admin/admin.module';
 import { HttpModule } from '@angular/http';
+import { AuthGuard } from './core/auth/auth-guard.service';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,7 @@ import { HttpModule } from '@angular/http';
         NgbModule.forRoot(),
         HttpModule
     ],
-    providers: [CoreService, AuthenticationService, DbConnectService],
+    providers: [CoreService, AuthenticationService, DbConnectService, AuthGuard, SettingService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -174,7 +174,8 @@ class Usuarios extends Main
         try {
 
 
-            $results = $this->db->rawQuery("select u.usuario_id, rol_id, social_login, nombre, apellido, mail, calle, nro, password, fecha_nacimiento, news_letter, provincia_id, telefono from usuarios u left join direcciones d on u.usuario_id = d.usuario_id where mail ='" . $params->mail . "';");
+            // $results = $this->db->rawQuery("select u.usuario_id, rol_id, social_login, nombre, apellido, mail, calle, nro, password, fecha_nacimiento, news_letter, provincia_id, telefono from usuarios u left join direcciones d on u.usuario_id = d.usuario_id where mail ='" . $params->mail . "';");
+            $results = $this->db->rawQuery("select u.usuario_id, rol_id, social_login, nombre, apellido, mail, password, fecha_nacimiento, news_letter, telefono from usuarios u where mail ='" . $params->mail . "';");
 
             global $jwt_enabled;
 
@@ -190,9 +191,9 @@ class Usuarios extends Main
                     } else {
                         $this->sendResponse(array('token' => '', 'user' => $results[0]));
                     }
-                    $this->addLogin($results[0]['usuario_id'], $params->sucursal_id, 1);
+                    // $this->addLogin($results[0]['usuario_id'], $params->sucursal_id, 1);
                 } else {
-                    $this->addLogin($results[0]['usuario_id'], $params->sucursal_id, 0);
+                    // $this->addLogin($results[0]['usuario_id'], $params->sucursal_id, 0);
                     $this->sendError('Caught exception: Usuario o Password Incorrectos' . "\n");
                 }
             } else {
