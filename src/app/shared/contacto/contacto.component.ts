@@ -25,11 +25,15 @@ export class ContactoComponent implements OnInit {
 
     public mail: string;
     public nombre: string;
+    public asunto: string;
+    public lugar: string;
     public mensaje: number;
 
     formErrors = {
         'mail': '',
         'nombre': '',
+        'lugar': '',
+        'asungo': '',
         'mensaje': ''
     };
     validationMessages = {
@@ -39,12 +43,12 @@ export class ContactoComponent implements OnInit {
             'maxlength': 'El nombre no puede tener mas de 24 letras'
         },
         'mail': {
-            'required': 'Power is required.',
-            'maxlength': 'Sismbolo tiene que tener un máximo de 3 letras'
+            'required': 'Requerido',
+            'maxlength': 'Debe tener un maximo de 100 caracteres'
         },
         'mensaje': {
-            'required': 'Debe ingresar un password',
-            'minlength': 'El password debe tener al menos tres letras y/o números',
+            'required': 'Debe ingresar un mensaje',
+            'minlength': 'El mensaje debe tener un minimo de 100 caracteres',
         }
     };
 
@@ -69,8 +73,9 @@ export class ContactoComponent implements OnInit {
         this.formContacto = this.fb.group({
             'mail': [this.mail, [Validators.required, Validators.email]],
             'nombre': [this.nombre, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
-            'mensaje': [this.mensaje],
-
+            'lugar': [this.lugar],
+            'asunto': [this.asunto],
+            'mensaje': [this.mensaje]
         });
 
         this.formContacto.valueChanges
@@ -82,7 +87,9 @@ export class ContactoComponent implements OnInit {
         this.formContacto.setValue({
             'mail': (this.user != null) ? this.user.mail : '',
             'nombre': (this.user != null) ? this.user.nombre : '',
-            'mensaje': '',
+            'lugar': '',
+            'asunto': '',
+            'mensaje': ''
         });
     }
 
@@ -90,6 +97,8 @@ export class ContactoComponent implements OnInit {
         let msg = {
             'mail': this.formContacto.controls['mail'].value,
             'nombre': this.formContacto.controls['nombre'].value,
+            'lugar': this.formContacto.controls['lugar'].value,
+            'asunto': this.formContacto.controls['asunto'].value,
             'mensaje': this.formContacto.controls['mensaje'].value
         };
 
@@ -98,6 +107,8 @@ export class ContactoComponent implements OnInit {
             this.formContacto.setValue({
                 'mail': (this.user != null) ? this.user.mail : '',
                 'nombre': (this.user != null) ? this.user.nombre : '',
+                'lugar': '',
+                'asunto': '',
                 'mensaje': '',
             });
         });

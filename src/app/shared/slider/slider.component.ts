@@ -88,9 +88,9 @@ export class SliderComponent implements OnInit {
         
         var productos = [
             {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 1', 'descripcion': 'prueba de producto 1'},
-            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 2', 'descripcion': 'prueba de producto 2'},
-            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 3', 'descripcion': 'prueba de producto 3'},
-            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 4', 'descripcion': 'prueba de producto 4'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slide1.jpg', 'nombre':'producto 2', 'descripcion': 'prueba de producto 2'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slide2.jpg', 'nombre':'producto 3', 'descripcion': 'prueba de producto 3'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slide3.jpg', 'nombre':'producto 4', 'descripcion': 'prueba de producto 4'},
             //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
             //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
         ]
