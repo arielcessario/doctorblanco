@@ -17,6 +17,7 @@ import { TratamientosComponent } from './tratamientos/tratamientos.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LinksComponent } from './links/links.component';
+import { UbicacionComponent } from './ubicacion/ubicacion.component'
 import {ScrollToModule} from 'ng2-scroll-to';
 
 
@@ -35,7 +36,8 @@ import {ScrollToModule} from 'ng2-scroll-to';
         TratamientosComponent,
         NoticiasComponent,
         ContactoComponent,
-        LinksComponent
+        LinksComponent,
+        UbicacionComponent
     ],
     imports: [
         RouterModule,
@@ -59,7 +61,8 @@ import {ScrollToModule} from 'ng2-scroll-to';
         TratamientosComponent,
         NoticiasComponent,
         ContactoComponent,
-        LinksComponent
+        LinksComponent,
+        UbicacionComponent
     ]
 })
 export class SharedModule {
