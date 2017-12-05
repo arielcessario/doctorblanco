@@ -33,6 +33,9 @@ public $permissions = array(
         'Sucursales' => array(
             'get' => -1, 'updateStock' => PermissionTypes::Admin, 'getValue' => PermissionTypes::Allowed
         ),
+        'Tratamientos' => array(
+            'getAll' => PermissionTypes::Allowed
+        ),
         'Mails' => array(
             'contacto' => PermissionTypes::Allowed,
             'forgotPassword' => PermissionTypes::Allowed,

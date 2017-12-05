@@ -85,6 +85,8 @@ export class SliderComponent implements OnInit {
 
     ngOnInit() {
         // var leng = productos.length;
+
+        // this.dbConnectService.get('')
         
         var productos = [
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-3.jpg', 'nombre':'Especialista en Cirujia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
