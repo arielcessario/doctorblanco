@@ -23,7 +23,9 @@ export class TratamientosComponent implements OnInit, AfterViewInit {
 
 
 
-    constructor(){};
+    constructor(private dbConnectService: DbConnectService){
+
+    };
     // constructor(private coreService: CoreService, private http: Http, public _auth: AuthService,
     //             private dbConnectService: DbConnectService, private authService: AuthenticationService,
     //             private toaster: ToasterService) {
@@ -34,6 +36,9 @@ export class TratamientosComponent implements OnInit, AfterViewInit {
     //
     //
     ngOnInit() {
+        this.dbConnectService.get('tratamientos','getAll', {}).subscribe((data)=>{
+            console.log(data);
+        });
     //     this.formCreateUsuario = this.buildFormCreate(this.formCreateUsuario);
     //     this.formTratamientos = this.buildFormTratamientos(this.formTratamientos);
     //

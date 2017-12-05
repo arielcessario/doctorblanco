@@ -85,6 +85,8 @@ export class SliderComponent implements OnInit {
 
     ngOnInit() {
         // var leng = productos.length;
+
+        // this.dbConnectService.get('')
         
         var productos = [
             {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 1', 'descripcion': 'prueba de producto 1'},
