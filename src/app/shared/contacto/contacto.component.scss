@@ -1,5 +1,10 @@
 @import '../../app.component.scss';
 
+p, input, textarea{
+  font-family: 'PT Sans', sans-serif;
+  font-size: .8em;
+}
+
 /*
 :host {
   margin-top: $nav-height;

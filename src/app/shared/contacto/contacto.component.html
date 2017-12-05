@@ -1,67 +1,69 @@
-<div class="container" style="padding: 20px 0;border-top: 1px solid #007bff">
-    <div class="row" style="margin: 5px 0">
-        <div class="col-md-12">
-            <h1 class="text-center">CONTACTO</h1>
+<div class="" style="background-color: #EEEEEE;padding: 20px 0;border-top: 1px solid #007bff">
+    <div class="container">
+        <div class="row" style="margin: 5px 0">
+            <div class="col-md-12">
+                <h1 class="text-center">CONTACTO</h1>
+            </div>
+            <div class="col-md-12">
+                <p class="text-center">Escribinos y preguntanos lo que necesites, estamos esperando tu contacto!</p>
+            </div>
         </div>
-        <div class="col-md-12">
-            <p class="text-center">Escribinos y preguntanos lo que necesites, estamos esperando tu contacto!</p>
-        </div>
-    </div>
-    <div class="row text-center" style="margin: 5px 0">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <form [formGroup]="formContacto" novalidate id="contacto-items">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" formControlName="nombre"
-                                           id="nombre" placeholder="Nombre">
-                                    <small class="text-danger">{{formErrors['nombre']}}</small>
+        <div class="row text-center" style="margin: 5px 0">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form [formGroup]="formContacto" novalidate id="contacto-items">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="nombre"
+                                               id="nombre" placeholder="Nombre">
+                                        <small class="text-danger">{{formErrors['nombre']}}</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="mail"
+                                               id="mail" placeholder="Mail">
+                                        <small class="text-danger">{{formErrors['mail']}}</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="lugar"
+                                               id="lugar" placeholder="Pais/Ciudad">
+                                        <small class="text-danger">{{formErrors['lugar']}}</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="asunto"
+                                               id="asunto" placeholder="Asunto">
+                                        <small class="text-danger">{{formErrors['asunto']}}</small>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" formControlName="mail"
-                                           id="mail" placeholder="Mail">
-                                    <small class="text-danger">{{formErrors['mail']}}</small>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" formControlName="lugar"
-                                           id="lugar" placeholder="Pais/Ciudad">
-                                    <small class="text-danger">{{formErrors['lugar']}}</small>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" formControlName="asunto"
-                                           id="asunto" placeholder="Asunto">
-                                    <small class="text-danger">{{formErrors['asunto']}}</small>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea rows="5" class="form-control" formControlName="mensaje" placeholder="Escriba aquí su consulta"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea rows="5" class="form-control" formControlName="mensaje" placeholder="Escriba aquí su consulta"></textarea>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button (click)="confirmar()" class="btn btn-primary mx-auto">Enviar consulta</button>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <button (click)="confirmar()" class="btn btn-primary mx-auto">Enviar consulta</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
 

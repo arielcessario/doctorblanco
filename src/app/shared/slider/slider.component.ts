@@ -87,10 +87,10 @@ export class SliderComponent implements OnInit {
         // var leng = productos.length;
         
         var productos = [
-            {'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 1', 'descripcion': 'prueba de producto 1'},
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slide1.jpg', 'nombre':'producto 2', 'descripcion': 'prueba de producto 2'},
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slide2.jpg', 'nombre':'producto 3', 'descripcion': 'prueba de producto 3'},
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slide3.jpg', 'nombre':'producto 4', 'descripcion': 'prueba de producto 4'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-3.jpg', 'nombre':'Especialista en Cirujia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-2.jpg', 'nombre':'Cirujia Reconstructiva', 'descripcion': ''},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-1.jpg', 'nombre':'Tratamientos no Quirurgicos', 'descripcion': ''},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-4.jpg', 'nombre':'Cirujia Mamarias', 'descripcion': ''},
             //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
             //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
         ]
