@@ -15,7 +15,7 @@ class Sliders extends Main
     public function get($params)
     {
 
-        $results = $this->db->get('slider');
+        $results = $this->db->get('sliders');
         $this->sendResponse($results);
     }
 
@@ -32,11 +32,22 @@ class Sliders extends Main
 
         try {
 
+            $slds = $params->sliders;
             foreach ($sliders as $key => $row) {
 
                 // $productos = $this->db->get('carrito_detalles c', null, 'c.carrito_detalle_id, c.carrito_id, c.producto_id, p.nombre, c.cantidad, c.en_oferta, c.precio_unitario');
 
-                // $results[$key]['productos'] = $productos;
+                $data = array(
+                    'texto' => $slds[$key]->texto,
+                    'orden' => $slds[$key]->orden,
+                );
+
+                $this->db->where('slider_id', $key);
+                if (!$this->db->update('sliders', $data)) {
+                    $this->db->rollback();
+                    $this->sendError('Caught exception: ' . $this->db->getLastError() . "\n");
+                    return;
+                }
 
             }
 

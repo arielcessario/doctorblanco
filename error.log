@@ -32,3 +32,6 @@
 2017-12-05 14:45:40: Main->__construct - No existe el permiso: getAll
 2017-12-05 18:32:40: Main->__construct - No existe el permiso: update
 2017-12-05 18:49:59: Sliders->update - Por favor ingrese con su usuario y contraseña
+2017-12-06 15:06:16: Table 'doctor_blanco.slider' doesn't exist query: SELECT  * FROM slider
+2017-12-06 15:08:16: Sliders->update - Caught exception: Unknown column 'nombre' in 'field list' query: UPDATE sliders SET `nombre` = ?, `orden` = ?
+

@@ -29,14 +29,7 @@ export class SlideComponent implements OnInit {
     slide_03_text: String = '';
     slide_04_text: String = '';
 
-    formCreateUsuario: FormGroup;
-    private fb: FormBuilder;
-
-    // Login Form
-    public mail: string;
-    public nombre: string;
-    public password: string;
-    public social_login: number;
+    sliders: Array<any> = [];
 
 
     constructor(private coreService: CoreService, private http: Http,
@@ -45,6 +38,13 @@ export class SlideComponent implements OnInit {
 
     ngOnInit() {
 
+
+        this.dbConnectService.get('sliders', 'get', {}).subscribe((data) => {
+            this.slide_01_text = data[0].texto;
+            this.slide_02_text = data[1].texto;
+            this.slide_03_text = data[2].texto;
+            this.slide_04_text = data[3].texto;
+        });
         //this.loged = localStorage.getItem('currentUser') != null;
 
     }
@@ -57,13 +57,18 @@ export class SlideComponent implements OnInit {
         this.dbConnectService.post('sliders', 'update',
             {
                 sliders: [
-                    { slider_id: 1, texto: this.slide_01_text, orden: 1, creador_id: 1 },
-                    { slider_id: 2, texto: this.slide_02_text, orden: 1, creador_id: 1 },
-                    { slider_id: 3, texto: this.slide_03_text, orden: 1, creador_id: 1 },
-                    { slider_id: 4, texto: this.slide_04_text, orden: 1, creador_id: 1 },
+                    { slider_id: 0, texto: this.slide_01_text, orden: 1, creador_id: 1 },
+                    { slider_id: 1, texto: this.slide_02_text, orden: 1, creador_id: 1 },
+                    { slider_id: 2, texto: this.slide_03_text, orden: 1, creador_id: 1 },
+                    { slider_id: 3, texto: this.slide_04_text, orden: 1, creador_id: 1 },
                 ]
-            }).subscribe((data)=>{
-                console.log(data);
+            }).subscribe((data) => {
+                this.dbConnectService.get('sliders', 'get', {}).subscribe((data) => {
+                    this.slide_01_text = data[0].texto;
+                    this.slide_02_text = data[1].texto;
+                    this.slide_03_text = data[2].texto;
+                    this.slide_04_text = data[3].texto;
+                });
             })
     }
 
