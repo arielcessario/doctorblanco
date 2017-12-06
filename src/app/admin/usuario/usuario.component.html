@@ -1,65 +1,60 @@
-<table class="table table-hover">
-    <thead>
+<div class="container" style="border: 1px solid #072146;margin-top: 15px;padding: 35px 20px">
+    <table class="table table-hover">
+        <thead>
         <tr>
             <th>#</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Mail</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr *ngFor="let i of usuarios">
             <th scope="row">1</th>
             <td>{{i.nombre}}</td>
             <td>{{i.apellido}}</td>
             <td>{{i.mail}}</td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 
-
-<form [formGroup]="formUsuario" novalidate (ngSubmit)="create()" accept-charset="utf-8" action="#" class="simform">
-    <div class="sminputs">
-        <div class="input string full">
-            <label class="string full" for="user-pw" [ngClass]="{'text-error': formErrors['nombre']}">Nombre * {{formErrors['nombre']}}</label>
-            <input class="string full" maxlength="255" id="user-pw" formControlName="nombre" placeholder="Nombre" type="text" size="50"
-            />
-
+<div class="container" style="border: 1px solid #072146;margin-top: 15px;padding: 35px 20px">
+    <form [formGroup]="formUsuario" novalidate (ngSubmit)="create()" accept-charset="utf-8" action="#" class="simform">
+        <div class="form-group">
+            <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['nombre']}">Nombre {{formErrors['nombre']}}</label>
+            <input class="form-control" maxlength="255" id="user-pw" formControlName="nombre"
+                   placeholder="Nombre" type="text" size="50" />
         </div>
-    </div>
-    <div class="sminputs">
-        <div class="input string full">
-            <label class="string full" for="user-pw" [ngClass]="{'text-error': formErrors['apellido']}">Nombre * {{formErrors['apellido']}}</label>
-            <input class="string full" maxlength="255" id="user-pw" formControlName="apellido" placeholder="Nombre" type="text" size="50"
-            />
-
+        <div class="form-group">
+            <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['apellido']}">Nombre {{formErrors['apellido']}}</label>
+            <input class="form-control" maxlength="255" id="user-pw" formControlName="apellido"
+                   placeholder="Nombre" type="text" size="50" />
         </div>
-    </div>
-    <div class="sminputs">
-        <div class="input full">
-            <label class="string full" for="user-name" [ngClass]="{'text-error': formErrors['mail']}">Email* {{formErrors['mail']}}</label>
-            <input class="string full" maxlength="255" id="user-email" formControlName="mail" placeholder="Email" type="email" size="50"
-            />
-
+        <div class="form-group">
+            <label class="" for="user-name" [ngClass]="{'text-error': formErrors['mail']}">Email {{formErrors['mail']}}</label>
+            <input class="form-control" maxlength="255" id="user-email" formControlName="mail"
+                   placeholder="Email" type="email" size="50" />
         </div>
-    </div>
-    <div class="sminputs">
-        <div class="input full">
-            <label class="string full" for="user-pw" [ngClass]="{'text-error': formErrors['password']}">Password * {{formErrors['password']}}</label>
-            <input class="string full" maxlength="255" id="user-pw" formControlName="password" placeholder="Password" type="text" size="50"
-            />
-
+        <div class="form-group">
+            <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['password']}">Password {{formErrors['password']}}</label>
+            <input class="form-control" maxlength="255" id="user-pw" formControlName="password"
+                   placeholder="Password" type="text" size="50" />
         </div>
-    </div>
+        <div class="form-group">
+            <label class="" >Rol</label>
+            <select  name="" id="rol_id" formControlName="rol_id" class="form-control">
+                <option value="0">Admin</option>
+                <option value="1">User</option>
+            </select>
+        </div>
 
-    <select  name="" id="rol_id" formControlName="rol_id">
-        <option value="0">Admin</option>
-        <option value="1">User</option>
-    </select>
+        <div class="">
+            <input class="btn btn-primary" name="commit" type="submit" value="Crear" />
+            <input class="btn btn-primary" name="commit" type="submit" value="Editar" />
+            <input class="btn btn-danger" name="commit" type="submit" value="Borrar" />
+        </div>
+    </form>
+</div>
 
-    <div class="simform__actions">
-        <input class="sumbit" name="commit" type="submit" value="Crear" />
-        <input class="sumbit" name="commit" type="submit" value="Editar" />
-        <input class="sumbit" name="commit" type="submit" value="Borrar" />
-    </div>
-</form>
+
