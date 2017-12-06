@@ -1,0 +1,24 @@
+
+
+
+<div>
+    <input type="text" [(ngModel)]="slide_01_text">
+    <input type="file" ng2FileSelect [uploader]="slide_01" multiple />
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="slide_02_text">
+    <input type="file" ng2FileSelect [uploader]="slide_02" multiple />
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="slide_03_text">
+    <input type="file" ng2FileSelect [uploader]="slide_03" multiple />
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="slide_04_text">
+    <input type="file" ng2FileSelect [uploader]="slide_04" multiple />
+</div>
+
+<button (click)="update()">Guardar</button>

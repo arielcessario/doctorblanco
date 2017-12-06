@@ -36,6 +36,10 @@ public $permissions = array(
         'Tratamientos' => array(
             'getAll' => PermissionTypes::Allowed
         ),
+        'Sliders' => array(
+            'get' => PermissionTypes::Allowed,
+            'update' => PermissionTypes::Admin
+        ),
         'Mails' => array(
             'contacto' => PermissionTypes::Allowed,
             'forgotPassword' => PermissionTypes::Allowed,

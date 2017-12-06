@@ -1,4 +1,5 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { SlideComponent } from './slide/slide.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AuthenticationService } from './../core/auth/authentication.service';
 import { CoreService } from './../core/core.service';
@@ -19,6 +20,7 @@ import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
         AdminComponent,
         DoctorComponent,
         UsuarioComponent,
+        SlideComponent,
         FileDropDirective, 
         FileSelectDirective
     ],
@@ -28,6 +30,7 @@ import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
         Routing,
         BrowserAnimationsModule,
         ReactiveFormsModule,
+        FormsModule,
         SharedModule,
         QuillModule,
         
