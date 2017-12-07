@@ -35,3 +35,11 @@
 2017-12-06 15:06:16: Table 'doctor_blanco.slider' doesn't exist query: SELECT  * FROM slider
 2017-12-06 15:08:16: Sliders->update - Caught exception: Unknown column 'nombre' in 'field list' query: UPDATE sliders SET `nombre` = ?, `orden` = ?
 
+2017-12-07 19:47:59: Sliders->update - Caught exception: Data truncated for column 'orden' at row 1
+
+2017-12-07 19:48:00: Sliders->update - Caught exception: Data truncated for column 'orden' at row 1
+
+2017-12-07 19:51:53: Sliders->update - Caught exception: Column 'orden' cannot be null
+
+2017-12-07 19:51:54: Sliders->update - Caught exception: Column 'orden' cannot be null
+

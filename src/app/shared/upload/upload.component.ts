@@ -1,46 +1,81 @@
+import { OnInit } from '@angular/core';
 
-import { Component, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, ViewChild, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'upload-component',
     templateUrl: './upload.component.html',
     styleUrls: ['./upload.component.scss']
 })
-export class UploadComponent {
+export class UploadComponent implements OnInit, OnChanges {
     form: FormGroup;
     loading: boolean = false;
     method = 'POST';
     url = './server/upload.php';
+    images_url = 'http://localhost/doctorblanco/src/app/images/';
     // @Output NgModuleCompileResult
 
     @ViewChild('fileInput') fileInput: ElementRef;
+    @ViewChild('preview') preview: ElementRef;
 
     @Output() status: EventEmitter<any> = new EventEmitter(true);
+    @Input() img: string = '';
 
     constructor(private fb: FormBuilder) {
-        this.createForm();
+
     }
 
-    createForm() {
-        this.form = this.fb.group({
-            name: ['', Validators.required],
-            avatar: null
-        });
+    ngOnInit() {
+        this.setUpImage();
+    }
+
+    ngOnChanges() {
+        this.setUpImage();
+    }
+
+    setUpImage() {
+        var preview = this.preview.nativeElement;
+
+        var image = new Image();
+        image.height = 100;
+        image.title = this.img;
+        image.src = this.images_url + this.img;
+
+        while (preview.hasChildNodes()) {
+            preview.removeChild(preview.lastChild);
+        }
+        preview.appendChild(image);
+
+
     }
 
     onFileChange(event) {
         if (event.target.files.length > 0) {
             let file = event.target.files[0];
-            this.form.get('avatar').setValue(file);
+
+            var reader = new FileReader();
+            var preview = this.preview.nativeElement;
+
+            reader.addEventListener("load", function () {
+                var image = new Image();
+                image.height = 100;
+                image.title = file.name;
+                image.src = this.result;
+                while (preview.hasChildNodes()) {
+                    preview.removeChild(preview.lastChild);
+                }
+                preview.appendChild(image);
+            }, false);
+
+            reader.readAsDataURL(file);
         }
     }
 
     private prepareSave(el): any {
         // console.log(el);
         let input = new FormData();
-        input.append('name', this.form.get('name').value);
-        input.append('avatar', this.form.get('avatar').value);
         input.append('images', el);
         return input;
     }
@@ -55,6 +90,7 @@ export class UploadComponent {
             let percent = 100;
 
             this.status.emit({
+                originalName: (this.img != null) ? this.img : '',
                 progress: {
                     percent: 100
                 }

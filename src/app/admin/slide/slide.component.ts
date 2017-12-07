@@ -27,6 +27,10 @@ export class SlideComponent implements OnInit {
     slide_02_text: String = '';
     slide_03_text: String = '';
     slide_04_text: String = '';
+    slide_01_url: String = '';
+    slide_02_url: String = '';
+    slide_03_url: String = '';
+    slide_04_url: String = '';
 
     sliders: Array<any> = [];
 
@@ -57,16 +61,28 @@ export class SlideComponent implements OnInit {
             this.slide_02_text = data[1].texto;
             this.slide_03_text = data[2].texto;
             this.slide_04_text = data[3].texto;
+            this.slide_01_url = data[0].path;
+            this.slide_02_url = data[1].path;
+            this.slide_03_url = data[2].path;
+            this.slide_04_url = data[3].path;
         });
 
     }
 
     update() {
+
+        let _sliders = [
+            { slider_id: 0, texto: this.slide_01_text, path: this.slide_01_url, creador_id: 1, orden: 1 },
+            { slider_id: 1, texto: this.slide_02_text, path: this.slide_02_url, creador_id: 1, orden: 1 },
+            { slider_id: 2, texto: this.slide_03_text, path: this.slide_03_url, creador_id: 1, orden: 1 },
+            { slider_id: 3, texto: this.slide_04_text, path: this.slide_04_url, creador_id: 1, orden: 1 },
+        ]
+
         this.upload01.onSubmit();
 
         this.upload01.status.subscribe((data) => {
-            console.log(data);
             if (data.progress.percent == 100) {
+                _sliders[0].path = data.originalName;
                 this.upload02.onSubmit();
             }
 
@@ -75,12 +91,14 @@ export class SlideComponent implements OnInit {
 
         this.upload02.status.subscribe((data) => {
             if (data.progress.percent == 100) {
+                _sliders[1].path = data.originalName;
                 this.upload03.onSubmit();
             }
         });
 
         this.upload03.status.subscribe((data) => {
             if (data.progress.percent == 100) {
+                _sliders[2].path = data.originalName;
                 this.upload04.onSubmit();
             }
         });
@@ -88,14 +106,10 @@ export class SlideComponent implements OnInit {
         let cn: any;
         this.upload04.status.subscribe((data) => {
             if (data.progress.percent == 100) {
+                _sliders[3].path = data.originalName;
                 cn = this.dbConnectService.post('sliders', 'update',
                     {
-                        sliders: [
-                            { slider_id: 0, texto: this.slide_01_text, orden: 1, creador_id: 1 },
-                            { slider_id: 1, texto: this.slide_02_text, orden: 1, creador_id: 1 },
-                            { slider_id: 2, texto: this.slide_03_text, orden: 1, creador_id: 1 },
-                            { slider_id: 3, texto: this.slide_04_text, orden: 1, creador_id: 1 },
-                        ]
+                        sliders: _sliders
                     }).subscribe((data) => {
                         this.setUp();
                     });

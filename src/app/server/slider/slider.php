@@ -40,6 +40,7 @@ class Sliders extends Main
                 $data = array(
                     'texto' => $slds[$key]->texto,
                     'orden' => $slds[$key]->orden,
+                    'path' => $slds[$key]->path,
                 );
 
                 $this->db->where('slider_id', $key);

@@ -1,24 +1,24 @@
 <div>
     <input type="text" [(ngModel)]="slide_01_text">
-    <upload-component #upload01></upload-component>
+    <upload-component [img]='slide_01_url' #upload01></upload-component>
     <!-- <input type="file" ng2FileSelect [uploader]="slide_01" /> -->
 </div>
 
 <div>
     <input type="text" [(ngModel)]="slide_02_text">
-    <upload-component #upload02></upload-component>
+    <upload-component [img]='slide_02_url' #upload02></upload-component>
     <!-- <input type="file" ng2FileSelect [uploader]="slide_02"/> -->
 </div>
 
 <div>
     <input type="text" [(ngModel)]="slide_03_text">
-    <upload-component #upload03></upload-component>
+    <upload-component [img]='slide_03_url' #upload03></upload-component>
     <!-- <input type="file" ng2FileSelect [uploader]="slide_03"/> -->
 </div>
 
 <div>
     <input type="text" [(ngModel)]="slide_04_text">
-    <upload-component #upload04></upload-component>
+    <upload-component [img]='slide_04_url' #upload04></upload-component>
     <!-- <input type="file" ng2FileSelect [uploader]="slide_04"/> -->
 </div>
 
