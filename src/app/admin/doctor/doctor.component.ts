@@ -4,7 +4,7 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
+// import { FileUploader } from 'ng2-file-upload';
 import { CoreService } from '../../core/core.service';
 import { DbConnectService } from '../../core/db-connect/db-connect.service';
 import { AuthenticationService } from '../../core/auth/authentication.service';
@@ -18,7 +18,7 @@ import { AuthenticationService } from '../../core/auth/authentication.service';
 export class DoctorComponent implements OnInit {
     loged = false;
 
-    uploader = new FileUploader({ url: `YOUR URL` });
+    // uploader = new FileUploader({ url: `YOUR URL` });
 
     formCreateUsuario: FormGroup;
     private fb: FormBuilder;

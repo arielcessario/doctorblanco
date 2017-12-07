@@ -1,24 +1,27 @@
-
-
-
 <div>
     <input type="text" [(ngModel)]="slide_01_text">
-    <input type="file" ng2FileSelect [uploader]="slide_01" multiple />
+    <upload-component #upload01></upload-component>
+    <!-- <input type="file" ng2FileSelect [uploader]="slide_01" /> -->
 </div>
 
 <div>
     <input type="text" [(ngModel)]="slide_02_text">
-    <input type="file" ng2FileSelect [uploader]="slide_02" multiple />
+    <upload-component #upload02></upload-component>
+    <!-- <input type="file" ng2FileSelect [uploader]="slide_02"/> -->
 </div>
 
 <div>
     <input type="text" [(ngModel)]="slide_03_text">
-    <input type="file" ng2FileSelect [uploader]="slide_03" multiple />
+    <upload-component #upload03></upload-component>
+    <!-- <input type="file" ng2FileSelect [uploader]="slide_03"/> -->
 </div>
 
 <div>
     <input type="text" [(ngModel)]="slide_04_text">
-    <input type="file" ng2FileSelect [uploader]="slide_04" multiple />
+    <upload-component #upload04></upload-component>
+    <!-- <input type="file" ng2FileSelect [uploader]="slide_04"/> -->
 </div>
+
+
 
 <button (click)="update()">Guardar</button>

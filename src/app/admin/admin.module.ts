@@ -13,7 +13,6 @@ import { AdminComponent } from './admin.component';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
 import { DoctorComponent } from './doctor/doctor.component';
 import { QuillModule } from 'ngx-quill';
-import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
     declarations: [
@@ -21,8 +20,6 @@ import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
         DoctorComponent,
         UsuarioComponent,
         SlideComponent,
-        FileDropDirective, 
-        FileSelectDirective
     ],
     imports: [
         BrowserModule,
