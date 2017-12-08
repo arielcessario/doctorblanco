@@ -89,7 +89,7 @@ export class SliderComponent implements OnInit {
         // this.dbConnectService.get('')
         
         var productos = [
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-3.jpg', 'nombre':'Especialista en Cirujia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-3.jpg', 'nombre':'Cirujia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-2.jpg', 'nombre':'Cirujia Reconstructiva', 'descripcion': ''},
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-1.jpg', 'nombre':'Tratamientos no Quirurgicos', 'descripcion': ''},
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/trat-4.jpg', 'nombre':'Cirujia Mamarias', 'descripcion': ''},
@@ -106,10 +106,11 @@ export class SliderComponent implements OnInit {
         }
 
         console.log(this.items);
-
+/*
         this.timer = setInterval(() => {
             this.visible = this.visible == 4 ? 1 : this.visible + 1;
         }, 5000);
+        */
     }
 
     interval() {
