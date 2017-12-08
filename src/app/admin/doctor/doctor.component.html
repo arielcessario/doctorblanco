@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="row">
+<div class="">
+    <!--div class="row">
         <input type="text" [(ngModel)]="titulo">
         <quill-editor [(ngModel)]="detalles"></quill-editor>
     </div>
@@ -8,7 +8,13 @@
     </div>
     <div class="row">
         <button (click)="update()" class="btn btn-primary btn-med">Guardar</button>
-    </div>
+    </div-->
+
+    <input type="text" [(ngModel)]="titulo">
+    <quill-editor [(ngModel)]="detalles"></quill-editor>
+    <upload-component [img]='foto' #fotoCtrl></upload-component>
+    <button (click)="update()" class="btn btn-primary btn-med">Guardar</button>
+
 </div>
 
 

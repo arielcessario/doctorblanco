@@ -19,6 +19,9 @@ p{
   border: none !important;
   padding: 0 !important;
   border-radius: 0;
+  -webkit-box-shadow: 2px 2px 7px -1px rgba(0,0,0,0.7);
+  -moz-box-shadow: 2px 2px 7px -1px rgba(0,0,0,0.7);
+  box-shadow: 2px 2px 7px -1px rgba(0,0,0,0.7);
 }
 .img-circle, .img-thumbnail {
   //margin-top: 20px !important;
