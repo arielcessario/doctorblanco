@@ -1,25 +1,34 @@
-<div class="container" style="border: 1px solid #072146;margin-top: 15px;padding: 35px 20px">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Mail</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let i of usuarios">
-            <th scope="row">1</th>
-            <td>{{i.nombre}}</td>
-            <td>{{i.apellido}}</td>
-            <td>{{i.mail}}</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container" style="border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
+     [ngClass]="{'toogleL': toogle}">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Mail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let i of usuarios">
+                <th scope="row">1</th>
+                <td>{{i.nombre}}</td>
+                <td>{{i.apellido}}</td>
+                <td>{{i.mail}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--div class="row">
+        <input type="button" value="Crear" class="btn btn-primary btn-med" (click)="create($event)">
+        <input type="button" value="Editar" class="btn btn-primary btn-med" (click)="edit($event)">
+        <input type="button" value="Eliminar" class="btn btn-danger btn-med" (click)="delete($event)">
+    </div-->
 </div>
 
-<div class="container" style="border: 1px solid #072146;margin-top: 15px;padding: 35px 20px">
+<div class="container" style="border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
+     [ngClass]="{'toogleA': toogle}">
     <form [formGroup]="formUsuario" novalidate (ngSubmit)="create()" accept-charset="utf-8" action="#" class="simform">
         <div class="form-group">
             <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['nombre']}">Nombre {{formErrors['nombre']}}</label>
@@ -50,9 +59,9 @@
         </div>
 
         <div class="">
-            <input class="btn btn-primary" name="commit" type="submit" value="Crear" />
-            <input class="btn btn-primary" name="commit" type="submit" value="Editar" />
-            <input class="btn btn-danger" name="commit" type="submit" value="Borrar" />
+            <input class="btn btn-primary btn-med" name="commit" type="submit" value="Crear" />
+            <input class="btn btn-primary btn-med" name="commit" type="submit" value="Editar" />
+            <input class="btn btn-danger btn-med" name="commit" type="submit" value="Borrar" />
         </div>
     </form>
 </div>

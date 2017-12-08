@@ -19,6 +19,7 @@ export class UsuarioComponent implements OnInit {
     loged = false;
 
     usuarios: Array<any> = [];
+    toogle = false;
 
     // uploader = new FileUploader({ url: `YOUR URL` });
 
@@ -55,6 +56,11 @@ export class UsuarioComponent implements OnInit {
 
     setUp() {
 
+    }
+
+    create(): void {
+        this.toogle = !this.toogle;
+        console.log(this.toogle);
     }
 
     create() {
