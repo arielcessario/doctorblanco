@@ -91,6 +91,7 @@ $slider-height: 600px;
       max-height: 400px;
       height: 400px;
       border: 1px solid #007bff;
+      border-radius: 4px;
 
       @include breakpoint('medium') {
         //top: 30%;
@@ -98,11 +99,12 @@ $slider-height: 600px;
         //height: 300px;
         max-height: 200px;
         height: 200px;
+        width: 335px;
       }
       display: flex;
       flex-direction: column;
       //background-color: rgba(#d4f574, 0.8);
-      background-color: #FFFFFF;
+      background-color: rgba(#FFFFFF, 0.8);
       h1 {
         font-size: 1.4em;
         font-weight: 700;
