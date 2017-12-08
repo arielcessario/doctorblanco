@@ -1,10 +1,16 @@
-<div>
-    <input type="text" [(ngModel)]="titulo">
-    <quill-editor [(ngModel)]="detalles"></quill-editor>
-    <upload-component [img]='foto' #fotoCtrl></upload-component>
+<div class="container">
+    <div class="row">
+        <input type="text" [(ngModel)]="titulo">
+        <quill-editor [(ngModel)]="detalles"></quill-editor>
+    </div>
+    <div class="row">
+        <upload-component [img]='foto' #fotoCtrl></upload-component>
+    </div>
+    <div class="row">
+        <button (click)="update()" class="btn btn-primary btn-med">Guardar</button>
+    </div>
 </div>
 
-<button (click)="update()">Guardar</button>
 
 <!-- <div ng2FileDrop [uploader]="uploader"> </div> -->
 <!-- <input type="file" ng2FileSelect [uploader]="uploader" multiple /> -->

@@ -1,5 +1,6 @@
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { NoticiaComponent } from './noticia/noticia.component';
+import { MainComponent } from './main/main.component';
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PrincipalComponent } from "./principal/principal.component";
@@ -21,6 +22,7 @@ const routes: Routes = [
     { path: 'principal', component: PrincipalComponent },
     { path: 'noticia', component: NoticiaComponent },
     { path: 'tratamiento', component: TratamientoComponent },
+    { path: 'main', component: MainComponent },
     {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
     // {path: 'deseos', component: DeseosComponent, canActivate: [AuthGuard]},
 ];

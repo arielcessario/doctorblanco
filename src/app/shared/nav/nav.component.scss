@@ -44,6 +44,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0.5rem 1rem;
+  border-bottom: 1px solid #007bff
 }
 
 .navbar-brand {
@@ -51,9 +52,11 @@
   padding-top: .25rem;
   padding-bottom: .25rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  //font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  margin-left: 5%;
+  font-size: 2em;
 }
 
 .navbar-brand:focus, .navbar-brand:hover {
