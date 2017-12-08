@@ -1,6 +1,10 @@
 <div>
-    <quill-editor></quill-editor>
+    <input type="text" [(ngModel)]="titulo">
+    <quill-editor [(ngModel)]="detalles"></quill-editor>
+    <upload-component [img]='foto' #fotoCtrl></upload-component>
 </div>
+
+<button (click)="update()">Guardar</button>
 
 <!-- <div ng2FileDrop [uploader]="uploader"> </div> -->
 <!-- <input type="file" ng2FileSelect [uploader]="uploader" multiple /> -->

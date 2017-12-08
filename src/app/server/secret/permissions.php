@@ -40,6 +40,10 @@ public $permissions = array(
             'get' => PermissionTypes::Allowed,
             'update' => PermissionTypes::Admin
         ),
+        'Principal' => array(
+            'get' => PermissionTypes::Allowed,
+            'update' => PermissionTypes::Admin
+        ),
         'Mails' => array(
             'contacto' => PermissionTypes::Allowed,
             'forgotPassword' => PermissionTypes::Allowed,

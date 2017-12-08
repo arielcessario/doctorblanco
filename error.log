@@ -44,3 +44,5 @@
 2017-12-07 19:51:54: Sliders->update - Caught exception: Column 'orden' cannot be null
 
 2017-12-08 00:57:04: Usuarios->create - Existe el Usuario
+2017-12-08 10:53:42: Class dont exist: Principal get {} GET
+2017-12-08 11:02:31: Class dont exist: Principal get {} GET

@@ -58,10 +58,10 @@ export class UsuarioComponent implements OnInit {
 
     }
 
-    create(): void {
-        this.toogle = !this.toogle;
-        console.log(this.toogle);
-    }
+    // create(): void {
+    //     this.toogle = !this.toogle;
+    //     console.log(this.toogle);
+    // }
 
     create() {
 
