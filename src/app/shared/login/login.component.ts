@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     formCreateUsuario: FormGroup;
     private fb: FormBuilder;
     current: number = 1;
+    //public show: string;
 
 
     // Login Form
@@ -111,10 +112,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     //     });
     // }
     //
-    // show() {
-    //
-    //     this.el.nativeElement.type = this.el.nativeElement.type == 'text' ? 'password' : 'text';
-    // }
+     show() {
+        //this.el.nativeElement.type = this.el.nativeElement.type == 'text' ? 'password' : 'text';
+     }
     //
     close() {
         this.coreService.setLoginStatus({
@@ -148,8 +148,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
     //
     //     return form;
     // }
-    //
-    // recover(){
+
+    recover(){
     //
     //     if(!this.formLogin.get('mail').value){
     //         this.toaster.pop('error', 'Por favor ingrese su mail');
@@ -161,9 +161,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     //         .value}).subscribe((data)=>{
     //         this.toaster.pop('success', 'Se ha enviado un mail con los datos para recuperar su contraseña');
     //     });
-    // }
-    //
-    //
+    }
+
+
     buildFormLogin(form: FormGroup): FormGroup {
 
         this.fb = new FormBuilder();

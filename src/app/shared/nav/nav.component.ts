@@ -96,7 +96,7 @@ export class NavComponent implements OnInit {
         });
    }
 
-    toggle(): void {
+    toggle(event): void {
         this.toogle = !this.toogle;
         console.log(this.toogle);
     }

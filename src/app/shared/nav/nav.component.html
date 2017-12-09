@@ -18,7 +18,7 @@
 
 
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button"
+    <button class="navbar-toggler navbar-toggler-right" type="button" style="cursor: pointer;"
             data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation" (click)="toggle($event)">
         <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass]="{'show': toogle}">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/principal']">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['/principal']">Inicio</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" [routerLink]="['/principal']" scrollTo  scrollTargetSelector="#tratamientos">Tratamientos</a>
