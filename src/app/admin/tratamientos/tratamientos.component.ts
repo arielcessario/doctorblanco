@@ -90,7 +90,8 @@ export class TratamientosComponent implements OnInit {
 
         let cn: any;
         this.foto_uploader.status.subscribe((data) => {
-            if (data.progress.percent == 100) {
+            console.log(data.status);
+            if (data.status == 200) {
                 this.foto = data.originalName;
                 cn = this.dbConnectService.post('tratamientos', 'create', {
                     titulo: this.formTratamiento.get('titulo').value,
@@ -117,9 +118,11 @@ export class TratamientosComponent implements OnInit {
 
         let cn: any;
         this.foto_uploader.status.subscribe((data) => {
-            if (data.progress.percent == 100) {
+            
+            console.log(data.status);
+            if (data.status == 200) {
                 this.foto = data.originalName;
-                cn = this.dbConnectService.post('tratamientos', 'create', {
+                cn = this.dbConnectService.post('tratamientos', 'update', {
                     tratamiento_id: this.tratamiento_id,
                     titulo: this.formTratamiento.get('titulo').value,
                     detalles: this.formTratamiento.get('detalles').value,

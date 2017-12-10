@@ -93,7 +93,8 @@ export class UploadComponent implements OnInit, OnChanges {
                 originalName: (this.img != null) ? this.img : '',
                 progress: {
                     percent: 100
-                }
+                },
+                status: 200
             });
 
             if (percent == 100) {
@@ -122,6 +123,16 @@ export class UploadComponent implements OnInit, OnChanges {
             this.fileInput.nativeElement.files[0].name,
             this.fileInput.nativeElement.files[0].size
         );
+
+        xhr.onload = () => {
+            uploadingFile.onFinished(
+                xhr.status,
+                xhr.statusText,
+                xhr.response
+            );
+            // this.removeFileFromQueue(queueIndex);
+            st.emit(uploadingFile);
+        }
 
         xhr.upload.onprogress = (e) => {
             if (e.lengthComputable) {
@@ -152,19 +163,22 @@ export class UploadComponent implements OnInit, OnChanges {
             this.loading = false;
         }
 
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                uploadingFile.onFinished(
-                    xhr.status,
-                    xhr.statusText,
-                    xhr.response
-                );
-                // this.removeFileFromQueue(queueIndex);
-                this.status.emit(uploadingFile);
-            }
-        }
+
 
         xhr.open(this.method, this.url, true);
+
+        let st = this.status;
+        xhr.onreadystatechange = () => {
+            // if (xhr.readyState === XMLHttpRequest.DONE) {
+            //     uploadingFile.onFinished(
+            //         xhr.status,
+            //         xhr.statusText,
+            //         xhr.response
+            //     );
+            //     // this.removeFileFromQueue(queueIndex);
+            //     st.emit(uploadingFile);
+            // }
+        }
         // xhr.withCredentials = this.withCredentials;
 
         // if (this.customHeaders) {
