@@ -47,3 +47,5 @@
 2017-12-08 10:53:42: Class dont exist: Principal get {} GET
 2017-12-08 11:02:31: Class dont exist: Principal get {} GET
 2017-12-10 11:36:06: Class dont exist: Noticias getAll {} GET
+2017-12-10 18:39:38: Usuarios->create - Existe el Usuario
+2017-12-10 18:41:38: Usuarios->create - Existe el Usuario

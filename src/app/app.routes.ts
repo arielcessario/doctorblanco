@@ -19,11 +19,11 @@ import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'principal', pathMatch: 'full' },
-    { path: 'principal', component: PrincipalComponent },
+    { path: 'principal', component: PrincipalComponent, pathMatch: 'full' },
     { path: 'noticia', component: NoticiaComponent },
     { path: 'tratamiento', component: TratamientoComponent },
     { path: 'main', component: MainComponent },
-    {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
+    { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
     // {path: 'deseos', component: DeseosComponent, canActivate: [AuthGuard]},
 ];
 

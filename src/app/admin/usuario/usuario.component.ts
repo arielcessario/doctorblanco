@@ -33,6 +33,8 @@ export class UsuarioComponent implements OnInit {
     public password: string;
     public rol_id: number;
 
+    public usuario_id: number = 0;
+
     private _get;
 
 
@@ -54,17 +56,30 @@ export class UsuarioComponent implements OnInit {
 
     }
 
-    setUp() {
+    setUp(row) {
+        this.usuario_id = row.usuario_id;
+
+        
+        this.formUsuario.setValue({
+            mail: row.mail,
+            nombre: row.nombre,
+            apellido: row.apellido,
+            password: row.password,
+            rol_id: row.rol_id
+        });
 
     }
 
-    // create(): void {
-    //     this.toogle = !this.toogle;
-    //     console.log(this.toogle);
-    // }
+    save() {
+        if (this.usuario_id != 0) {
+            this.update();
+        } else {
+            this.create();
+        }
+    }
+
 
     create() {
-
         this.dbConnectService.post('usuarios', 'create', {
             mail: this.formUsuario.get('mail').value,
             nombre: this.formUsuario.get('nombre').value,
@@ -72,17 +87,27 @@ export class UsuarioComponent implements OnInit {
             password: this.formUsuario.get('password').value,
             rol_id: this.formUsuario.get('rol_id').value,
         }).subscribe(response => {
-            // this.authService.login(this.formUsuario.get('mail').value, this.formUsuario.get('password').value)
-            //     .subscribe(data => {
-            //             this.coreService.setLoginStatus({
-            //                 showLogin: false
-            //             });
-            //     });
-
             this._get.subscribe((data) => {
                 this.usuarios = data;
+                this.formUsuario.reset();
             });
+        })
+    }
 
+
+    update() {
+        this.dbConnectService.post('usuarios', 'update', {
+            usuario_id: this.usuario_id,
+            mail: this.formUsuario.get('mail').value,
+            nombre: this.formUsuario.get('nombre').value,
+            apellido: this.formUsuario.get('apellido').value,
+            password: this.formUsuario.get('password').value,
+            rol_id: this.formUsuario.get('rol_id').value,
+        }).subscribe(response => {
+            this._get.subscribe((data) => {
+                this.usuarios = data;
+                this.formUsuario.reset();
+            });
         })
     }
 

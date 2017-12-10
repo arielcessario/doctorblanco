@@ -364,12 +364,11 @@ class Usuarios extends Main
      */
     function changePassword($usuario_id, $pass_old, $pass_new)
     {
-        $db = new MysqliDb();
+        
+        $this->db->where('usuario_id', $usuario_id);
+        $results = $this->db->get("usuarios");
 
-        $db->where('usuario_id', $usuario_id);
-        $results = $db->get("usuarios");
-
-        if ($db->count > 0) {
+        if ($this->db->count > 0) {
             $result = $results[0];
 
             if ($pass_old == '' || password_verify($pass_old, $result['password'])) {
@@ -377,9 +376,9 @@ class Usuarios extends Main
                 $options = ['cost' => 12];
                 $password = password_hash($pass_new, PASSWORD_BCRYPT, $options);
 
-                $db->where('usuario_id', $usuario_id);
+                $this->db->where('usuario_id', $usuario_id);
                 $data = array('password' => $password);
-                if ($db->update('usuarios', $data)) {
+                if ($this->db->update('usuarios', $data)) {
                     echo json_encode(1);
                 } else {
                     echo json_encode(-1);
@@ -403,7 +402,7 @@ class Usuarios extends Main
         $this->db->startTransaction();
         try {
 
-            $user_decoded = $this->checkUsuario($params->user);
+            $user_decoded = $this->checkUsuario($params);
 
             $this->db->where('usuario_id', $user_decoded->usuario_id);
 
@@ -411,9 +410,19 @@ class Usuarios extends Main
                 'nombre' => $user_decoded->nombre,
                 'apellido' => $user_decoded->apellido,
                 'mail' => $user_decoded->mail,
+                'nacionalidad_id' => $user_decoded->nacionalidad_id,
+                'tipo_doc' => 0,
+                'nro_doc' => $user_decoded->nro_doc,
+                'comentarios' => $user_decoded->comentarios,
+                'marcado' => $user_decoded->marcado,
                 'telefono' => $user_decoded->telefono,
                 'fecha_nacimiento' => $user_decoded->fecha_nacimiento,
-                'news_letter' => $user_decoded->news_letter
+                'profesion_id' => 0,
+                'saldo' => 0,
+                'password' => $user_decoded->password,
+                'rol_id' => $user_decoded->rol_id,
+                'news_letter' => $user_decoded->news_letter,
+                'social_login' => $user_decoded->social_login
             );
 
             if ($user_decoded->password != '') {
@@ -423,14 +432,14 @@ class Usuarios extends Main
             if ($this->db->update('usuarios', $data)) {
 
 
-                $this->db->where('usuario_id', $user_decoded->usuario_id);
-                $data = array(
-                    'calle' => $user_decoded->calle,
-                    'nro' => $user_decoded->nro,
-                    'provincia_id' => $user_decoded->provincia_id
-                );
+                // $this->db->where('usuario_id', $user_decoded->usuario_id);
+                // $data = array(
+                //     'calle' => $user_decoded->calle,
+                //     'nro' => $user_decoded->nro,
+                //     'provincia_id' => $user_decoded->provincia_id
+                // );
 
-                $this->db->update('direcciones', $data);
+                // $this->db->update('direcciones', $data);
             }
             $this->db->commit();
             $this->sendResponse('Ok');

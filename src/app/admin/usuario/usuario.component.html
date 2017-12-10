@@ -11,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let i of usuarios">
+            <tr *ngFor="let i of usuarios" (click)='setUp(i)'>
                 <th scope="row">1</th>
                 <td>{{i.nombre}}</td>
                 <td>{{i.apellido}}</td>
@@ -29,7 +29,7 @@
 
 <div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
      [ngClass]="{'toogleA': toogle}">
-    <form [formGroup]="formUsuario" novalidate (ngSubmit)="create()" accept-charset="utf-8" action="#" class="simform">
+    <form [formGroup]="formUsuario" novalidate (ngSubmit)="save()" accept-charset="utf-8" action="#" class="simform">
         <div class="form-group">
             <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['nombre']}">Nombre {{formErrors['nombre']}}</label>
             <input class="form-control" maxlength="255" id="user-pw" formControlName="nombre"

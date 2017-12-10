@@ -19,8 +19,9 @@ import { NoticiasComponent } from './noticias/noticias.component';
 
 const routes: Routes = [
     {
-        path: '', component: AdminComponent, canActivate: [AuthGuard],
+        path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
         children: [
+            { path: '', redirectTo: 'doctor', pathMatch:'full', canActivate: [AuthGuard] },
             { path: 'doctor', component: DoctorComponent, canActivate: [AuthGuard] },
             { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard] },
             { path: 'slide', component: SlideComponent, canActivate: [AuthGuard] },
