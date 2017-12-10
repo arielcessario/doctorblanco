@@ -36,12 +36,14 @@ public $permissions = array(
         'Tratamientos' => array(
             'getAll' => PermissionTypes::Allowed,
             'create' => PermissionTypes::Admin,
-            'update' => PermissionTypes::Admin
+            'update' => PermissionTypes::Admin,
+            'remove' => PermissionTypes::Admin
         ),
         'Noticias' => array(
             'getAll' => PermissionTypes::Allowed,
             'create' => PermissionTypes::Admin,
-            'update' => PermissionTypes::Admin
+            'update' => PermissionTypes::Admin,
+            'remove' => PermissionTypes::Admin
         ),
         'Sliders' => array(
             'get' => PermissionTypes::Allowed,

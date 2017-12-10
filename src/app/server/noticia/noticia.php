@@ -104,4 +104,31 @@ class Noticias extends Main{
         }
     }
 
+
+    function remove($params){
+        $this->db->startTransaction();
+        try {
+
+            $this->db->where('noticia_id', $params->noticia_id);
+
+            $result = $this->db->delete('noticias');
+
+            if (!$result) {
+                $this->db->rollback();
+                $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
+                return;
+            }
+
+
+            $this->db->commit();
+            $this->sendResponse('Ok');
+
+
+        } catch
+        (Exception $e) {
+            $this->db->rollback();
+            $this->sendResponse('Caught exception: ' . $e->getMessage() . "\n");
+        }
+    }
+
 }

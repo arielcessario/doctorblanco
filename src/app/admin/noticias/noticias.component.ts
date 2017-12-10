@@ -63,6 +63,7 @@ export class NoticiasComponent implements OnInit {
     }
 
     select(row) {
+        this.noticia_id = row.noticia_id;
         this.formNoticia.setValue({ titulo: row.titulo, detalles: row.detalles });
         this.foto = row.foto;
     }
@@ -109,14 +110,11 @@ export class NoticiasComponent implements OnInit {
     }
 
     update() {
-
-
         this.foto_uploader.onSubmit();
 
         let cn: any;
         this.foto_uploader.status.subscribe((data) => {
             
-            console.log(data.status);
             if (data.status == 200) {
                 this.foto = data.originalName;
                 cn = this.dbConnectService.post('noticias', 'update', {
@@ -133,10 +131,19 @@ export class NoticiasComponent implements OnInit {
                 })
             }
         });
-
-
-
     }
+
+    remove(){
+        this.dbConnectService.post('noticias', 'remove', {noticia_id:this.noticia_id}).subscribe((data)=>{
+            this._get.subscribe((data)=>{
+                this.noticias = data;
+                this.noticia_id = 0;
+                this.foto = '';
+                this.formNoticia.reset();
+            })
+        })
+    }
+
 
     buildForm(form: FormGroup): FormGroup {
 

@@ -118,8 +118,6 @@ export class TratamientosComponent implements OnInit {
 
         let cn: any;
         this.foto_uploader.status.subscribe((data) => {
-            
-            console.log(data.status);
             if (data.status == 200) {
                 this.foto = data.originalName;
                 cn = this.dbConnectService.post('tratamientos', 'update', {
@@ -137,9 +135,17 @@ export class TratamientosComponent implements OnInit {
                 })
             }
         });
+    }
 
-
-
+    remove(){
+        this.dbConnectService.post('tratamientos', 'remove', {tratamiento_id:this.tratamiento_id}).subscribe((data)=>{
+            this._get.subscribe((data)=>{
+                this.tratamientos = data;
+                this.tratamiento_id = 0;
+                this.foto = '';
+                this.formTratamiento.reset();
+            })
+        })
     }
 
     buildForm(form: FormGroup): FormGroup {
