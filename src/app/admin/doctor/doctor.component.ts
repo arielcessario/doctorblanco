@@ -54,7 +54,7 @@ export class DoctorComponent implements OnInit {
             }
         });
     }
-
+    
     update() {
         this.fotoCtrl.onSubmit();
 

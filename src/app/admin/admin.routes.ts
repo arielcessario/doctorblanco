@@ -1,3 +1,4 @@
+import { TratamientosComponent } from './tratamientos/tratamientos.component';
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // import {ProductosComponent} from "./productos/productos.component";
@@ -22,6 +23,7 @@ const routes: Routes = [
             { path: 'doctor', component: DoctorComponent, canActivate: [AuthGuard] },
             { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard] },
             { path: 'slide', component: SlideComponent, canActivate: [AuthGuard] },
+            { path: 'tratamientos', component: TratamientosComponent, canActivate: [AuthGuard] },
             // { path: 'facilities/:id', component: FacilityComponent },
             // { path: 'data-concentrators', component: DataConcentratorsComponent},
             // { path: 'data-concentrators/:id', component: DataConcentratorComponent },

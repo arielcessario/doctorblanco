@@ -1,3 +1,4 @@
+import { TratamientosComponent } from './tratamientos/tratamientos.component';
 import { SlideComponent } from './slide/slide.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -20,6 +21,7 @@ import { QuillModule } from 'ngx-quill';
         DoctorComponent,
         UsuarioComponent,
         SlideComponent,
+        TratamientosComponent
     ],
     imports: [
         BrowserModule,

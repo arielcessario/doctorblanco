@@ -34,7 +34,9 @@ public $permissions = array(
             'get' => -1, 'updateStock' => PermissionTypes::Admin, 'getValue' => PermissionTypes::Allowed
         ),
         'Tratamientos' => array(
-            'getAll' => PermissionTypes::Allowed
+            'getAll' => PermissionTypes::Allowed,
+            'create' => PermissionTypes::Admin,
+            'update' => PermissionTypes::Admin
         ),
         'Sliders' => array(
             'get' => PermissionTypes::Allowed,
