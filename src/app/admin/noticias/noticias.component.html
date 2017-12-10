@@ -1,0 +1,69 @@
+<div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
+[ngClass]="{'toogleL': toogle}">
+<div class="row">
+   <table class="table table-hover">
+       <thead>
+       <tr>
+           <th>#</th>
+           <th>Titulo</th>
+           <th>Tipo de Noticia</th>
+           <th>Detalles</th>
+       </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor="let i of noticias" (click)="select(i)">
+           <th scope="row">1</th>
+           <td>{{i.titulo}}</td>
+           <td>{{i.tipo_tramiento_id}}</td>
+           <td>{{i.detalles}}</td>
+       </tr>
+       </tbody>
+   </table>
+</div>
+<!--div class="row">
+   <input type="button" value="Crear" class="btn btn-primary btn-med" (click)="create($event)">
+   <input type="button" value="Editar" class="btn btn-primary btn-med" (click)="edit($event)">
+   <input type="button" value="Eliminar" class="btn btn-danger btn-med" (click)="delete($event)">
+</div-->
+</div>
+
+<div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
+[ngClass]="{'toogleA': toogle}">
+<form [formGroup]="formNoticia" novalidate (ngSubmit)="save()" accept-charset="utf-8" action="#" class="simform">
+   <div class="form-group">
+       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['titulo']}">Nombre {{formErrors['titulo']}}</label>
+       <input class="form-control" maxlength="255" id="user-pw" formControlName="titulo"
+              placeholder="Nombre" type="text" size="50" />
+   </div>
+   <div class="form-group">
+       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['detalles']}">Nombre {{formErrors['detalles']}}</label>
+       <quill-editor [(ngModel)]="detalles"  formControlName="detalles"></quill-editor>
+       <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
+              placeholder="Nombre" type="text" size="50" /> -->
+   </div>
+   
+
+   <upload-component [img]='foto' #foto_uploader></upload-component>
+
+   <div class="">
+       <input class="btn btn-primary btn-med" name="commit" type="submit" value="Crear" />
+       <input class="btn btn-primary btn-med" name="commit" type="submit" value="Editar" />
+       <input class="btn btn-danger btn-med" name="commit" type="submit" value="Borrar" />
+   </div>
+</form>
+</div>
+
+
+<!--div class="noticias-container">
+    <div class="top">
+        <div class="noticia"></div>
+        <div class="noticia"></div>
+    </div>
+    <div class="bottom">
+        <div class="noticia"></div>
+        <div class="noticia"></div>
+        <div class="noticia"></div>
+    </div>
+    <a  [routerLink]="['/noticia']">Ver Mas</a>
+</div-->
+

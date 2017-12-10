@@ -14,6 +14,7 @@ import { AdminComponent } from './admin.component';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
 import { DoctorComponent } from './doctor/doctor.component';
 import { QuillModule } from 'ngx-quill';
+import { NoticiasComponent } from './noticias/noticias.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { QuillModule } from 'ngx-quill';
         DoctorComponent,
         UsuarioComponent,
         SlideComponent,
-        TratamientosComponent
+        TratamientosComponent,
+        NoticiasComponent
     ],
     imports: [
         BrowserModule,

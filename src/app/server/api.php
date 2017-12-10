@@ -16,6 +16,7 @@ require_once './usuario/usuario.php';
 require_once './tratamiento/tratamiento.php';
 require_once './slider/slider.php';
 require_once './principal/principal.php';
+require_once './noticia/noticia.php';
 require_once './mail/mail.php';
 
 try {

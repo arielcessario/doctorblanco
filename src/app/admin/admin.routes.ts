@@ -9,6 +9,7 @@ import { AuthGuard } from "../core/auth/auth-guard.service";
 import { AdminComponent } from './admin.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { SlideComponent } from './slide/slide.component';
+import { NoticiasComponent } from './noticias/noticias.component';
 // import {PedidosComponent} from "./pedidos/pedidos.component";
 // import {PedidoComponent} from "./pedido/pedido.component";
 // import {ContactoComponent} from "./contacto/contacto.component";
@@ -24,6 +25,7 @@ const routes: Routes = [
             { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard] },
             { path: 'slide', component: SlideComponent, canActivate: [AuthGuard] },
             { path: 'tratamientos', component: TratamientosComponent, canActivate: [AuthGuard] },
+            { path: 'noticias', component: NoticiasComponent, canActivate: [AuthGuard] },
             // { path: 'facilities/:id', component: FacilityComponent },
             // { path: 'data-concentrators', component: DataConcentratorsComponent},
             // { path: 'data-concentrators/:id', component: DataConcentratorComponent },

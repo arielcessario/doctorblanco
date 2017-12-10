@@ -38,6 +38,11 @@ public $permissions = array(
             'create' => PermissionTypes::Admin,
             'update' => PermissionTypes::Admin
         ),
+        'Noticias' => array(
+            'getAll' => PermissionTypes::Allowed,
+            'create' => PermissionTypes::Admin,
+            'update' => PermissionTypes::Admin
+        ),
         'Sliders' => array(
             'get' => PermissionTypes::Allowed,
             'update' => PermissionTypes::Admin
