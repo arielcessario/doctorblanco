@@ -37,8 +37,9 @@
    </div>
    <div class="form-group">
        <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['detalles']}">Nombre {{formErrors['detalles']}}</label>
-       <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
-              placeholder="Nombre" type="text" size="50" />
+       <quill-editor [(ngModel)]="detalles"  formControlName="detalles"></quill-editor>
+       <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
+              placeholder="Nombre" type="text" size="50" /> -->
    </div>
    <div class="form-group">
        <label class="" >Rol</label>
