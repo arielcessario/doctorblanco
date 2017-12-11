@@ -97,17 +97,9 @@ export class AuthenticationService {
     }
     
     logout(): void {
-    //     // clear token remove user from local storage to log user out
-    //     this.token = null;
-    //     localStorage.removeItem('currentUser');
-    //
-    //     if (localStorage.getItem('_login_provider')) {
-    //         this._auth.logout().subscribe(
-    //             (data) => {
-    //             }
-    //         )
-    //     }
-    //
-    //
+        // clear token remove user from local storage to log user out
+        this.token = null;
+        localStorage.removeItem('currentUser');
+    
     }
 }

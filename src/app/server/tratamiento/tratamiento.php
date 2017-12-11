@@ -108,6 +108,7 @@ class Tratamientos extends Main{
 
 
     function remove($params){
+        
         $this->db->startTransaction();
         try {
 

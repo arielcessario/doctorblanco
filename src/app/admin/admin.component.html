@@ -4,7 +4,7 @@
     <a [routerLink]="['/admin/tratamientos']" style="border-right: 1px solid #FFFFFF; ">Adm Tratamientos</a>
     <a [routerLink]="['/admin/noticias']" style="border-right: 1px solid #FFFFFF; ">Adm Noticias</a>
     <a [routerLink]="['/admin/slide']" style="border-right: 1px solid #FFFFFF; ">Adm Slider</a>
-    <button style="color: #FFFFFF;background-color: transparent;cursor: pointer;padding: 0 20px;border: none;" >Logout</button>
+    <button style="color: #FFFFFF;background-color: transparent;cursor: pointer;padding: 0 20px;border: none;" (click)="logOut()" >Logout</button>
 </div>
 
 <router-outlet>

@@ -104,7 +104,7 @@ function validateRol($requerido)
     global $decoded_token;
     $decoded_token = \Firebase\JWT\JWT::decode($token, $secret, array('HS256'));
 
-    $rol = $decoded_token->data->rol;
+    $rol = $decoded_token->data->rol_id;
     if ($rol > $requerido) {
         header(HttpStatusTypes::Unauthorized);
         echo "Unauthorized";
@@ -193,8 +193,9 @@ class Main
             $permissions = new Permissions();
 
             if ($permissions->getPermission($class, $fnc) > PermissionTypes::Allowed) {
-                // checkSecurity();
-                // validateRol($permissions->getPermission($class, $fnc));
+                checkSecurity();
+                validateRol($permissions->getPermission($class, $fnc));
+
             }
             $this->checkUserStatus();
 

@@ -102,6 +102,8 @@ export class TratamientosComponent implements OnInit {
                     this._get.subscribe((data) => {
                         this.tratamientos = data;
                         this.tratamiento_id = 0;
+                        this.formTratamiento.reset();
+                        this.foto = '';
                     });
 
                 })
@@ -130,6 +132,8 @@ export class TratamientosComponent implements OnInit {
                     this._get.subscribe((data) => {
                         this.tratamientos = data;
                         this.tratamiento_id = 0;
+                        this.formTratamiento.reset();
+                        this.foto = '';
                     });
 
                 })

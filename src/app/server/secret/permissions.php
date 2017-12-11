@@ -65,7 +65,7 @@ public $permissions = array(
     public function getPermission($class, $fnc){
         
             if(isset($this->permissions[$class][$fnc])){
-                $this->permissions[$class][$fnc];
+                return $this->permissions[$class][$fnc];
             }else{
                 throw new Exception( 'No existe el permiso: ' . $fnc);
             }

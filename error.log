@@ -49,3 +49,27 @@
 2017-12-10 11:36:06: Class dont exist: Noticias getAll {} GET
 2017-12-10 18:39:38: Usuarios->create - Existe el Usuario
 2017-12-10 18:41:38: Usuarios->create - Existe el Usuario
+2017-12-10 23:52:36: Usuarios->login - Caught exception: Usuario o Password Incorrectos
+
+2017-12-10 23:52:55: Usuarios->login - Caught exception: Usuario o Password Incorrectos
+
+2017-12-10 23:52:58: Usuarios->login - Caught exception: Usuario o Password Incorrectos
+
+2017-12-10 23:53:08: Usuarios->login - Caught exception: Usuario o Password Incorrecto
+
+2017-12-10 23:56:09: Usuarios->login - Caught exception: Usuario o Password Incorrectos
+
+2017-12-10 23:57:20: Usuarios->login - Caught exception: Usuario o Password Incorrectos
+
+2017-12-11 00:08:40: Main->__construct - Key may not be empty
+2017-12-11 00:10:11: Main->__construct - Key may not be empty
+2017-12-11 00:10:42: Main->__construct - Key may not be empty
+2017-12-11 00:13:33: Main->__construct - Key may not be empty
+2017-12-11 00:15:08: Main->__construct - Key may not be empty
+2017-12-11 00:15:08: Main->__construct - Key may not be empty
+2017-12-11 00:15:08: Main->__construct - Key may not be empty
+2017-12-11 00:15:08: Main->__construct - Key may not be empty
+2017-12-11 00:15:08: Main->__construct - Key may not be empty
+2017-12-11 00:15:08: Main->__construct - Key may not be empty
+2017-12-11 00:15:09: Main->__construct - Key may not be empty
+2017-12-11 00:16:48: Main->__construct - Key may not be empty
