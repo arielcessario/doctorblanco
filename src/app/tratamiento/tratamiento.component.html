@@ -15,23 +15,17 @@
             </select>
         </div>
     </div>
-    <!--SE DEBE HACER UNA FUNCION RECURSIVA PARA IR CARGANDO TODAS LAS NOTICIAS DENTRO DE ESTE
-    DIV CON ROW-->
-    <div class="row" style="margin: 5px 0">
+    <div class="row" style="margin:20px 20px 40px" *ngFor="let item of tratamientos">
         <div class="col-md-4">
             <img src="http://www.mateomaneff.com.ar/images/slider/trat-5.jpg" class="img-responsive img-thumbnail">
         </div>
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Titulo</h2>
+                    <h2>{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    <p>La cirugía de párpados está indicado en personas que presentan sensación de pesadez, mirada cansada o de apariencia triste. Consiste en la eliminación del excedente de piel y grasa ubicadas en el párpado superior e inferior.
-                        De esta forma se consigue una mirada despejada y natural.
-                        Puede asociarse con otras cirugías como el lifting facial o levantamiento de las cejas.
-                        Se realiza con anestesia local más sedación o anestesia general,  el procedimiento dura 90
-                    </p>
+                    {{item.detalles}}
                 </div>
             </div>
         </div>

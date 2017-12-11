@@ -10,11 +10,11 @@ import {Component, OnInit} from '@angular/core';
 export class PrincipalComponent implements OnInit {
     loged = false;
 
+
     constructor() {
     }
 
     ngOnInit() {
-
         //this.loged = localStorage.getItem('currentUser') != null;
 
     }
