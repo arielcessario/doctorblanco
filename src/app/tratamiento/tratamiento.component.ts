@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CoreService } from '../core/core.service';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
 
@@ -15,7 +16,7 @@ export class TratamientoComponent implements OnInit {
 
     private _get;
 
-    constructor(private coreService: CoreService, private dbConnectService: DbConnectService) {
+    constructor(private coreService: CoreService, private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer) {
     }
 
     ngOnInit() {
@@ -30,6 +31,10 @@ export class TratamientoComponent implements OnInit {
 
     setUp() {
 
+    }
+
+    htmlProperty(text) : SafeHtml {
+        return this._sanitizer.sanitize(SecurityContext.HTML, text);
     }
 
 }

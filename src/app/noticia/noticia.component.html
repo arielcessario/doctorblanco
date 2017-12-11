@@ -2,11 +2,11 @@
     <div class="row" >
         <h1 class="mx-auto" style="margin-top: 4%;">NOTICIAS</h1>
     </div>
-    <div class="row" style="margin:20px 20px 40px" *ngFor="let item of noticias">
-        <div class="col-md-4">
+    <div class="row" style="margin:20px 20px 40px" *ngFor="let item of noticias; let even = even; let odd = odd">
+        <div class="col-md-4" *ngIf="even">
             <img src="http://www.mateomaneff.com.ar/images/slider/trat-5.jpg" class="img-responsive img-thumbnail">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" *ngIf="even">
             <div class="row">
                 <div class="col-md-12">
                     <h2>{{item.titulo}}</h2>
@@ -15,6 +15,20 @@
                     {{item.detalles}}
                 </div>
             </div>
+        </div>
+
+        <div class="col-md-8" *ngIf="odd">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{item.titulo}}</h2>
+                </div>
+                <div class="col-md-12">
+                    {{item.detalles}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" *ngIf="odd">
+            <img src="http://www.mateomaneff.com.ar/images/slider/trat-5.jpg" class="img-responsive img-thumbnail">
         </div>
     </div>
 </div>
