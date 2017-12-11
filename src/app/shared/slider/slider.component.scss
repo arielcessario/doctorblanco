@@ -89,8 +89,9 @@ $slider-height: 600px;
       //right: 0;
       left: 10%;
       top: 20%;
-      max-height: 400px;
-      height: 400px;
+      max-height: 200px;
+      height: 200px;
+      width: 50%;
       border: 1px solid #007bff;
       border-radius: 4px;
 
@@ -100,7 +101,7 @@ $slider-height: 600px;
         //height: 300px;
         max-height: 200px;
         height: 200px;
-        width: 335px;
+        width: 30%;
       }
       display: flex;
       flex-direction: column;
