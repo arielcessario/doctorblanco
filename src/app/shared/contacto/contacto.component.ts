@@ -20,7 +20,7 @@ import { Router } from "@angular/router";
  */
 export class ContactoComponent implements OnInit {
     formContacto: FormGroup;
-    user: any = {};
+    //user: any = {};
 
 
     public mail: string;
@@ -58,7 +58,7 @@ export class ContactoComponent implements OnInit {
 
 
     ngOnInit() {
-        this.user = (JSON.parse(localStorage.getItem('currentUser')) == null) ? null : JSON.parse(localStorage.getItem('currentUser')).user;
+        //this.user = (JSON.parse(localStorage.getItem('currentUser')) == null) ? null : JSON.parse(localStorage.getItem('currentUser')).user;
         this.buildForm();
     }
 
@@ -85,8 +85,10 @@ export class ContactoComponent implements OnInit {
 
 
         this.formContacto.setValue({
-            'mail': (this.user != null) ? this.user.mail : '',
-            'nombre': (this.user != null) ? this.user.nombre : '',
+            //'mail': (this.user != null) ? this.user.mail : '',
+            //'nombre': (this.user != null) ? this.user.nombre : '',
+            'mail': '',
+            'nombre': '',
             'lugar': '',
             'asunto': '',
             'mensaje': ''
@@ -105,11 +107,13 @@ export class ContactoComponent implements OnInit {
         this.db.post('mails', 'contacto', msg).subscribe((data) => {
             this.coreService.setToast({ type: 'success', title: 'Mail', body: data });
             this.formContacto.setValue({
-                'mail': (this.user != null) ? this.user.mail : '',
-                'nombre': (this.user != null) ? this.user.nombre : '',
+                //'mail': (this.user != null) ? this.user.mail : '',
+                //'nombre': (this.user != null) ? this.user.nombre : '',
+                'mail': '',
+                'nombre': '',
                 'lugar': '',
                 'asunto': '',
-                'mensaje': '',
+                'mensaje': ''
             });
         });
     }
