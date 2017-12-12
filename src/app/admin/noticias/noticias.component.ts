@@ -82,9 +82,6 @@ export class NoticiasComponent implements OnInit {
     // }
 
     create() {
-
-
-
         this.foto_uploader.onSubmit();
 
         let cn: any;

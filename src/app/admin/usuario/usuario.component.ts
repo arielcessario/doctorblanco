@@ -49,6 +49,7 @@ export class UsuarioComponent implements OnInit {
         this._get = this.dbConnectService.get('usuarios', 'getAll', {});
 
         this._get.subscribe((data) => {
+            console.log(data);
             this.usuarios = data;
         });
 
@@ -59,7 +60,6 @@ export class UsuarioComponent implements OnInit {
     setUp(row) {
         this.usuario_id = row.usuario_id;
 
-        
         this.formUsuario.setValue({
             mail: row.mail,
             nombre: row.nombre,
