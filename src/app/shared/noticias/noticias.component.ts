@@ -19,11 +19,22 @@ import {DbConnectService} from "../../core/db-connect/db-connect.service";
  */
 export class NoticiasComponent implements OnInit, AfterViewInit {
     current: number = 1;
+    //noticias: Array<any> = [];
+    titulo_1: String = '';
+    detalles_1: String = '';
+    foto_1: String = '';
+    titulo_2: String = '';
+    detalles_2: String = '';
+    foto_2: String = '';
+
+    private _get;
+
+    constructor(private coreService: CoreService, private dbConnectService: DbConnectService){
+
+    };
 
 
 
-
-    constructor(){};
     // constructor(private coreService: CoreService, private http: Http, public _auth: AuthService,
     //             private dbConnectService: DbConnectService, private authService: AuthenticationService,
     //             private toaster: ToasterService) {
@@ -38,6 +49,25 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
     //     this.formNoticias = this.buildFormNoticias(this.formNoticias);
     //
     //     this.formCreateUsuario.controls['social_noticias'].setValue(0);
+
+        this._get = this.dbConnectService.get('noticias', 'getAll', {});
+
+        this._get.subscribe((data) => {
+            data.sort((a, b) => {
+                if(a.fecha > b.fecha)
+                    return -1
+                else
+                    return 1
+            });
+            //this.noticias = data;
+            this.titulo_1 = data[0].titulo;
+            this.detalles_1 = data[0].detalles;
+            this.foto_1 = data[0].foto;
+
+            this.titulo_2 = data[1].titulo;
+            this.detalles_2 = data[1].detalles;
+            this.foto_2 = data[1].foto;
+        });
     }
 
     ngAfterViewInit() {
