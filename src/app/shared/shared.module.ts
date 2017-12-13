@@ -1,3 +1,4 @@
+import { TratamientosPipe } from './pipes/tratamientos.pipe';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ import { UploadComponent } from './upload/upload.component';
         LoginComponent,
         ProductoComponent,
         DescLengthPipe,
+        TratamientosPipe,
         SliderComponent,
         CarrouselComponent,
         VirtualScrollComponent,
@@ -53,6 +55,7 @@ import { UploadComponent } from './upload/upload.component';
         LoginComponent,
         ProductoComponent,
         DescLengthPipe,
+        TratamientosPipe,
         SliderComponent,
         CarrouselComponent,
         VirtualScrollComponent,

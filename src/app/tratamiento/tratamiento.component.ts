@@ -12,6 +12,7 @@ import { DbConnectService } from '../core/db-connect/db-connect.service';
 export class TratamientoComponent implements OnInit {
     loged = false;
     tratamientos: Array<any> = [];
+    tipo_tratamiento_id: number = 1;
 
 
     private _get;

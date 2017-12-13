@@ -20,6 +20,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { AdminModule } from './admin/admin.module';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from './core/auth/auth-guard.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { AuthGuard } from './core/auth/auth-guard.service';
         SharedModule,
         AdminModule,
         NgbModule.forRoot(),
-        HttpModule
+        HttpModule,
+        FormsModule
     ],
     providers: [CoreService, AuthenticationService, DbConnectService, AuthGuard, SettingService],
     bootstrap: [AppComponent]

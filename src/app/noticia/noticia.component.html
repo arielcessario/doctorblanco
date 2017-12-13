@@ -12,7 +12,8 @@
                     <h2>{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    {{item.detalles}}
+                    <div [innerHTML]='item.detalles'></div>
+                    <!-- {{item.detalles}} -->
                 </div>
             </div>
         </div>
@@ -23,7 +24,8 @@
                     <h2>{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    {{item.detalles}}
+                    <div [innerHTML]='item.detalles'></div>
+                    <!-- {{item.detalles}} -->
                 </div>
             </div>
         </div>
