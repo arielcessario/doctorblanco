@@ -28,10 +28,11 @@ export class UploadComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
-        this.setUpImage();
+        // this.setUpImage();
     }
 
     ngOnChanges() {
+        
         this.setUpImage();
     }
 
@@ -89,18 +90,20 @@ export class UploadComponent implements OnInit, OnChanges {
         if (this.fileInput.nativeElement.files[0] == undefined) {
             let percent = 100;
 
-            this.status.emit({
-                originalName: (this.img != null) ? this.img : '',
-                progress: {
-                    percent: 100
-                },
-                status: 200
-            });
+            setTimeout(() => {
+                this.status.emit({
+                    originalName: (this.img != null) ? this.img : '',
+                    progress: {
+                        percent: 100
+                    },
+                    status: 200
+                });
+                if (percent == 100) {
+                    this.loading = false;
+                }
 
-            if (percent == 100) {
-                this.loading = false;
-            }
 
+            }, 0);
             return;
         }
         const formModel = this.prepareSave(this.fileInput.nativeElement.files[0]);

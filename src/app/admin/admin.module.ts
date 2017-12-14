@@ -16,6 +16,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { QuillModule } from 'ngx-quill';
 import { NoticiasComponent } from './noticias/noticias.component';
 
+
 @NgModule({
     declarations: [
         AdminComponent,
@@ -33,8 +34,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
         ReactiveFormsModule,
         FormsModule,
         SharedModule,
-        QuillModule,
-        
+        QuillModule
     ],
     providers: [CoreService, AuthenticationService, DbConnectService]
 })

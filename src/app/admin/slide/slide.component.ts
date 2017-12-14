@@ -1,4 +1,5 @@
 
+
 import { Http } from '@angular/http';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -39,10 +40,9 @@ export class SlideComponent implements OnInit {
     @ViewChild('upload03') upload03;
     @ViewChild('upload04') upload04;
 
-
+    private toasterService: ToasterService;
     constructor(private coreService: CoreService, private http: Http,
         private dbConnectService: DbConnectService, private authService: AuthenticationService) {
-
 
 
     }
@@ -79,25 +79,23 @@ export class SlideComponent implements OnInit {
         ]
 
         this.upload01.onSubmit();
-
         this.upload01.status.subscribe((data) => {
-            if (data.progress.percent == 100) {
+            if (data.status == 200) {
                 _sliders[0].path = data.originalName;
                 this.upload02.onSubmit();
             }
 
         });
 
-
         this.upload02.status.subscribe((data) => {
-            if (data.progress.percent == 100) {
+            if (data.status == 200) {
                 _sliders[1].path = data.originalName;
                 this.upload03.onSubmit();
             }
         });
 
         this.upload03.status.subscribe((data) => {
-            if (data.progress.percent == 100) {
+            if (data.status == 200) {
                 _sliders[2].path = data.originalName;
                 this.upload04.onSubmit();
             }
@@ -105,7 +103,7 @@ export class SlideComponent implements OnInit {
 
         let cn: any;
         this.upload04.status.subscribe((data) => {
-            if (data.progress.percent == 100) {
+            if (data.status == 200) {
                 _sliders[3].path = data.originalName;
                 cn = this.dbConnectService.post('sliders', 'update',
                     {
@@ -115,8 +113,6 @@ export class SlideComponent implements OnInit {
                     });
             }
         });
-
-
 
 
     }
