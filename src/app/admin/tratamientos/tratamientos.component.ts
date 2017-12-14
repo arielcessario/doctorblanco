@@ -32,8 +32,8 @@ export class TratamientosComponent implements OnInit {
 
     public titulo: string;
     public detalles: string;
-    public foto: string;
-    public tipo_tratamiento_id: number;
+    public foto: string = "";
+    public tipo_tratamiento_id: number = 1;
 
 
     @ViewChild('foto_uploader') foto_uploader;
@@ -103,7 +103,7 @@ export class TratamientosComponent implements OnInit {
                         this.tratamiento_id = 0;
                         this.formTratamiento.reset();
                         this.foto = '';
-                        this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
+                        this.coreService.setToast({ type: 'success', title: 'Éxito', body: 'Salvado con Éxito' });
                     });
 
                 })
@@ -112,6 +112,32 @@ export class TratamientosComponent implements OnInit {
 
 
     }
+
+
+    getTratamientoDescr(index) {
+
+        let t = "";
+        switch (index) {
+            case 1:
+                t = "Cirugia Facial"
+                break;
+            case 2:
+                t = "Cirugia Mamaria"
+                break;
+            case 3:
+                t = "Cirugia Corporal"
+                break;
+            case 4:
+                t = "Cirugia Reparadora"
+                break;
+            case 5:
+                t = "Tratamiento No Quirurgico"
+                break;
+        }
+
+        return t;
+    }
+
 
     update() {
 
@@ -135,21 +161,21 @@ export class TratamientosComponent implements OnInit {
                         this.formTratamiento.reset();
                         this.foto = '';
                     });
-                    this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
+                    this.coreService.setToast({ type: 'success', title: 'Éxito', body: 'Salvado con Éxito' });
 
                 })
             }
         });
     }
 
-    remove(){
-        this.dbConnectService.post('tratamientos', 'remove', {tratamiento_id:this.tratamiento_id}).subscribe((data)=>{
-            this._get.subscribe((data)=>{
+    remove() {
+        this.dbConnectService.post('tratamientos', 'remove', { tratamiento_id: this.tratamiento_id }).subscribe((data) => {
+            this._get.subscribe((data) => {
                 this.tratamientos = data;
                 this.tratamiento_id = 0;
                 this.foto = '';
                 this.formTratamiento.reset();
-                this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
+                this.coreService.setToast({ type: 'success', title: 'Éxito', body: 'Salvado con Éxito' });
             })
         })
     }
@@ -165,9 +191,10 @@ export class TratamientosComponent implements OnInit {
 
         form.valueChanges
             .subscribe(data => this.dbConnectService.onValueChanged(data, form, this.formErrors, this.validationMessages));
-
+            
         this.dbConnectService.onValueChanged(); // (re)set validation messages now);
 
+        // this.formTratamiento.setValue({ titulo: "", detalles: "", tipo_tratamiento_id: 1 });
         return form;
     }
 

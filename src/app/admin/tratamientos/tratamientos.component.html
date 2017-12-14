@@ -14,8 +14,8 @@
        <tr *ngFor="let i of tratamientos" (click)="select(i)">
            <th scope="row">1</th>
            <td>{{i.titulo}}</td>
-           <td>{{i.tipo_tramiento_id}}</td>
-           <td>{{i.detalles}}</td>
+           <td>{{getTratamientoDescr(i.tipo_tratamiento_id)}}</td>
+           <td><div [innerHTML]='i.detalles'></div></td>
        </tr>
        </tbody>
    </table>

@@ -6,7 +6,6 @@
        <tr>
            <th>#</th>
            <th>Titulo</th>
-           <th>Tipo de Noticia</th>
            <th>Detalles</th>
        </tr>
        </thead>
@@ -14,8 +13,7 @@
        <tr *ngFor="let i of noticias" (click)="select(i)">
            <th scope="row">1</th>
            <td>{{i.titulo}}</td>
-           <td>{{i.tipo_tramiento_id}}</td>
-           <td>{{i.detalles}}</td>
+           <td><div [innerHTML]='i.detalles'></div></td>
        </tr>
        </tbody>
    </table>

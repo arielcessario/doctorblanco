@@ -32,7 +32,7 @@ export class NoticiasComponent implements OnInit {
 
     public titulo: string;
     public detalles: string;
-    public foto: string;
+    public foto: string = '';
 
 
     @ViewChild('foto_uploader') foto_uploader;
@@ -157,6 +157,7 @@ export class NoticiasComponent implements OnInit {
             .subscribe(data => this.dbConnectService.onValueChanged(data, form, this.formErrors, this.validationMessages));
 
         this.dbConnectService.onValueChanged(); // (re)set validation messages now);
+
 
         return form;
     }

@@ -31,7 +31,7 @@ export class UsuarioComponent implements OnInit {
     public nombre: string;
     public apellido: string;
     public password: string;
-    public rol_id: number;
+    public rol_id: number = 0;
 
     public usuario_id: number = 0;
 
