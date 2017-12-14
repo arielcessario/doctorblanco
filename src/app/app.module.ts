@@ -22,6 +22,8 @@ import { HttpModule } from '@angular/http';
 import { AuthGuard } from './core/auth/auth-guard.service';
 import { FormsModule } from '@angular/forms';
 
+import { ToasterModule } from 'angular5-toaster';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -39,7 +41,8 @@ import { FormsModule } from '@angular/forms';
         AdminModule,
         NgbModule.forRoot(),
         HttpModule,
-        FormsModule
+        FormsModule,
+        ToasterModule
     ],
     providers: [CoreService, AuthenticationService, DbConnectService, AuthGuard, SettingService],
     bootstrap: [AppComponent]

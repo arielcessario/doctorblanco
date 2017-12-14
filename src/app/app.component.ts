@@ -1,8 +1,8 @@
+import { ToasterService } from 'angular5-toaster';
 import { Component, NgZone } from '@angular/core';
 import { CoreService } from './core/core.service';
 import { DbConnectService } from './core/db-connect/db-connect.service';
 import { SettingService } from './core/setting.service';
-import { log } from 'util';
 
 @Component({
     selector: 'app-root',
@@ -14,21 +14,21 @@ export class AppComponent {
     estado = 'compacted';
     test = true;
     public showLogin: boolean = false;
-
+    private toasterService: ToasterService;
     // Probar con el producto en el constructor
     constructor(
         private _ngZone: NgZone,
         private coreService: CoreService,
         private dbConnectService: DbConnectService,
         private settingService: SettingService,
-        // private toasterService: ToasterService
+        toasterService: ToasterService
     ) {
 
+        this.toasterService = toasterService;
 
-
-        // coreService.showToast.subscribe(toast => {
-        //     this.toasterService.pop(toast['type'], toast['title'], toast['body']);
-        // });
+        coreService.showToast.subscribe(toast => {
+            this.toasterService.pop(toast['type'], toast['title'], toast['body']);
+        });
 
         coreService.getLoginStatus.subscribe(data => {
             // console.log(data);

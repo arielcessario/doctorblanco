@@ -61,7 +61,6 @@ export class DoctorComponent implements OnInit {
         let cn: any;
         this.fotoCtrl.status.subscribe((data) => {
 
-            console.log(data);
             if (data.progress.percent == 100) {
 
 
@@ -71,7 +70,7 @@ export class DoctorComponent implements OnInit {
                     detalles: this.detalles,
                     foto: data.originalName
                 }).subscribe((data) => {
-                    console.log(data);
+                    this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
                     this.setUp();
                 })
             }

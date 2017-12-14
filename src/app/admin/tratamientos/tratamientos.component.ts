@@ -90,7 +90,6 @@ export class TratamientosComponent implements OnInit {
 
         let cn: any;
         this.foto_uploader.status.subscribe((data) => {
-            console.log(data.status);
             if (data.status == 200) {
                 this.foto = data.originalName;
                 cn = this.dbConnectService.post('tratamientos', 'create', {
@@ -104,6 +103,7 @@ export class TratamientosComponent implements OnInit {
                         this.tratamiento_id = 0;
                         this.formTratamiento.reset();
                         this.foto = '';
+                        this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
                     });
 
                 })
@@ -135,6 +135,7 @@ export class TratamientosComponent implements OnInit {
                         this.formTratamiento.reset();
                         this.foto = '';
                     });
+                    this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
 
                 })
             }
@@ -148,6 +149,7 @@ export class TratamientosComponent implements OnInit {
                 this.tratamiento_id = 0;
                 this.foto = '';
                 this.formTratamiento.reset();
+                this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
             })
         })
     }

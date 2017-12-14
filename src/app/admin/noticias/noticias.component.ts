@@ -98,6 +98,7 @@ export class NoticiasComponent implements OnInit {
                         this.noticias = data;
                         this.noticia_id = 0;
                     });
+                    this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
 
                 })
             }
@@ -124,6 +125,7 @@ export class NoticiasComponent implements OnInit {
                         this.noticias = data;
                         this.noticia_id = 0;
                     });
+                    this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
 
                 })
             }
@@ -137,6 +139,7 @@ export class NoticiasComponent implements OnInit {
                 this.noticia_id = 0;
                 this.foto = '';
                 this.formNoticia.reset();
+                this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
             })
         })
     }

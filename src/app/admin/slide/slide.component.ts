@@ -9,6 +9,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CoreService } from '../../core/core.service';
 import { DbConnectService } from '../../core/db-connect/db-connect.service';
 import { AuthenticationService } from '../../core/auth/authentication.service';
+import { ToasterService} from 'angular5-toaster';
 
 @Component({
     selector: 'slide',
@@ -41,6 +42,8 @@ export class SlideComponent implements OnInit {
     @ViewChild('upload03') upload03;
     @ViewChild('upload04') upload04;
 
+
+    private toasterService: ToasterService;
     constructor(private coreService: CoreService, private http: Http, private router: Router,
         private dbConnectService: DbConnectService, private authService: AuthenticationService) {
 
@@ -109,8 +112,9 @@ export class SlideComponent implements OnInit {
                     {
                         sliders: _sliders
                     }).subscribe((data) => {
+                        this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
                         this.router.navigate(['/admin']);
-                        this.setUp();
+                        // this.setUp();
                     });
             }
         });

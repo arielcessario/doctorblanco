@@ -87,6 +87,7 @@ export class UsuarioComponent implements OnInit {
             password: this.formUsuario.get('password').value,
             rol_id: this.formUsuario.get('rol_id').value,
         }).subscribe(response => {
+            this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
             this._get.subscribe((data) => {
                 this.usuarios = data;
                 this.formUsuario.reset();
@@ -104,6 +105,7 @@ export class UsuarioComponent implements OnInit {
             password: this.formUsuario.get('password').value,
             rol_id: this.formUsuario.get('rol_id').value,
         }).subscribe(response => {
+            this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
             this._get.subscribe((data) => {
                 this.usuarios = data;
                 this.formUsuario.reset();
