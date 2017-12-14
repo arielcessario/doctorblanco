@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 
 import { Http } from '@angular/http';
@@ -40,8 +41,7 @@ export class SlideComponent implements OnInit {
     @ViewChild('upload03') upload03;
     @ViewChild('upload04') upload04;
 
-    private toasterService: ToasterService;
-    constructor(private coreService: CoreService, private http: Http,
+    constructor(private coreService: CoreService, private http: Http, private router: Router,
         private dbConnectService: DbConnectService, private authService: AuthenticationService) {
 
 
@@ -109,6 +109,7 @@ export class SlideComponent implements OnInit {
                     {
                         sliders: _sliders
                     }).subscribe((data) => {
+                        this.router.navigate(['/admin']);
                         this.setUp();
                     });
             }
