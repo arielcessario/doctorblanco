@@ -60,6 +60,7 @@ export class SlideComponent implements OnInit {
     setUp() {
 
         this.dbConnectService.get('sliders', 'get', {}).subscribe((data) => {
+            console.log(data);
             this.slide_01_text = data[0].texto;
             this.slide_02_text = data[1].texto;
             this.slide_03_text = data[2].texto;

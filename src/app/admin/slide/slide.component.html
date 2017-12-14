@@ -1,27 +1,36 @@
-<div>
-    <input type="text" [(ngModel)]="slide_01_text">
-    <upload-component [img]='slide_01_url' #upload01></upload-component>
-    <!-- <input type="file" ng2FileSelect [uploader]="slide_01" /> -->
+<div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px">
+    <div class="row" style="margin: 0 20px;">
+        <div class="form-group">
+            <label class="" >Texto</label>
+            <input type="text" [(ngModel)]="slide_01_text" class="form-control">
+            <upload-component [img]='slide_01_url' #upload01></upload-component>
+            <!-- <input type="file" ng2FileSelect [uploader]="slide_01" /> -->
+        </div>
+        <div class="form-group">
+            <label class="" >Texto</label>
+            <input type="text" [(ngModel)]="slide_02_text" class="form-control">
+            <upload-component [img]='slide_02_url' #upload02></upload-component>
+            <!-- <input type="file" ng2FileSelect [uploader]="slide_02"/> -->
+        </div>
+        <div class="form-group">
+            <label class="" >Texto</label>
+            <input type="text" [(ngModel)]="slide_03_text" class="form-control">
+            <upload-component [img]='slide_03_url' #upload03></upload-component>
+            <!-- <input type="file" ng2FileSelect [uploader]="slide_03"/> -->
+        </div>
+        <div class="form-group">
+            <label class="" >Texto</label>
+            <input type="text" [(ngModel)]="slide_04_text" class="form-control">
+            <upload-component [img]='slide_04_url' #upload04></upload-component>
+            <!-- <input type="file" ng2FileSelect [uploader]="slide_04"/> -->
+        </div>
+
+        <div class="form-group" style="width: 100%;">
+            <button (click)="update()" class="btn btn-med btn-primary">Guardar</button>
+        </div>
+    </div>
 </div>
 
-<div>
-    <input type="text" [(ngModel)]="slide_02_text">
-    <upload-component [img]='slide_02_url' #upload02></upload-component>
-    <!-- <input type="file" ng2FileSelect [uploader]="slide_02"/> -->
-</div>
-
-<div>
-    <input type="text" [(ngModel)]="slide_03_text">
-    <upload-component [img]='slide_03_url' #upload03></upload-component>
-    <!-- <input type="file" ng2FileSelect [uploader]="slide_03"/> -->
-</div>
-
-<div>
-    <input type="text" [(ngModel)]="slide_04_text">
-    <upload-component [img]='slide_04_url' #upload04></upload-component>
-    <!-- <input type="file" ng2FileSelect [uploader]="slide_04"/> -->
-</div>
 
 
 
-<button (click)="update()">Guardar</button>
