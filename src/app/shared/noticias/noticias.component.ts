@@ -28,6 +28,7 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
     foto_2: String = '';
 
     private _get;
+    //public getDetalle;
 
     constructor(private coreService: CoreService, private dbConnectService: DbConnectService){
 
@@ -72,6 +73,13 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
 
+    }
+
+    getDetalle(detalle: string): string {
+        if(detalle.length > 150)
+            return detalle.substr(0, 150) + "...";
+        else
+            return detalle;
     }
     //
     // create() {
