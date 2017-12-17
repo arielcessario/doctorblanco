@@ -23,6 +23,7 @@ import { AuthGuard } from './core/auth/auth-guard.service';
 import { FormsModule } from '@angular/forms';
 
 import { ToasterModule } from 'angular5-toaster';
+//import { ToasterModule } from 'angular5-toaster/dist/angular5-toaster';
 
 @NgModule({
     declarations: [
