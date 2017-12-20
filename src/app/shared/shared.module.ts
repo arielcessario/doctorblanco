@@ -21,6 +21,7 @@ import { LinksComponent } from './links/links.component';
 import { UbicacionComponent } from './ubicacion/ubicacion.component'
 import {ScrollToModule} from 'ng2-scroll-to';
 import { UploadComponent } from './upload/upload.component';
+import { AnimationsDirective } from './animations/animations.directive';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { UploadComponent } from './upload/upload.component';
         ContactoComponent,
         LinksComponent,
         UbicacionComponent,
-        UploadComponent
+        UploadComponent,
+        AnimationsDirective
     ],
     imports: [
         RouterModule,
@@ -68,7 +70,8 @@ import { UploadComponent } from './upload/upload.component';
         ContactoComponent,
         LinksComponent,
         UbicacionComponent,
-        UploadComponent
+        UploadComponent,
+        AnimationsDirective
     ]
 })
 export class SharedModule {
