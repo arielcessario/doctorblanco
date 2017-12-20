@@ -1,16 +1,16 @@
 <!--div class="" style="background-color:#EEEEEE; padding: 20px 0;border-top: 1px solid #007bff"-->
-    <div class="container" style="background-color:#EEEEEE; padding: 20px 0;">
+    <div class="container container-1" style="">
         <div class="row" style="margin: 5px 0">
-            <h1 class="mx-auto">NOTICIAS</h1>
+            <h1 class="mx-auto">Noticias</h1>
         </div>
         <div class="row" style="margin: 5px 0">
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <img src="http://www.mateomaneff.com.ar/images/slider/not-1.jpg" class="img-responsive img-thumbnail">
                     </div>
-                    <div class="col-md-6">
-                        <h3 class="mx-auto">{{titulo_1}}</h3>
+                    <div class="col-md-12">
+                        <h3 class="mx-auto" style="text-align: center">{{titulo_1}}</h3>
                         <div [innerHTML]='getDetalle(detalles_1)'></div>
                         <!-- {{detalles_1}} -->
                     </div>
@@ -18,11 +18,11 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <img src="http://www.mateomaneff.com.ar/images/slider/not-2.jpg" class="img-responsive img-thumbnail">
                     </div>
-                    <div class="col-md-6">
-                        <h3 class="mx-auto">{{titulo_2}}</h3>
+                    <div class="col-md-12">
+                        <h3 class="mx-auto" style="text-align: center">{{titulo_2}}</h3>
                         <div [innerHTML]='getDetalle(detalles_2)'></div>
                         
                     </div>

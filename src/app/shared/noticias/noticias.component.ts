@@ -76,8 +76,8 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
     }
 
     getDetalle(detalle: string): string {
-        if(detalle.length > 150)
-            return detalle.substr(0, 150) + "...";
+        if(detalle.length > 250)
+            return detalle.substr(0, 250) + "...";
         else
             return detalle;
     }

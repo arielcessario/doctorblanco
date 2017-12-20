@@ -1,8 +1,16 @@
-/* The version of Bourbon used in this Pen was 4.* */
 @import '../../app.component.scss';
 
 
-
+h1{
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 90px;
+  position: relative;
+  line-height: 113px;
+  padding: 15px 20px 0px 20px;
+  max-width: 990px;
+  margin: auto;
+  color:#ffffff;
+}
 
 h3{
   margin: 10px 0;
@@ -33,7 +41,21 @@ p{
 }
 
 
-
+.container-1 {
+  max-width: 100%;
+  padding: 20px 0;
+  background-color: #8dd4da;
+  //background-image: url('http://www.mateomaneff.com.ar/images/fondo13.jpg');
+  //z-index: 1;
+  //opacity: 0.6;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
 
 
 
