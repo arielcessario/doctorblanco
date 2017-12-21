@@ -1,4 +1,4 @@
-import { Directive, HostListener, Host, NgZone, ElementRef, Input, HostBinding } from '@angular/core';
+import { Directive, HostListener, Host, NgZone, ElementRef, Input, HostBinding, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[animate], animate'
@@ -9,6 +9,8 @@ export class AnimationsDirective {
 
   @Input('correctionOut') correctionOut: number = 0;
   @Input('correctionIn') correctionIn: number = 0;
+
+  @Output() animate: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   // alternatively also the host parameter in the @Component()` decorator can be used
   @HostBinding('class.animationClass') active: boolean = false;
@@ -70,6 +72,7 @@ export class AnimationsDirective {
 
     if (top_adentro || bottom_adentro) {
       this.active = true;
+      this.animate.emit(true);
       // if (!$element.hasClass($scope.animationIn)) {
       //     $element.addClass($scope.animationIn);
       // }
@@ -77,6 +80,7 @@ export class AnimationsDirective {
 
     if (!top_adentro && !bottom_adentro) {
       this.active = false;
+      this.animate.emit(false);
       // $element.removeClass($scope.animationIn);
     }
 

@@ -8,7 +8,7 @@
     <section id="noticias">
         <noticias-component></noticias-component>
     </section>
-    <section id="links" animate>
+    <section id="links" animate (animate)='animation($event);' [@animLinks]='animLinks'>
         <links-component></links-component>
     </section>
     <section id="contacto">
