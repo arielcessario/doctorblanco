@@ -882,17 +882,17 @@ input, select {
 
 
 .h1 {
-  font-size: 3.4em;
+  font-size: 3.2em;
 }
 
 @media (min-width: 576px) {
   .h1-sm {
-    font-size: 4.4em;
+    font-size: 4.2em;
   }
 }
 @media (min-width: 768px) {
   .h1-md {
-    font-size: 5.4em;
+    font-size: 5em;
   }
 }
 
@@ -906,3 +906,37 @@ h1{
   margin: auto;
   color: #007bff;
 }
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+  background: url('http://www.mateomaneff.com.ar/images/parallax1.png') repeat top center;
+}
+.parallax__layer--back {
+  //transform: translateZ(-1px);
+  transform: translateZ(-1px) scale(2);
+  background: url('http://www.mateomaneff.com.ar/images/parallax2.png') repeat top center;
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+
+

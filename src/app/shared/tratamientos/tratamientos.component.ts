@@ -48,6 +48,7 @@ export class TratamientosComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
 
     }
+
     //
     // create() {
     //     this.dbConnectService.post('usuarios', 'create', {
