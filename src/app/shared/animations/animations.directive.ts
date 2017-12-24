@@ -1,7 +1,10 @@
 import { Directive, HostListener, Host, NgZone, ElementRef, Input, HostBinding, Output, EventEmitter } from '@angular/core';
+import { AnimationBuilder, animate, style } from '@angular/animations';
+
 
 @Directive({
-  selector: '[animate], animate'
+  selector: '[animate], animate',
+  host: {}
 })
 export class AnimationsDirective {
   latestKnownScrollY: number = 0;
@@ -9,15 +12,58 @@ export class AnimationsDirective {
 
   @Input('correctionOut') correctionOut: number = 0;
   @Input('correctionIn') correctionIn: number = 0;
+  @Input('preset') preset: string = '';
+  @Input('timing') timing: number = 1000;
+  @Input('customAnimation') customAnimation: any = {};
 
-  @Output() animate: EventEmitter<boolean> = new EventEmitter<boolean>();
+  shown: boolean = false;
 
-  // alternatively also the host parameter in the @Component()` decorator can be used
-  @HostBinding('class.animationClass') active: boolean = false;
-
-  constructor(private ngZone: NgZone, private el: ElementRef) {
+  constructor(private ngZone: NgZone, private el: ElementRef, private _builder: AnimationBuilder) {
   }
 
+  makeAnimation() {
+
+    if (this.shown) {
+      return;
+    }
+    // first build the animation
+    let myAnimation: any;
+
+    switch (this.preset) {
+      case 'slideFromLeft':
+        myAnimation = this._builder.build([
+          style({ transform: 'translate(-100%)' }),
+          animate(this.timing, style({ transform: 'translate(0)' }))
+        ]);
+        break;
+      case 'slideFromRight':
+        myAnimation = this._builder.build([
+          style({ transform: 'translate(100%)' }),
+          animate(this.timing, style({ transform: 'translate(0)' }))
+        ]);
+        break;
+      case 'fadeIn':
+        myAnimation = this._builder.build([
+          style({ opacity: 0, visibility: 'collapse' }),
+          animate(this.timing, style({ opacity: 1, visibility: 'visible' }))
+        ]);
+        break;
+      default:
+        myAnimation = this._builder.build([
+          style({ opacity: 0, visibility: 'collapse' }),
+          animate(this.timing, style({ opacity: 1, visibility: 'visible' }))
+        ]);
+        break;
+    }
+
+
+
+    // then create a player from it
+    const player = myAnimation.create(this.el.nativeElement);
+
+    player.play();
+    this.shown = true;
+  }
 
 
   @HostListener('window:scroll', ['$event'])
@@ -71,27 +117,21 @@ export class AnimationsDirective {
 
 
     if (top_adentro || bottom_adentro) {
-      this.active = true;
-      this.animate.emit(true);
+
+      this.makeAnimation();
+      // this.active = true;
       // if (!$element.hasClass($scope.animationIn)) {
       //     $element.addClass($scope.animationIn);
       // }
     }
 
     if (!top_adentro && !bottom_adentro) {
-      this.active = false;
-      this.animate.emit(false);
+      this.shown = false;
+      // this.active = false;
       // $element.removeClass($scope.animationIn);
     }
 
-
-
-
     this.ticking = false;
-
-
-
-
 
     // ---------------------------------------------------------------
     //if (rect.bottom <= ((window.innerHeight || document.documentElement.clientHeight) - $scope.correctionOut)) {
@@ -111,4 +151,6 @@ export class AnimationsDirective {
     //}
 
   }
+
+
 }
