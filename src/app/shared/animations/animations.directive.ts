@@ -29,32 +29,37 @@ export class AnimationsDirective {
     // first build the animation
     let myAnimation: any;
 
-    switch (this.preset) {
-      case 'slideFromLeft':
-        myAnimation = this._builder.build([
-          style({ transform: 'translate(-100%)' }),
-          animate(this.timing, style({ transform: 'translate(0)' }))
-        ]);
-        break;
-      case 'slideFromRight':
-        myAnimation = this._builder.build([
-          style({ transform: 'translate(100%)' }),
-          animate(this.timing, style({ transform: 'translate(0)' }))
-        ]);
-        break;
-      case 'fadeIn':
-        myAnimation = this._builder.build([
-          style({ opacity: 0, visibility: 'collapse' }),
-          animate(this.timing, style({ opacity: 1, visibility: 'visible' }))
-        ]);
-        break;
-      default:
-        myAnimation = this._builder.build([
-          style({ opacity: 0, visibility: 'collapse' }),
-          animate(this.timing, style({ opacity: 1, visibility: 'visible' }))
-        ]);
-        break;
+    if (this.preset === '') {
+      myAnimation = this._builder.build(this.customAnimation);
+    } else {
+      switch (this.preset) {
+        case 'slideFromLeft':
+          myAnimation = this._builder.build([
+            style({ transform: 'translate(-100%)' }),
+            animate(this.timing, style({ transform: 'translate(0)' }))
+          ]);
+          break;
+        case 'slideFromRight':
+          myAnimation = this._builder.build([
+            style({ transform: 'translate(100%)' }),
+            animate(this.timing, style({ transform: 'translate(0)' }))
+          ]);
+          break;
+        case 'fadeIn':
+          myAnimation = this._builder.build([
+            style({ opacity: 0, visibility: 'collapse' }),
+            animate(this.timing, style({ opacity: 1, visibility: 'visible' }))
+          ]);
+          break;
+        default:
+          myAnimation = this._builder.build([
+            style({ opacity: 0, visibility: 'collapse' }),
+            animate(this.timing, style({ opacity: 1, visibility: 'visible' }))
+          ]);
+          break;
+      }
     }
+
 
 
 
