@@ -887,18 +887,19 @@ input, select {
 
 @media (min-width: 576px) {
   .h1-sm {
-    font-size: 3em;
+    font-size: 2.6em;
   }
 }
 @media (min-width: 768px) {
   .h1-md {
-    font-size: 3em;
+    font-size: 2.6em;
   }
 }
 
 h1{
   //font-family: 'Merriweather Sans', sans-serif;
-  font-family: 'Lato', sans-serif;
+  //font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   //font-size: 90px;
   position: relative;
   line-height: 113px;
