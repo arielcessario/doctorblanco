@@ -10,9 +10,9 @@
                         <h1>{{items[items.length-1].nombre}}</h1>
                         <span>{{items[items.length-1].descripcion | descLength}}</span>
 
-                        <div class="slider-descr-actions">
+                        <!--div class="slider-descr-actions">
                             <a class="btn btn-med btn-primary" [routerLink]="['/main']" >Leer Mas</a>
-                        </div>
+                        </div-->
                     </div>
                 </div>
                 <div id="slider-02" *ngIf="visible == 2"  [@enterAnimation]="visible == 2">
@@ -20,9 +20,6 @@
                     <div class="slider-descr">
                         <h1>{{items[items.length-2].nombre}}</h1>
                         <span>{{items[items.length-2].descripcion | descLength}}</span>
-                        <div class="slider-descr-actions">
-                            <a class="btn btn-med btn-primary" [routerLink]="['/main']" >Leer Mas</a>
-                        </div>
                     </div>
                 </div>
                 <div id="slider-03" *ngIf="visible == 3" [@enterAnimation]="visible == 3">
@@ -30,9 +27,6 @@
                     <div class="slider-descr">
                         <h1>{{items[items.length-3].nombre}}</h1>
                         <span>{{items[items.length-3].descripcion | descLength}}</span>
-                        <div class="slider-descr-actions" >
-                            <a class="btn btn-med btn-primary" [routerLink]="['/main']" >Leer Mas</a>
-                        </div>
                     </div>
                 </div>
                 <div id="slider-04" *ngIf="visible == 4" [@enterAnimation]="visible == 4">
@@ -40,9 +34,6 @@
                     <div class="slider-descr">
                         <h1>{{items[items.length-4].nombre}}</h1>
                         <span>{{items[items.length-4].descripcion | descLength}}</span>
-                        <div class="slider-descr-actions">
-                            <a class="btn btn-med btn-primary" [routerLink]="['/main']" >Leer Mas</a>
-                        </div>
                     </div>
                 </div>
             </div>

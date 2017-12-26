@@ -89,10 +89,10 @@ export class SliderComponent implements OnInit {
         // this.dbConnectService.get('')
         
         var productos = [
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirujia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider2.JPG', 'nombre':'Cirujia Reconstructiva', 'descripcion': ''},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider2.JPG', 'nombre':'Cirugia Reconstructiva', 'descripcion': ''},
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider3.JPG', 'nombre':'Tratamientos no Quirurgicos', 'descripcion': ''},
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirujia Mamarias', 'descripcion': ''},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Mamarias', 'descripcion': ''},
             //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
             //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
         ]
