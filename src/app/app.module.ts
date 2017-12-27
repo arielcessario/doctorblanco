@@ -1,3 +1,4 @@
+import { ScrollToModule } from 'ng2-scroll-to';
 import { SettingService } from './core/setting.service';
 
 import { NoticiaComponent } from './noticia/noticia.component';
@@ -41,6 +42,7 @@ import { ToasterModule } from 'angular5-toaster';
         SharedModule,
         AdminModule,
         NgbModule.forRoot(),
+        ScrollToModule.forRoot(),
         HttpModule,
         FormsModule,
         ToasterModule
