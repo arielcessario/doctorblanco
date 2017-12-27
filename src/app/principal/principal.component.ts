@@ -1,6 +1,6 @@
 
 import { state, trigger, style, transition, animate } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 
 @Component({
@@ -24,6 +24,7 @@ import { Component, OnInit } from '@angular/core';
 export class PrincipalComponent implements OnInit {
     loged = false;
     animLinks = false;
+    top: boolean = true;
 
 
     constructor() {
@@ -40,6 +41,12 @@ export class PrincipalComponent implements OnInit {
 
     animation(e) {
         this.animLinks = e;
+    }
+
+
+    @HostListener('window:scroll', ['$event'])
+    scroll(event) {
+        this.top = window.pageYOffset == 0;
     }
 
 }
