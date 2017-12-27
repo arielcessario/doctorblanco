@@ -106,11 +106,11 @@ export class SliderComponent implements OnInit {
         }
 
         console.log(this.items);
-
+/*
         this.timer = setInterval(() => {
             this.visible = this.visible == 4 ? 1 : this.visible + 1;
         }, 5000);
-
+*/
     }
 
     interval() {

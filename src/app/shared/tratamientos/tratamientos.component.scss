@@ -10,6 +10,7 @@ h3{
   font-weight: bold;
 }
 .img-thumbnail {
+  cursor: pointer;
   display: block !important;
   border: none !important;
   padding: 0 !important;
@@ -47,6 +48,19 @@ h3{
   overflow: hidden;
   text-align: center;
 }
+
+.img-animate:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.img-animate {
+  webkit-transition: -webkit-transform .2s linear;
+  transition: -webkit-transform .2s linear;
+  transition: transform .2s linear;
+  transition: transform .2s linear,-webkit-transform .2s linear;
+}
+
 
 #s1Parallax1 {
   background: url('http://www.mateomaneff.com.ar/images/parallax1.png') repeat top center;
