@@ -13,6 +13,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class TratamientoComponent implements OnInit {
 
     id: number;
+    titulo: string = '';
 
     loged = false;
     tratamientos: Array<any> = [];
@@ -27,15 +28,35 @@ export class TratamientoComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             console.log(params['id']);
+            this.setTitle(params['id']);
             this.id = +params['id'];
             //this.loged = localStorage.getItem('currentUser') != null;
             this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
             this._get.subscribe((data) => {
-                console.log(data);
-                this.tratamientos = data;
+                for (var index in data) {
+                    if(data[index].tipo_tratamiento_id == params['id']) {
+                        this.tratamientos.push(data[index]);
+                    }
+                }
+                console.log(this.tratamientos);
+                //this.tratamientos = data;
             });
         });
+    }
+
+    setTitle(id): void {
+        if(id == 1) {
+            this.titulo = 'Cirugia Facial';
+        } else if(id == 2) {
+            this.titulo = 'Cirugia Mamaria';
+        } else if(id == 3) {
+            this.titulo = 'Cirugia Corporal';
+        } else if(id == 4) {
+            this.titulo = 'Cirugia Reparadora';
+        } else if(id == 5) {
+            this.titulo = 'Tratamiento No Quirurgico';
+        }
     }
 
     setUp() {

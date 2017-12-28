@@ -1,8 +1,8 @@
 <div class="container container-1" >
     <div class="row" style="margin: 0">
-        <h1 class="h1 h1-sm h1-md mx-auto" style="margin-top: 4%;">Tratamientos</h1>
+        <h1 class="h1 h1-sm h1-md mx-auto" style="margin-top: 4%;">{{titulo}}</h1>
     </div>
-    <div class="row" style="margin: 0">
+    <!--div class="row" style="margin: 0">
         <div class="form-group">
             <label style="margin-left: 25%;" >Tipo de Tratamiento</label>
             <select  name="" id="tipo_tratamiento_id" [(ngModel)]="tipo_tratamiento_id"
@@ -14,7 +14,7 @@
                 <option value="5">Tratamiento No Quirurgico</option>
             </select>
         </div>
-    </div>
+    </div-->
     <div class="row" style="margin:20px 20px 40px" *ngFor="let item of tratamientos| tratamientos:tipo_tratamiento_id; let even = even; let odd = odd">
         <div class="col-md-4" *ngIf="even">
             <img src="http://www.mateomaneff.com.ar/images/slider/trat-5.jpg" class="img-responsive img-thumbnail">

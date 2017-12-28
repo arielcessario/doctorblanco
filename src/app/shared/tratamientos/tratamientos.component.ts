@@ -2,6 +2,7 @@ import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit} from '@a
 
 import {Http} from "@angular/http";
 // import {AuthService} from "angular2-social-tratamientos";
+import {Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {CoreService} from "../../core/core.service";
 import {DbConnectService} from "../../core/db-connect/db-connect.service";
@@ -18,12 +19,11 @@ import {DbConnectService} from "../../core/db-connect/db-connect.service";
  * TODO:
  */
 export class TratamientosComponent implements OnInit, AfterViewInit {
+
     current: number = 1;
+    id: number;
 
-
-
-
-    constructor(private dbConnectService: DbConnectService){
+    constructor(private router: Router, private dbConnectService: DbConnectService){
 
     };
     // constructor(private coreService: CoreService, private http: Http, public _auth: AuthService,
@@ -43,6 +43,11 @@ export class TratamientosComponent implements OnInit, AfterViewInit {
     //     this.formTratamientos = this.buildFormTratamientos(this.formTratamientos);
     //
     //     this.formCreateUsuario.controls['social_tratamientos'].setValue(0);
+    }
+
+    goTo(id): void {
+        console.log(id);
+        this.router.navigate(['/tratamiento', id]);
     }
 
     ngAfterViewInit() {
