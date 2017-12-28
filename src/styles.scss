@@ -25,3 +25,34 @@ h1{
 }
 
 
+.back-top {
+  //position: fixed;
+  //bottom: 20px;
+  //right: 20px;
+  //margin-bottom: 0;
+  //z-index: 999;
+  background: #222;
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  //display: block;
+  font-size: 12px;
+  text-align: center;
+  //text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  outline: 0;
+}
+a.back-top:hover, a.back-top:active {
+  outline: 0;
+  background-color: #666;
+  text-decoration: none;
+  color:#ffffff;
+}
+
