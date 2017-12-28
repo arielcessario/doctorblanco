@@ -44,7 +44,7 @@ export class TratamientoComponent implements OnInit {
                 setTimeout(() => {
                     this.tratamientos = tmp;
                     console.log(this.tratamientos);
-                }, 0);
+                }, 100);
 
             });
         });
