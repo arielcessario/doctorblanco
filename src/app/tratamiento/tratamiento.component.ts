@@ -1,8 +1,9 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit, SecurityContext, ChangeDetectorRef, NgZone } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CoreService } from '../core/core.service';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
 import { Router, ActivatedRoute } from "@angular/router";
+
 
 @Component({
     selector: 'tratamiento',
@@ -22,7 +23,10 @@ export class TratamientoComponent implements OnInit {
 
     private _get;
 
-    constructor(private coreService: CoreService, private router: Router, private route: ActivatedRoute, private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer) {
+    constructor(private coreService: CoreService, private router: Router,
+                private route: ActivatedRoute, private dbConnectService: DbConnectService,
+                private _sanitizer: DomSanitizer, private ref:ChangeDetectorRef,
+                private _ngZone: NgZone) {
     }
 
     ngOnInit() {
@@ -34,17 +38,29 @@ export class TratamientoComponent implements OnInit {
             this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
             this._get.subscribe((data) => {
+                console.log(data);
                 let tmp = [];
+                console.log(tmp);
                 for (var index in data) {
                     if(data[index].tipo_tratamiento_id == params['id']) {
                         tmp.push(data[index]);
+                        //this.tratamientos.push(data[index]);
                     }
                 }
-                console.log(tmp);
+                //console.log(this.tratamientos);
+                //this.tratamientos = tmp;
+                //this.ref.detectChanges();
+                //this.ref.markForCheck();
+                //console.log(tmp);
                 setTimeout(() => {
                     this.tratamientos = tmp;
                     console.log(this.tratamientos);
-                }, 100);
+                }, 0);
+
+                this._ngZone.run(() => {
+                    this.tratamientos = tmp;
+                    console.log(this.tratamientos);
+                });
 
             });
         });
