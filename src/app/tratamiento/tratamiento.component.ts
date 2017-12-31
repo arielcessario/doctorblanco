@@ -1,4 +1,4 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit, SecurityContext, NgZone } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CoreService } from '../core/core.service';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
@@ -22,7 +22,8 @@ export class TratamientoComponent implements OnInit {
 
     private _get;
 
-    constructor(private coreService: CoreService, private router: Router, private route: ActivatedRoute, private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer) {
+    constructor(private coreService: CoreService, private router: Router, private route: ActivatedRoute,
+                private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer, private ngZone: NgZone) {
     }
 
     ngOnInit() {
@@ -34,18 +35,19 @@ export class TratamientoComponent implements OnInit {
             this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
             this._get.subscribe((data) => {
-                let tmp = [];
-                for (var index in data) {
-                    if(data[index].tipo_tratamiento_id == params['id']) {
-                        tmp.push(data[index]);
+                this.ngZone.run(() => { // run inside Angular2 world
+                    let tmp = [];
+                    for (var index in data) {
+                        if(data[index].tipo_tratamiento_id == params['id']) {
+                            tmp.push(data[index]);
+                        }
                     }
-                }
-                console.log(tmp);
-                setTimeout(() => {
-                    this.tratamientos = tmp;
-                    console.log(this.tratamientos);
-                }, 100);
-
+                    //console.log(tmp);
+                    setTimeout(() => {
+                        this.tratamientos = tmp;
+                        console.log(this.tratamientos);
+                    }, 0);
+                });
             });
         });
     }
