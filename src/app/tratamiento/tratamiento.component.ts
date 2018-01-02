@@ -69,6 +69,8 @@ export class TratamientoComponent implements OnInit {
                     }
                 }
                 this.tratamientos = tmp;
+
+                console.log(tmp);
                 this.changeDetector.markForCheck();
 
             });
