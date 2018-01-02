@@ -144,7 +144,7 @@ export class DbConnectService implements OnInit {
     }
 
     public extractData(obj: string, fnc: string, data: Response, coreService) {
-        console.log(data);
+        //console.log(data);
 
         if (data['_body'] != '') {
 

@@ -37,7 +37,7 @@ export class TratamientosComponent implements OnInit, AfterViewInit {
     //
     ngOnInit() {
         this.dbConnectService.get('tratamientos','getAll', {}).subscribe((data)=>{
-            console.log(data);
+            //console.log(data);
         });
     //     this.formCreateUsuario = this.buildFormCreate(this.formCreateUsuario);
     //     this.formTratamientos = this.buildFormTratamientos(this.formTratamientos);
@@ -46,7 +46,7 @@ export class TratamientosComponent implements OnInit, AfterViewInit {
     }
 
     goTo(id): void {
-        console.log(id);
+        //console.log(id);
         this.router.navigate(['/tratamiento', id]);
     }
 
