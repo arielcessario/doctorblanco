@@ -34,11 +34,16 @@ export class TratamientoComponent implements OnInit {
             this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
             this._get.subscribe((data) => {
+                let tmp = [];
                 for (var index in data) {
                     if(data[index].tipo_tratamiento_id == params['id']) {
-                        this.tratamientos.push(data[index]);
+                        tmp.push(data[index]);
                     }
                 }
+
+                setTimeout(() => {
+                    this.tratamientos = tmp;
+                }, 0);
                 console.log(this.tratamientos);
                 //this.tratamientos = data;
             });
