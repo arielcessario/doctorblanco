@@ -1,19 +1,23 @@
-import { Component, OnInit, SecurityContext, NgZone } from '@angular/core';
+import { Component, OnInit, SecurityContext, NgZone, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CoreService } from '../core/core.service';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
 import { Router, ActivatedRoute } from "@angular/router";
 
+import { Observable } from 'rxjs/Observable';
+
 @Component({
     selector: 'tratamiento',
     templateUrl: './tratamiento.component.html',
-    styleUrls: ['./tratamiento.component.scss']
+    styleUrls: ['./tratamiento.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TratamientoComponent implements OnInit {
 
     id: number;
     titulo: string = '';
+    changeDetectorRefs:ChangeDetectorRef[] = [];
 
     loged = false;
     tratamientos: Array<any> = [];
@@ -23,8 +27,13 @@ export class TratamientoComponent implements OnInit {
     private _get;
 
     constructor(private coreService: CoreService, private router: Router, private route: ActivatedRoute,
-                private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer, private ngZone: NgZone) {
+                private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer,
+                private ngZone: NgZone, private changeDetector: ChangeDetectorRef) {
+
+
+
     }
+
 
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -35,6 +44,8 @@ export class TratamientoComponent implements OnInit {
             this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
             this._get.subscribe((data) => {
+
+                /*
                 this.ngZone.run(() => { // run inside Angular2 world
                     let tmp = [];
                     for (var index in data) {
@@ -48,8 +59,24 @@ export class TratamientoComponent implements OnInit {
                         console.log(this.tratamientos);
                     }, 0);
                 });
+                */
+
+
+                let tmp = [];
+                for (var index in data) {
+                    if(data[index].tipo_tratamiento_id == params['id']) {
+                        tmp.push(data[index]);
+                    }
+                }
+                this.tratamientos = tmp;
+                this.changeDetector.markForCheck();
+
             });
         });
+    }
+
+    ngOnChanges(change) {
+        console.log("CHANGE", change)
     }
 
     setTitle(id): void {
