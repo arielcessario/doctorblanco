@@ -4,6 +4,7 @@ import { SettingService } from './core/setting.service';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { MainComponent } from './main/main.component';
+import { VerNoticiaComponent } from './vernoticia/vernoticia.component';
 import { SharedModule } from './shared/shared.module';
 import { DbConnectService } from './core/db-connect/db-connect.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +33,8 @@ import { ToasterModule } from 'angular5-toaster';
         PrincipalComponent,
         TratamientoComponent,
         NoticiaComponent,
-        MainComponent
+        MainComponent,
+        VerNoticiaComponent
     ],
     imports: [
         BrowserModule,

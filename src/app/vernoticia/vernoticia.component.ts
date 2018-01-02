@@ -14,7 +14,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class VerNoticiaComponent implements OnInit {
 
     id: number;
-    titulo: string = 'ee';
+    titulo: string = '';
+    detalle: string = '';
 
     loged = false;
 
@@ -33,10 +34,11 @@ export class VerNoticiaComponent implements OnInit {
             this._get = this.dbConnectService.get('noticias', 'getAll', {});
 
             this._get.subscribe((data) => {
-                let tmp = [];
+                console.log(data);
                 for (var index in data) {
                     if(data[index].noticia_id == params['id']) {
-                        tmp.push(data[index]);
+                        this.titulo = data[index].titulo;
+                        this.detalle = data[index].detalles;
                     }
                 }
 

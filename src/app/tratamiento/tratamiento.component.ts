@@ -1,4 +1,4 @@
-import { Component, OnInit, SecurityContext, NgZone, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, SecurityContext, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CoreService } from '../core/core.service';
 import { DbConnectService } from '../core/db-connect/db-connect.service';
@@ -9,27 +9,24 @@ import { Observable } from 'rxjs/Observable';
 @Component({
     selector: 'tratamiento',
     templateUrl: './tratamiento.component.html',
-    styleUrls: ['./tratamiento.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: ['./tratamiento.component.scss']
 })
 
 export class TratamientoComponent implements OnInit {
 
     id: number;
     titulo: string = '';
-    changeDetectorRefs:ChangeDetectorRef[] = [];
 
     loged = false;
     tratamientos: Array<any> = [];
-    tipo_tratamiento_id: number = 1;
+    //tipo_tratamiento_id: number = 1;
 
 
     private _get;
 
     constructor(private coreService: CoreService, private router: Router, private route: ActivatedRoute,
                 private dbConnectService: DbConnectService, private _sanitizer: DomSanitizer,
-                private ngZone: NgZone, private changeDetector: ChangeDetectorRef) {
-
+                private changeDetector: ChangeDetectorRef) {
 
 
     }
@@ -44,23 +41,6 @@ export class TratamientoComponent implements OnInit {
             this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
             this._get.subscribe((data) => {
-
-                /*
-                this.ngZone.run(() => { // run inside Angular2 world
-                    let tmp = [];
-                    for (var index in data) {
-                        if(data[index].tipo_tratamiento_id == params['id']) {
-                            tmp.push(data[index]);
-                        }
-                    }
-                    //console.log(tmp);
-                    setTimeout(() => {
-                        this.tratamientos = tmp;
-                        console.log(this.tratamientos);
-                    }, 0);
-                });
-                */
-
 
                 let tmp = [];
                 for (var index in data) {
@@ -77,9 +57,6 @@ export class TratamientoComponent implements OnInit {
         });
     }
 
-    ngOnChanges(change) {
-        console.log("CHANGE", change)
-    }
 
     setTitle(id): void {
         if(id == 1) {
