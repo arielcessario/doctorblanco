@@ -406,6 +406,10 @@ class Usuarios extends Main
 
             $this->db->where('usuario_id', $user_decoded->usuario_id);
 
+            if ($user_decoded->password != '') {
+                $this->changePassword($user_decoded->usuario_id, '', $user_decoded->password);
+            }
+
             $data = array(
                 'nombre' => $user_decoded->nombre,
                 'apellido' => $user_decoded->apellido,
@@ -425,22 +429,16 @@ class Usuarios extends Main
                 'social_login' => $user_decoded->social_login
             );
 
-            if ($user_decoded->password != '') {
-                $this->changePassword($user_decoded->usuario_id, '', $user_decoded->password);
+            $this->db->where('usuario_id', $user_decoded->usuario_id);
+
+            $result = $this->db->update('usuarios', $data);
+
+            if (!$result) {
+                $this->db->rollback();
+                $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
+                return;
             }
 
-            if ($this->db->update('usuarios', $data)) {
-
-
-                // $this->db->where('usuario_id', $user_decoded->usuario_id);
-                // $data = array(
-                //     'calle' => $user_decoded->calle,
-                //     'nro' => $user_decoded->nro,
-                //     'provincia_id' => $user_decoded->provincia_id
-                // );
-
-                // $this->db->update('direcciones', $data);
-            }
             $this->db->commit();
             $this->sendResponse('Ok');
 
@@ -500,8 +498,6 @@ class Usuarios extends Main
      */
     function checkUsuario($usuario)
     {
-
-
         $usuario->nombre = (!array_key_exists("nombre", $usuario)) ? '' : $usuario->nombre;
         $usuario->apellido = (!array_key_exists("apellido", $usuario)) ? '' : $usuario->apellido;
         $usuario->mail = (!array_key_exists("mail", $usuario)) ? '' : $usuario->mail;

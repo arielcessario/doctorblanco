@@ -58,6 +58,7 @@ export class UsuarioComponent implements OnInit {
     }
 
     setUp(row) {
+        //console.log(row);
         this.usuario_id = row.usuario_id;
 
         this.formUsuario.setValue({
@@ -68,6 +69,7 @@ export class UsuarioComponent implements OnInit {
             rol_id: row.rol_id
         });
 
+        //console.log(this.formUsuario);
     }
 
     save() {
@@ -80,6 +82,7 @@ export class UsuarioComponent implements OnInit {
 
 
     create() {
+        console.log("Create");
         this.dbConnectService.post('usuarios', 'create', {
             mail: this.formUsuario.get('mail').value,
             nombre: this.formUsuario.get('nombre').value,
@@ -97,13 +100,15 @@ export class UsuarioComponent implements OnInit {
 
 
     update() {
+        console.log("Update");
+        console.log(this.usuario_id);
         this.dbConnectService.post('usuarios', 'update', {
             usuario_id: this.usuario_id,
             mail: this.formUsuario.get('mail').value,
             nombre: this.formUsuario.get('nombre').value,
             apellido: this.formUsuario.get('apellido').value,
             password: this.formUsuario.get('password').value,
-            rol_id: this.formUsuario.get('rol_id').value,
+            rol_id: this.formUsuario.get('rol_id').value
         }).subscribe(response => {
             this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
             this._get.subscribe((data) => {
