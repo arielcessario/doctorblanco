@@ -22,6 +22,7 @@ import { UbicacionComponent } from './ubicacion/ubicacion.component'
 import {ScrollToModule} from 'ng2-scroll-to';
 import { UploadComponent } from './upload/upload.component';
 import { AnimationsDirective } from './animations/animations.directive';
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AnimationsDirective } from './animations/animations.directive';
         LinksComponent,
         UbicacionComponent,
         UploadComponent,
-        AnimationsDirective
+        AnimationsDirective,
+        EscapeHtmlPipe
     ],
     imports: [
         RouterModule,

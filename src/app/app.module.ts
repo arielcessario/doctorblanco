@@ -26,6 +26,8 @@ import { FormsModule } from '@angular/forms';
 
 import { ToasterModule } from 'angular5-toaster';
 //import { ToasterModule } from 'angular5-toaster/dist/angular5-toaster';
+//import { EscapeHtmlPipe } from './shared/pipes/keep-html.pipe';
+
 
 @NgModule({
     declarations: [
@@ -35,6 +37,7 @@ import { ToasterModule } from 'angular5-toaster';
         NoticiaComponent,
         MainComponent,
         VerNoticiaComponent
+        //EscapeHtmlPipe
     ],
     imports: [
         BrowserModule,

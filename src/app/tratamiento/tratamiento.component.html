@@ -24,8 +24,9 @@
                 <div class="col-md-12">
                     <h2>{{item.titulo}}</h2>
                 </div>
-                <div class="col-md-12" [innerHTML]='item.detalles'>
-                    <!-- {{htmlProperty(item.detalles)}} -->
+                <div class="col-md-12">
+                    <!--{{htmlProperty(item.detalles)}}-->
+                    <!--div [innerHTML]="item.detalles | keepHtml"></div-->
                 </div>
             </div>
         </div>
@@ -34,8 +35,8 @@
                 <div class="col-md-12">
                     <h2>{{item.titulo}}</h2>
                 </div>
-                <div class="col-md-12" [innerHTML]='item.detalles'>
-                    <!-- {{htmlProperty(item.detalles)}} -->
+                <div class="col-md-12">
+                    <!--div [innerHTML]="item.detalles | keepHtml"></div-->
                 </div>
             </div>
         </div>

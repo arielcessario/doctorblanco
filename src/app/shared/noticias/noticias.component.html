@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-12">
                     <h3 class="mx-auto" style="text-align: center">{{titulo_1}}</h3>
-                    <div [innerHTML]='getDetalle(detalles_1)' style="padding: 20px 40px;text-align: justify;"></div>
+                    <div [innerHTML]="detalles_1 | keepHtml" style="padding: 20px 40px;text-align: justify;"></div>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-12">
                     <h3 class="mx-auto" style="text-align: center">{{titulo_2}}</h3>
-                    <div [innerHTML]='getDetalle(detalles_2)' style="padding: 20px 40px;text-align: justify;"></div>
+                    <div [innerHTML]="detalles_2 | keepHtml" style="padding: 20px 40px;text-align: justify;"></div>
                 </div>
             </div>
         </div>
