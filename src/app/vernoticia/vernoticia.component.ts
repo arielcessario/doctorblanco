@@ -16,6 +16,7 @@ export class VerNoticiaComponent implements OnInit {
     id: number;
     titulo: string = '';
     detalle: string = '';
+    foto: string = '';
 
     loged = false;
 
@@ -39,6 +40,7 @@ export class VerNoticiaComponent implements OnInit {
                     if(data[index].noticia_id == params['id']) {
                         this.titulo = data[index].titulo;
                         this.detalle = data[index].detalles;
+                        this.foto = data[index].foto;
                     }
                 }
 

@@ -19,7 +19,8 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LinksComponent } from './links/links.component';
 import { UbicacionComponent } from './ubicacion/ubicacion.component'
-import {ScrollToModule} from 'ng2-scroll-to';
+import { AcercadeComponent } from './acercade/acercade.component'
+import { ScrollToModule } from 'ng2-scroll-to';
 import { UploadComponent } from './upload/upload.component';
 import { AnimationsDirective } from './animations/animations.directive';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
@@ -43,6 +44,7 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
         ContactoComponent,
         LinksComponent,
         UbicacionComponent,
+        AcercadeComponent,
         UploadComponent,
         AnimationsDirective,
         EscapeHtmlPipe
@@ -72,6 +74,7 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
         ContactoComponent,
         LinksComponent,
         UbicacionComponent,
+        AcercadeComponent,
         UploadComponent,
         AnimationsDirective
     ]

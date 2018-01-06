@@ -17,7 +17,7 @@
     </div-->
     <div class="row" style="margin:20px 20px 40px" *ngFor="let item of tratamientos; let even = even; let odd = odd">
         <div class="col-md-4" *ngIf="even">
-            <img src="http://www.mateomaneff.com.ar/images/slider/trat-5.jpg" class="img-responsive img-thumbnail">
+            <img src="http://www.mateomaneff.com.ar/images/{{item.foto}}" class="img-responsive img-thumbnail">
         </div>
         <div class="col-md-8" *ngIf="even">
             <div class="row">
@@ -25,7 +25,7 @@
                     <h2>{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    <!--{{htmlProperty(item.detalles)}}-->
+                    <{{item.detalles}}>
                     <!--div [innerHTML]="item.detalles | keepHtml"></div-->
                 </div>
             </div>
@@ -36,12 +36,12 @@
                     <h2>{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    <!--div [innerHTML]="item.detalles | keepHtml"></div-->
+                    <{{item.detalles}}>
                 </div>
             </div>
         </div>
         <div class="col-md-4 flex-first" *ngIf="odd">
-            <img src="http://www.mateomaneff.com.ar/images/slider/trat-5.jpg" class="img-responsive img-thumbnail">
+            <img src="http://www.mateomaneff.com.ar/images/{{item.foto}}" class="img-responsive img-thumbnail">
         </div>
     </div>
 </div>
