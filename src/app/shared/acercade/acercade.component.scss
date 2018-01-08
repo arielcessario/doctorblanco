@@ -1,6 +1,9 @@
 @import '../../app.component.scss';
 
-h1{color: #ffffff;}
+h1{
+  color: #ffffff;
+  line-height: 10px;
+}
 h3{
   margin: 10px 0;
   font-size: 1em;
@@ -11,44 +14,9 @@ p{
   font-family: 'PT Sans', sans-serif;
   font-size: .8em;
 }
-.img-thumbnail {
-  display: block !important;
-  border: none !important;
-  padding: 0 !important;
-  border-radius: 0;
-  -webkit-box-shadow: 2px 2px 7px -1px rgba(0,0,0,0.7);
-  -moz-box-shadow: 2px 2px 7px -1px rgba(0,0,0,0.7);
-  box-shadow: 2px 2px 7px -1px rgba(0,0,0,0.7);
-}
-.img-circle, .img-thumbnail {
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 .container-1 {
   max-width: 100%;
   padding: 20px 0;
-  background-color: #8dd4da;
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-color: #000;
 }
 
-.img-animate:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-.img-animate {
-  webkit-transition: -webkit-transform .2s linear;
-  transition: -webkit-transform .2s linear;
-  transition: transform .2s linear;
-  transition: transform .2s linear,-webkit-transform .2s linear;
-}

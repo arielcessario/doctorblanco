@@ -6,10 +6,12 @@ h3{
   font-size: 1em;
   font-family: 'PT Sans', sans-serif;
   font-weight: bold;
+  color:#fff;
 }
 p{
   font-family: 'PT Sans', sans-serif;
   font-size: .8em;
+  color:#fff;
 }
 .img-thumbnail {
   display: block !important;
@@ -58,6 +60,11 @@ p{
   transition: transform .2s linear,-webkit-transform .2s linear;
 }
 
+.noticia-detalle {
+  padding: 20px 40px;
+  text-align: justify;
+  color:#fff;
+}
 
 /*
 .noticias-container{
