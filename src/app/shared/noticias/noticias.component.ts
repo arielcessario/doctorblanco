@@ -51,12 +51,12 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
             //this.noticias = data;
             this.noticia_1_id = data[0].noticia_id;
             this.titulo_1 = data[0].titulo;
-            this.detalles_1 = data[0].detalles;
+            this.detalles_1 = data[0].detalle_corto;
             this.foto_1 = data[0].foto;
 
             this.noticia_2_id = data[1].noticia_id;
             this.titulo_2 = data[1].titulo;
-            this.detalles_2 = data[1].detalles;
+            this.detalles_2 = data[1].detalle_corto;
             this.foto_2 = data[1].foto;
         });
     }

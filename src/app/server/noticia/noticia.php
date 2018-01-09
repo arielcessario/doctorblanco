@@ -39,6 +39,7 @@ class Noticias extends Main{
             $data = array(
                 'titulo' => $params->titulo,
                 'detalles' => $params->detalles,
+                'detalle_corto' => $params->detalle_corto,
                 'foto' =>$params->foto,
                 'fecha' => $this->db->now(),
                 'creador_id' => 0
@@ -52,10 +53,8 @@ class Noticias extends Main{
                 return;
             }
 
-
             $this->db->commit();
             $this->sendResponse('Ok');
-
 
         } catch
         (Exception $e) {
@@ -71,13 +70,13 @@ class Noticias extends Main{
      */
     function update($params)
     {
-
         $this->db->startTransaction();
         try {
             
             $data = array(
                 'titulo' => $params->titulo,
                 'detalles' => $params->detalles,
+                'detalle_corto' => $params->detalle_corto,
                 'foto' =>$params->foto,
                 'creador_id' => 0
             );
@@ -92,10 +91,8 @@ class Noticias extends Main{
                 return;
             }
 
-
             $this->db->commit();
             $this->sendResponse('Ok');
-
 
         } catch
         (Exception $e) {
@@ -108,7 +105,6 @@ class Noticias extends Main{
     function remove($params){
         $this->db->startTransaction();
         try {
-
             $this->db->where('noticia_id', $params->noticia_id);
 
             $result = $this->db->delete('noticias');
@@ -119,10 +115,8 @@ class Noticias extends Main{
                 return;
             }
 
-
             $this->db->commit();
             $this->sendResponse('Ok');
-
 
         } catch
         (Exception $e) {

@@ -32,6 +32,7 @@ export class NoticiasComponent implements OnInit {
 
     public titulo: string;
     public detalles: string;
+    public detalle_corto: string;
     public foto: string = '';
 
 
@@ -45,7 +46,6 @@ export class NoticiasComponent implements OnInit {
     }
 
     ngOnInit() {
-
         //this.loged = localStorage.getItem('currentUser') != null;
 
         this._get = this.dbConnectService.get('noticias', 'getAll', {});
@@ -64,7 +64,7 @@ export class NoticiasComponent implements OnInit {
 
     select(row) {
         this.noticia_id = row.noticia_id;
-        this.formNoticia.setValue({ titulo: row.titulo, detalles: row.detalles });
+        this.formNoticia.setValue({ titulo: row.titulo, detalles: row.detalles, detalle_corto: row.detalle_corto });
         this.foto = row.foto;
     }
 
@@ -92,6 +92,7 @@ export class NoticiasComponent implements OnInit {
                 cn = this.dbConnectService.post('noticias', 'create', {
                     titulo: this.formNoticia.get('titulo').value,
                     detalles: this.formNoticia.get('detalles').value,
+                    detalle_corto: this.formNoticia.get('detalle_corto').value,
                     foto: this.foto
                 }).subscribe(response => {
                     this._get.subscribe((data) => {
@@ -99,7 +100,6 @@ export class NoticiasComponent implements OnInit {
                         this.noticia_id = 0;
                     });
                     this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
-
                 })
             }
         });
@@ -119,6 +119,7 @@ export class NoticiasComponent implements OnInit {
                     noticia_id: this.noticia_id,
                     titulo: this.formNoticia.get('titulo').value,
                     detalles: this.formNoticia.get('detalles').value,
+                    detalle_corto: this.formNoticia.get('detalle_corto').value,
                     foto: this.foto
                 }).subscribe(response => {
                     this._get.subscribe((data) => {
@@ -126,7 +127,6 @@ export class NoticiasComponent implements OnInit {
                         this.noticia_id = 0;
                     });
                     this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
-
                 })
             }
         });
@@ -150,7 +150,8 @@ export class NoticiasComponent implements OnInit {
         this.fb = new FormBuilder();
         form = this.fb.group({
             'titulo': [this.titulo, [Validators.required]],
-            'detalles': [this.detalles, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]]
+            'detalles': [this.detalles, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+            'detalle_corto': [this.detalle_corto, [Validators.required, Validators.minLength(4), Validators.maxLength(150)]]
         });
 
         form.valueChanges
@@ -158,13 +159,13 @@ export class NoticiasComponent implements OnInit {
 
         this.dbConnectService.onValueChanged(); // (re)set validation messages now);
 
-
         return form;
     }
 
     formErrors = {
         'titulo': '',
-        'detalles': ''
+        'detalles': '',
+        'detalle_corto': ''
     };
     validationMessages = {
         'titulo': {
@@ -175,7 +176,12 @@ export class NoticiasComponent implements OnInit {
         'detalles': {
             'required': 'Requerido',
             'minlength': 'Mínimo 3 letras',
-            'maxlength': 'El nombre no puede tener mas de 24 letras'
+            'maxlength': 'El detalle no puede tener mas de 4000 letras'
+        },
+        'detalle_corto': {
+            'required': 'Requerido',
+            'minlength': 'Mínimo 3 letras',
+            'maxlength': 'El detalle corto no puede tener mas de 150 letras'
         }
     };
 

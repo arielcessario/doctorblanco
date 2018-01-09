@@ -12,7 +12,7 @@
        </thead>
        <tbody>
        <tr *ngFor="let i of tratamientos" (click)="select(i)">
-           <th scope="row">1</th>
+           <th scope="row">{{i.tratamiento_id}}</th>
            <td>{{i.titulo}}</td>
            <td>{{getTratamientoDescr(i.tipo_tratamiento_id)}}</td>
            <td><div [innerHTML]='i.detalles'></div></td>
@@ -20,23 +20,18 @@
        </tbody>
    </table>
 </div>
-<!--div class="row">
-   <input type="button" value="Crear" class="btn btn-primary btn-med" (click)="create($event)">
-   <input type="button" value="Editar" class="btn btn-primary btn-med" (click)="edit($event)">
-   <input type="button" value="Eliminar" class="btn btn-danger btn-med" (click)="delete($event)">
-</div-->
 </div>
 
 <div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
 [ngClass]="{'toogleA': toogle}">
 <form [formGroup]="formTratamiento" novalidate (ngSubmit)="save()" accept-charset="utf-8" action="#" class="simform">
    <div class="form-group">
-       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['titulo']}">Nombre {{formErrors['titulo']}}</label>
+       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['titulo']}">Titulo {{formErrors['titulo']}}</label>
        <input class="form-control" maxlength="255" id="user-pw" formControlName="titulo"
               placeholder="Nombre" type="text" size="50" />
    </div>
    <div class="form-group">
-       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['detalles']}">Nombre {{formErrors['detalles']}}</label>
+       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['detalles']}">Detalle {{formErrors['detalles']}}</label>
        <quill-editor [(ngModel)]="detalles"  formControlName="detalles"></quill-editor>
        <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
               placeholder="Nombre" type="text" size="50" /> -->
@@ -61,18 +56,4 @@
    </div>
 </form>
 </div>
-
-
-<!--div class="tratamientos-container">
-    <div class="top">
-        <div class="tratamiento"></div>
-        <div class="tratamiento"></div>
-    </div>
-    <div class="bottom">
-        <div class="tratamiento"></div>
-        <div class="tratamiento"></div>
-        <div class="tratamiento"></div>
-    </div>
-    <a  [routerLink]="['/tratamiento']">Ver Mas</a>
-</div-->
 
