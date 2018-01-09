@@ -78,15 +78,22 @@ export class SliderComponent implements OnInit {
         'Imperdible'
     ];
 
+    sliders: Array<string> = [];
+
+    private _get;
+
     constructor(private coreService: CoreService, private dbConnectService: DbConnectService, private router: Router) {
 
     }
 
 
     ngOnInit() {
-        // var leng = productos.length;
+        this._get = this.dbConnectService.get('sliders', 'get', {});
 
-        // this.dbConnectService.get('')
+        this._get.subscribe((data) => {
+            this.sliders = data;
+            console.log(this.sliders);
+        });
         
         var productos = [
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
@@ -106,11 +113,11 @@ export class SliderComponent implements OnInit {
         }
 
         //console.log(this.items);
-/*
+
         this.timer = setInterval(() => {
             this.visible = this.visible == 4 ? 1 : this.visible + 1;
         }, 5000);
-*/
+
     }
 
     interval() {

@@ -939,6 +939,34 @@ h1{
   background: #072146;
 }
 
+.backToTop{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 500;
+}
+
+.btn-backToTop{
+  border: none;
+  cursor: pointer;
+  background: #222;
+  //width: 30px;
+  //height: 30px;
+  line-height: 26px;
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  outline: 0;
+}
 
 
 
