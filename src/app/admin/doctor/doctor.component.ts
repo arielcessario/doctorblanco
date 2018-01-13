@@ -24,21 +24,16 @@ export class DoctorComponent implements OnInit {
     detalles: String = '';
     foto: String = '';
 
-
     @ViewChild('fotoCtrl') fotoCtrl;
-
-
 
     constructor(private coreService: CoreService, private http: Http,
         private dbConnectService: DbConnectService, private authService: AuthenticationService) {
     }
 
     ngOnInit() {
-
         this.setUp();
 
         //this.loged = localStorage.getItem('currentUser') != null;
-
     }
 
     setUp(){
@@ -56,15 +51,12 @@ export class DoctorComponent implements OnInit {
     }
     
     update() {
+        console.log(this.titulo);
+        console.log(this.detalles);
         this.fotoCtrl.onSubmit();
-
         let cn: any;
         this.fotoCtrl.status.subscribe((data) => {
-
             if (data.progress.percent == 100) {
-
-
-
                 cn = this.dbConnectService.post('principal', 'update', {
                     titulo: this.titulo,
                     detalles: this.detalles,
@@ -76,9 +68,6 @@ export class DoctorComponent implements OnInit {
             }
         });
 
-
     }
-
-
 
 }
