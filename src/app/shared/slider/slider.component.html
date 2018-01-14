@@ -5,28 +5,28 @@
                 <!--<img [src]="url" alt="" >-->
                 <div id="slider-01" *ngIf="visible == 1" [@enterAnimation]="visible == 1">
                     <!--<img [src]="'http://bayresnoproblem.com.ar/images/'+items[items.length-1].fotos[0].nombre" alt="">-->
-                    <img [src]="items[0].src" alt="">
+                    <img [src]="sliders[0].src" alt="">
                     <div class="slider-descr">
-                        <h1 class="h1-md h1-sm h1">{{items[items.length-1].nombre}}</h1>
+                        <h1 class="h1-md h1-sm h1">{{sliders[sliders.length-1].nombre}}</h1>
                         <!--span>{{items[items.length-1].descripcion | descLength}}</span-->
                     </div>
                 </div>
                 <div id="slider-02" *ngIf="visible == 2"  [@enterAnimation]="visible == 2">
-                    <img [src]="items[1].src" alt="">
+                    <img [src]="sliders[1].src" alt="">
                     <div class="slider-descr">
-                        <h1 class="h1-md h1-sm h1">{{items[items.length-2].nombre}}</h1>
+                        <h1 class="h1-md h1-sm h1">{{sliders[sliders.length-2].nombre}}</h1>
                     </div>
                 </div>
                 <div id="slider-03" *ngIf="visible == 3" [@enterAnimation]="visible == 3">
-                    <img [src]="items[2].src" alt="">
+                    <img [src]="sliders[2].src" alt="">
                     <div class="slider-descr">
-                        <h1 class="h1-md h1-sm h1">{{items[items.length-3].nombre}}</h1>
+                        <h1 class="h1-md h1-sm h1">{{sliders[sliders.length-3].nombre}}</h1>
                     </div>
                 </div>
                 <div id="slider-04" *ngIf="visible == 4" [@enterAnimation]="visible == 4">
-                    <img [src]="items[3].src">
+                    <img [src]="sliders[3].src">
                     <div class="slider-descr">
-                        <h1 class="h1-md h1-sm h1">{{items[items.length-4].nombre}}</h1>
+                        <h1 class="h1-md h1-sm h1">{{sliders[sliders.length-4].nombre}}</h1>
                     </div>
                 </div>
             </div>

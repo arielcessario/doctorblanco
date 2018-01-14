@@ -79,14 +79,12 @@ export class DbConnectService implements OnInit {
         let header = {};
         if (localStorage.getItem('currentUser') || prm['token_social']) {
             if (JSON.parse(localStorage.getItem('currentUser'))) {
-
                 header = {
                     'Content-Type': 'application/json',
                     "Access-Control-Allow-Credentials": "true",
                     'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser')).token
                 }
             } else {
-
                 header = {
                     'Content-Type': 'application/json',
                     "Access-Control-Allow-Credentials": "true",

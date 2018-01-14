@@ -401,15 +401,13 @@ class Usuarios extends Main
     {
         $this->db->startTransaction();
         try {
-
             $user_decoded = $this->checkUsuario($params);
-
-            $this->db->where('usuario_id', $user_decoded->usuario_id);
 
             if ($user_decoded->password != '') {
                 $this->changePassword($user_decoded->usuario_id, '', $user_decoded->password);
             }
 
+            $this->db->where('usuario_id', $user_decoded->usuario_id);
             $data = array(
                 'nombre' => $user_decoded->nombre,
                 'apellido' => $user_decoded->apellido,
@@ -423,16 +421,13 @@ class Usuarios extends Main
                 'fecha_nacimiento' => $user_decoded->fecha_nacimiento,
                 'profesion_id' => 0,
                 'saldo' => 0,
-                'password' => $user_decoded->password,
+                //'password' => $user_decoded->password,
                 'rol_id' => $user_decoded->rol_id,
                 'news_letter' => $user_decoded->news_letter,
                 'social_login' => $user_decoded->social_login
             );
-
-            $this->db->where('usuario_id', $user_decoded->usuario_id);
-
+            //$this->db->where('usuario_id', $user_decoded->usuario_id);
             $result = $this->db->update('usuarios', $data);
-
             if (!$result) {
                 $this->db->rollback();
                 $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");

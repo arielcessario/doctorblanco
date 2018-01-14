@@ -66,7 +66,7 @@ export class SliderComponent implements OnInit {
             foto: ''
         }
     ];
-
+/*
     frases: Array<string> = [
         'Solo por hoy',
         'Ahora',
@@ -77,8 +77,29 @@ export class SliderComponent implements OnInit {
         '25% de descuento!',
         'Imperdible'
     ];
-
-    sliders: Array<string> = [];
+*/
+    sliders: Array<any> = [
+        {
+            slider_id: 0,
+            src: '',
+            nombre: ''
+        },
+        {
+            slider_id: 1,
+            src: '',
+            nombre: ''
+        },
+        {
+            slider_id: 2,
+            src: '',
+            nombre: ''
+        },
+        {
+            slider_id: 3,
+            src: '',
+            nombre: ''
+        }
+    ];
 
     private _get;
 
@@ -90,18 +111,22 @@ export class SliderComponent implements OnInit {
     ngOnInit() {
         this._get = this.dbConnectService.get('sliders', 'get', {});
 
+        var i = 0;
         this._get.subscribe((data) => {
-            this.sliders = data;
+            for (var index in data) {
+                this.sliders[i].nombre = data[index].texto;
+                this.sliders[i].src = 'http://www.mateomaneff.com.ar/images/' + data[index].path;
+                i++;
+            }
+            //this.sliders = data;
             console.log(this.sliders);
         });
-        
+        /*
         var productos = [
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Plastica y Reparadora', 'descripcion': 'Otorgado por el ministerio de Salud de la Nacion'},
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Plastica y Reparadora', 'descripcion': ''},
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider2.JPG', 'nombre':'Cirugia Reconstructiva', 'descripcion': ''},
             {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider3.JPG', 'nombre':'Tratamientos no Quirurgicos', 'descripcion': ''},
-            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Mamarias', 'descripcion': ''},
-            //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 5', 'descripcion': 'prueba de producto 5'},
-            //{'en_slider':true, 'src':'http://bayresnoproblem.com.ar/images/nueva/test.jpg', 'nombre':'producto 6', 'descripcion': 'prueba de producto 6'}
+            {'en_slider':true, 'src':'http://www.mateomaneff.com.ar/images/slider/slider1.JPG', 'nombre':'Cirugia Mamarias', 'descripcion': ''}
         ]
         var leng = 4;
 
@@ -111,7 +136,7 @@ export class SliderComponent implements OnInit {
                 this.items.push(productos[leng]);
             }
         }
-
+*/
         //console.log(this.items);
 
         this.timer = setInterval(() => {
@@ -126,7 +151,7 @@ export class SliderComponent implements OnInit {
             this.visible = this.visible == 4 ? 1 : this.visible + 1;
         }, 5000);
     }
-
+/*
     update(item) {
 
         if (!item.en_carrito && !item.cantidad) {
@@ -142,7 +167,8 @@ export class SliderComponent implements OnInit {
 
         this.coreService.updateCarrito(item);
     }
-
+*/
+    /*
     desear(item) {
         if (item['deseado']) {
             delete item['deseado'];
@@ -166,7 +192,7 @@ export class SliderComponent implements OnInit {
 
         // this.coreService.setDesear(item['producto_id']);
     }
-
+*/
     goTo(id): void {
         // console.log('entra');
         // let link = ['/detail', hero.id];
