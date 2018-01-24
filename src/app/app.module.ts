@@ -5,6 +5,7 @@ import { NoticiaComponent } from './noticia/noticia.component';
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { MainComponent } from './main/main.component';
 import { VerNoticiaComponent } from './vernoticia/vernoticia.component';
+import { VerTratamientoComponent } from './vertratamiento/vertratamiento.component';
 import { SharedModule } from './shared/shared.module';
 import { DbConnectService } from './core/db-connect/db-connect.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,7 +37,8 @@ import { ToasterModule } from 'angular5-toaster';
         TratamientoComponent,
         NoticiaComponent,
         MainComponent,
-        VerNoticiaComponent
+        VerNoticiaComponent,
+        VerTratamientoComponent
         //EscapeHtmlPipe
     ],
     imports: [

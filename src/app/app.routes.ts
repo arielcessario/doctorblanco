@@ -5,6 +5,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PrincipalComponent } from "./principal/principal.component";
 import { VerNoticiaComponent } from "./vernoticia/vernoticia.component";
+import { VerTratamientoComponent } from "./vertratamiento/vertratamiento.component";
 import { AuthGuard } from "./core/auth/auth-guard.service";
 import { AdminComponent } from './admin/admin.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'main', component: MainComponent },
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     { path: 'vernoticia/:id', component: VerNoticiaComponent },
+    { path: 'vertratamiento/:id', component: VerTratamientoComponent }
 ];
 
 export const Routing: ModuleWithProviders = RouterModule.forRoot(routes);
