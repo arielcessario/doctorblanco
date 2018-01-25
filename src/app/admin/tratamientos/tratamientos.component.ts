@@ -32,6 +32,7 @@ export class TratamientosComponent implements OnInit {
 
     public titulo: string;
     public detalles: string;
+    public detalle_corto: string;
     public foto: string = "";
     public tipo_tratamiento_id: number = 1;
 
@@ -46,9 +47,7 @@ export class TratamientosComponent implements OnInit {
     }
 
     ngOnInit() {
-
         //this.loged = localStorage.getItem('currentUser') != null;
-
         this._get = this.dbConnectService.get('tratamientos', 'getAll', {});
 
         this._get.subscribe((data) => {
@@ -56,7 +55,6 @@ export class TratamientosComponent implements OnInit {
         });
 
         this.formTratamiento = this.buildForm(this.formTratamiento);
-
     }
 
     setUp() {
@@ -64,7 +62,7 @@ export class TratamientosComponent implements OnInit {
     }
 
     select(row) {
-        this.formTratamiento.setValue({ titulo: row.titulo, detalles: row.detalles, tipo_tratamiento_id: row.tipo_tratamiento_id });
+        this.formTratamiento.setValue({ titulo: row.titulo, detalles: row.detalles, tipo_tratamiento_id: row.tipo_tratamiento_id, detalle_corto: row.detalle_corto });
         this.foto = row.foto;
         this.tratamiento_id = row.tratamiento_id;
     }
@@ -83,9 +81,6 @@ export class TratamientosComponent implements OnInit {
     // }
 
     create() {
-
-
-
         this.foto_uploader.onSubmit();
 
         let cn: any;
@@ -95,6 +90,7 @@ export class TratamientosComponent implements OnInit {
                 cn = this.dbConnectService.post('tratamientos', 'create', {
                     titulo: this.formTratamiento.get('titulo').value,
                     detalles: this.formTratamiento.get('detalles').value,
+                    detalle_corto: this.formTratamiento.get('detalle_corto').value,
                     foto: this.foto,
                     tipo_tratamiento_id: this.formTratamiento.get('tipo_tratamiento_id').value
                 }).subscribe(response => {
@@ -110,12 +106,10 @@ export class TratamientosComponent implements OnInit {
             }
         });
 
-
     }
 
 
     getTratamientoDescr(index) {
-
         let t = "";
         switch (index) {
             case 1:
@@ -140,8 +134,6 @@ export class TratamientosComponent implements OnInit {
 
 
     update() {
-
-
         this.foto_uploader.onSubmit();
 
         let cn: any;
@@ -152,6 +144,7 @@ export class TratamientosComponent implements OnInit {
                     tratamiento_id: this.tratamiento_id,
                     titulo: this.formTratamiento.get('titulo').value,
                     detalles: this.formTratamiento.get('detalles').value,
+                    detalle_corto: this.formTratamiento.get('detalle_corto').value,
                     foto: this.foto,
                     tipo_tratamiento_id: this.formTratamiento.get('tipo_tratamiento_id').value
                 }).subscribe(response => {
@@ -186,6 +179,7 @@ export class TratamientosComponent implements OnInit {
         form = this.fb.group({
             'titulo': [this.titulo, [Validators.required]],
             'detalles': [this.detalles, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+            'detalle_corto': [this.detalle_corto, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
             'tipo_tratamiento_id': this.tipo_tratamiento_id
         });
 
@@ -211,7 +205,12 @@ export class TratamientosComponent implements OnInit {
         'detalles': {
             'required': 'Requerido',
             'minlength': 'Mínimo 3 letras',
-            'maxlength': 'El nombre no puede tener mas de 24 letras'
+            'maxlength': 'El nombre no puede tener mas de 4000 letras'
+        },
+        'detalle_corto': {
+            'required': 'Requerido',
+            'minlength': 'Mínimo 3 letras',
+            'maxlength': 'El nombre no puede tener mas de 250 letras'
         }
     };
 

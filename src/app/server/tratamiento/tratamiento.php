@@ -32,13 +32,13 @@ class Tratamientos extends Main{
      */
     function create($params)
     {
-
         $this->db->startTransaction();
         try {
             
             $data = array(
                 'titulo' => $params->titulo,
                 'detalles' => $params->detalles,
+                'detalle_corto' => $params->detalle_corto,
                 'foto' =>$params->foto,
                 'fecha' => $this->db->now(),
                 'tipo_tratamiento_id' => $params->tipo_tratamiento_id,
@@ -46,18 +46,14 @@ class Tratamientos extends Main{
             );
 
             $result = $this->db->insert('tratamientos', $data);
-
             if (!$result) {
                 $this->db->rollback();
                 $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
                 return;
             }
 
-
             $this->db->commit();
             $this->sendResponse('Ok');
-
-
         } catch
         (Exception $e) {
             $this->db->rollback();
@@ -72,33 +68,28 @@ class Tratamientos extends Main{
      */
     function update($params)
     {
-
         $this->db->startTransaction();
         try {
             
             $data = array(
                 'titulo' => $params->titulo,
                 'detalles' => $params->detalles,
+                'detalle_corto' => $params->detalle_corto,
                 'foto' =>$params->foto,
                 'tipo_tratamiento_id' => $params->tipo_tratamiento_id,
                 'creador_id' => 0
             );
 
             $this->db->where('tratamiento_id', $params->tratamiento_id);
-
             $result = $this->db->update('tratamientos', $data);
-
             if (!$result) {
                 $this->db->rollback();
                 $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
                 return;
             }
 
-
             $this->db->commit();
             $this->sendResponse('Ok');
-
-
         } catch
         (Exception $e) {
             $this->db->rollback();
@@ -107,26 +98,21 @@ class Tratamientos extends Main{
     }
 
 
-    function remove($params){
-        
+    function remove($params)
+    {
         $this->db->startTransaction();
         try {
 
             $this->db->where('tratamiento_id', $params->tratamiento_id);
-
             $result = $this->db->delete('tratamientos');
-
             if (!$result) {
                 $this->db->rollback();
                 $this->sendResponse('Caught exception: ' . $this->db->getLastError() . "\n");
                 return;
             }
 
-
             $this->db->commit();
             $this->sendResponse('Ok');
-
-
         } catch
         (Exception $e) {
             $this->db->rollback();

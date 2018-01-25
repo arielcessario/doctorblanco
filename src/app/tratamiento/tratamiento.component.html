@@ -22,20 +22,20 @@
         <div class="col-md-8" *ngIf="even">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>{{item.titulo}}</h2>
+                    <h2 (click)="showMore(item.tratamiento_id)" class="ver-tratamiento">{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    <div [innerHTML]='item.detalles'></div>
+                    <div [innerHTML]='item.detalle_corto'></div>
                 </div>
             </div>
         </div>
         <div class="col-md-8 flex-last" *ngIf="odd">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>{{item.titulo}}</h2>
+                    <h2 (click)="showMore(item.tratamiento_id)" class="ver-tratamiento">{{item.titulo}}</h2>
                 </div>
                 <div class="col-md-12">
-                    <div [innerHTML]='item.detalles'></div>
+                    <div [innerHTML]='item.detalle_corto'></div>
                 </div>
             </div>
         </div>

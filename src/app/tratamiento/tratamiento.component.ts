@@ -80,4 +80,8 @@ export class TratamientoComponent implements OnInit {
         return this._sanitizer.sanitize(SecurityContext.HTML, text);
     }
 
+    showMore(id): void {
+        this.router.navigate(['/vertratamiento', id]);
+    }
+
 }

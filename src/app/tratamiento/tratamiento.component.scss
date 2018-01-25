@@ -29,3 +29,10 @@
   background-size: cover;
 }
 
+.ver-tratamiento {
+  cursor: pointer;
+}
+.ver-tratamiento:hover {
+  text-decoration: underline;
+  color: #004b8c;
+}
