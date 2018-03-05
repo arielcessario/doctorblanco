@@ -68,9 +68,11 @@ textarea {
   resize: none;
 }
 
-.toogleL {
+.index {
   display: none;
+  transition: 0.5s;
 }
-.toogleA {
+.panel {
   display: none;
+  transition: 0.5s;
 }

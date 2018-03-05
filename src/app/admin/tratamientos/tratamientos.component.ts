@@ -20,7 +20,7 @@ export class TratamientosComponent implements OnInit {
     loged = false;
 
     tratamientos: Array<any> = [];
-    toogle = false;
+    selectedValue = null;
 
     // uploader = new FileUploader({ url: `YOUR URL` });
 
@@ -35,6 +35,8 @@ export class TratamientosComponent implements OnInit {
     public detalle_corto: string;
     public foto: string = "";
     public tipo_tratamiento_id: number = 1;
+    public showIndex: boolean = true;
+    public showPanel: boolean = false;
 
 
     @ViewChild('foto_uploader') foto_uploader;
@@ -62,9 +64,10 @@ export class TratamientosComponent implements OnInit {
     }
 
     select(row) {
+        this.selectedValue = row;
+        this.tratamiento_id = row.tratamiento_id;
         this.formTratamiento.setValue({ titulo: row.titulo, detalles: row.detalles, tipo_tratamiento_id: row.tipo_tratamiento_id, detalle_corto: row.detalle_corto });
         this.foto = row.foto;
-        this.tratamiento_id = row.tratamiento_id;
     }
 
     save() {
@@ -96,9 +99,7 @@ export class TratamientosComponent implements OnInit {
                 }).subscribe(response => {
                     this._get.subscribe((data) => {
                         this.tratamientos = data;
-                        this.tratamiento_id = 0;
-                        this.formTratamiento.reset();
-                        this.foto = '';
+                        this.index();
                         this.coreService.setToast({ type: 'success', title: 'Éxito', body: 'Salvado con Éxito' });
                     });
 
@@ -150,27 +151,54 @@ export class TratamientosComponent implements OnInit {
                 }).subscribe(response => {
                     this._get.subscribe((data) => {
                         this.tratamientos = data;
-                        this.tratamiento_id = 0;
-                        this.formTratamiento.reset();
-                        this.foto = '';
+                        this.index();
                     });
                     this.coreService.setToast({ type: 'success', title: 'Éxito', body: 'Salvado con Éxito' });
-
                 })
             }
         });
     }
 
     remove() {
-        this.dbConnectService.post('tratamientos', 'remove', { tratamiento_id: this.tratamiento_id }).subscribe((data) => {
-            this._get.subscribe((data) => {
-                this.tratamientos = data;
-                this.tratamiento_id = 0;
-                this.foto = '';
-                this.formTratamiento.reset();
-                this.coreService.setToast({ type: 'success', title: 'Éxito', body: 'Salvado con Éxito' });
+        if(this.selectedValue == null) {
+            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
+        } else {
+            this.dbConnectService.post('tratamientos', 'remove', {tratamiento_id: this.tratamiento_id}).subscribe((data) => {
+                this._get.subscribe((data) => {
+                    this.tratamientos = data;
+                    this.inicilizarVariables();
+                    this.coreService.setToast({type: 'success', title: 'Éxito', body: 'Salvado con Éxito'});
+                })
             })
-        })
+        }
+    }
+
+    inicilizarVariables() {
+        this.selectedValue = null;
+        this.formTratamiento.reset();
+        this.tratamiento_id = 0;
+        this.foto = '';
+    }
+
+    crear() {
+        this.showIndex = false;
+        this.showPanel = true;
+        this.inicilizarVariables();
+    }
+
+    modificar() {
+        if(this.selectedValue == null) {
+            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
+        } else {
+            this.showIndex = false;
+            this.showPanel = true;
+        }
+    }
+
+    index() {
+        this.showIndex = true;
+        this.showPanel = false;
+        this.inicilizarVariables();
     }
 
     buildForm(form: FormGroup): FormGroup {

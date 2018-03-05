@@ -1,54 +1,58 @@
 <div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
-[ngClass]="{'toogleL': toogle}">
-<div class="row">
-   <table class="table table-hover">
-       <thead>
-       <tr>
-           <th>#</th>
-           <th>Titulo</th>
-           <th>Detalles</th>
-       </tr>
-       </thead>
-       <tbody>
-       <tr *ngFor="let i of noticias" (click)="select(i)">
-           <th scope="row">{{i.noticia_id}}</th>
-           <td>{{i.titulo}}</td>
-           <td><div [innerHTML]='i.detalle_corto'></div></td>
-       </tr>
-       </tbody>
-   </table>
-</div>
+     [ngClass]="{'index': showPanel}">
+    <div class="row">
+       <table class="table table-hover">
+           <thead>
+           <tr>
+               <th>#</th>
+               <th>Titulo</th>
+               <th>Detalles</th>
+           </tr>
+           </thead>
+           <tbody>
+           <tr *ngFor="let i of noticias" (click)="select(i)">
+               <th scope="row">{{i.noticia_id}}</th>
+               <td>{{i.titulo}}</td>
+               <td><div [innerHTML]='i.detalle_corto'></div></td>
+           </tr>
+           </tbody>
+       </table>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-default" (click)="crear()">Nuevo</button>
+        <button type="reset" class="btn btn-primary" (click)="modificar()">Editar</button>
+        <button type="reset" class="btn btn-danger" (click)="remove()">Borrar</button>
+    </div>
 </div>
 
 <div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
-[ngClass]="{'toogleA': toogle}">
-<form [formGroup]="formNoticia" novalidate (ngSubmit)="save()" accept-charset="utf-8" action="#" class="simform">
-   <div class="form-group">
-       <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['titulo']}">Titulo {{formErrors['titulo']}}</label>
-       <input class="form-control" maxlength="255" id="user-pw" formControlName="titulo"
-              placeholder="Nombre" type="text" size="50" />
-   </div>
-    <div class="form-group">
-        <label class="" [ngClass]="{'text-error': formErrors['detalle_corto']}">Detalle Corto {{formErrors['detalle_corto']}}</label>
-        <quill-editor [(ngModel)]="detalle_corto"  formControlName="detalle_corto"></quill-editor>
-        <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
-               placeholder="Nombre" type="text" size="50" /> -->
-    </div>
-   <div class="form-group">
-       <label class="" [ngClass]="{'text-error': formErrors['detalles']}">Detalle {{formErrors['detalles']}}</label>
-       <quill-editor [(ngModel)]="detalles"  formControlName="detalles"></quill-editor>
-       <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
-              placeholder="Nombre" type="text" size="50" /> -->
-   </div>
+     [ngClass]="{'panel': showIndex}">
+    <form [formGroup]="formNoticia" novalidate (ngSubmit)="save()" accept-charset="utf-8" action="#" class="simform">
+       <div class="form-group">
+           <label class="" for="user-pw" [ngClass]="{'text-error': formErrors['titulo']}">Titulo {{formErrors['titulo']}}</label>
+           <input class="form-control" maxlength="255" id="user-pw" formControlName="titulo"
+                  placeholder="Nombre" type="text" size="50" />
+       </div>
+        <div class="form-group">
+            <label class="" [ngClass]="{'text-error': formErrors['detalle_corto']}">Detalle Corto {{formErrors['detalle_corto']}}</label>
+            <quill-editor [(ngModel)]="detalle_corto"  formControlName="detalle_corto"></quill-editor>
+            <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
+                   placeholder="Nombre" type="text" size="50" /> -->
+        </div>
+       <div class="form-group">
+           <label class="" [ngClass]="{'text-error': formErrors['detalles']}">Detalle {{formErrors['detalles']}}</label>
+           <quill-editor [(ngModel)]="detalles"  formControlName="detalles"></quill-editor>
+           <!-- <input class="form-control" maxlength="255" id="user-pw" formControlName="detalles"
+                  placeholder="Nombre" type="text" size="50" /> -->
+       </div>
 
-   <upload-component [img]='foto' #foto_uploader></upload-component>
+       <upload-component [img]='foto' #foto_uploader></upload-component>
 
-   <div class="">
-       <input class="btn btn-primary btn-med" name="commit" type="submit" value="Crear" />
-       <input class="btn btn-primary btn-med" name="commit" type="submit" value="Editar" />
-       <input class="btn btn-danger btn-med" name="commit" (click)="remove()" value="Borrar" />
-   </div>
-</form>
+       <div class="">
+           <button type="submit" class="btn btn-primary">Guardar</button>
+           <button type="reset" class="btn btn-default" (click)="index()">Cancelar</button>
+       </div>
+    </form>
 </div>
 
 

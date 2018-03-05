@@ -20,7 +20,7 @@ export class NoticiasComponent implements OnInit {
     loged = false;
 
     noticias: Array<any> = [];
-    toogle = false;
+    selectedValue = null;
 
     // uploader = new FileUploader({ url: `YOUR URL` });
 
@@ -34,6 +34,8 @@ export class NoticiasComponent implements OnInit {
     public detalles: string;
     public detalle_corto: string;
     public foto: string = '';
+    public showIndex: boolean = true;
+    public showPanel: boolean = false;
 
 
     @ViewChild('foto_uploader') foto_uploader;
@@ -63,6 +65,7 @@ export class NoticiasComponent implements OnInit {
     }
 
     select(row) {
+        this.selectedValue = row;
         this.noticia_id = row.noticia_id;
         this.formNoticia.setValue({ titulo: row.titulo, detalles: row.detalles, detalle_corto: row.detalle_corto });
         this.foto = row.foto;
@@ -97,7 +100,7 @@ export class NoticiasComponent implements OnInit {
                 }).subscribe(response => {
                     this._get.subscribe((data) => {
                         this.noticias = data;
-                        this.noticia_id = 0;
+                        this.index();
                     });
                     this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
                 })
@@ -124,7 +127,7 @@ export class NoticiasComponent implements OnInit {
                 }).subscribe(response => {
                     this._get.subscribe((data) => {
                         this.noticias = data;
-                        this.noticia_id = 0;
+                        this.index();
                     });
                     this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
                 })
@@ -133,17 +136,46 @@ export class NoticiasComponent implements OnInit {
     }
 
     remove(){
-        this.dbConnectService.post('noticias', 'remove', {noticia_id:this.noticia_id}).subscribe((data)=>{
-            this._get.subscribe((data)=>{
-                this.noticias = data;
-                this.noticia_id = 0;
-                this.foto = '';
-                this.formNoticia.reset();
-                this.coreService.setToast({type:'success',title:'Éxito',body:'Salvado con Éxito'});
+        if(this.selectedValue == null) {
+            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
+        } else {
+            this.dbConnectService.post('noticias', 'remove', {noticia_id: this.noticia_id}).subscribe((data)=> {
+                this._get.subscribe((data)=> {
+                    this.noticias = data;
+                    this.inicilizarVariables();
+                    this.coreService.setToast({type: 'success', title: 'Éxito', body: 'Salvado con Éxito'});
+                })
             })
-        })
+        }
     }
 
+    inicilizarVariables() {
+        this.selectedValue = null;
+        this.formNoticia.reset();
+        this.noticia_id = 0;
+        this.foto = '';
+    }
+
+    crear() {
+        this.showIndex = false;
+        this.showPanel = true;
+        this.inicilizarVariables();
+    }
+
+    modificar() {
+        if(this.selectedValue == null) {
+            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
+        } else {
+            this.showIndex = false;
+            this.showPanel = true;
+        }
+    }
+
+    index() {
+        this.showIndex = true;
+        this.showPanel = false;
+        this.inicilizarVariables();
+    }
 
     buildForm(form: FormGroup): FormGroup {
 
