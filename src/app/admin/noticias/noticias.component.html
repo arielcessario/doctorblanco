@@ -1,5 +1,10 @@
 <div class="container" style="background-color:#FFFFFF;border: 1px solid #072146;margin-top: 15px;padding: 35px 20px"
      [ngClass]="{'index': showPanel}">
+    <div class="row" style="margin-bottom: 15px;">
+        <button type="submit" class="btn btn-default" (click)="crear()">Nuevo</button>
+        <!--<button type="reset" class="btn btn-primary" (click)="modificar()">Editar</button>
+        <button type="reset" class="btn btn-danger" (click)="remove()">Borrar</button>-->
+    </div>
     <div class="row">
        <table class="table table-hover">
            <thead>
@@ -7,6 +12,8 @@
                <th>#</th>
                <th>Titulo</th>
                <th>Detalles</th>
+               <th>Editar</th>
+               <th>Borrar</th>
            </tr>
            </thead>
            <tbody>
@@ -14,14 +21,11 @@
                <th scope="row">{{i.noticia_id}}</th>
                <td>{{i.titulo}}</td>
                <td><div [innerHTML]='i.detalle_corto'></div></td>
+               <td style="text-align:center;"><i class="fa fa-pencil" (click)="modificar(i)"></i></td>
+               <td style="text-align:center;"><i class="fa fa-trash" (click)="remove(i)"></i></td>
            </tr>
            </tbody>
        </table>
-    </div>
-    <div class="row">
-        <button type="submit" class="btn btn-default" (click)="crear()">Nuevo</button>
-        <button type="reset" class="btn btn-primary" (click)="modificar()">Editar</button>
-        <button type="reset" class="btn btn-danger" (click)="remove()">Borrar</button>
     </div>
 </div>
 

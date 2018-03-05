@@ -135,18 +135,14 @@ export class NoticiasComponent implements OnInit {
         });
     }
 
-    remove(){
-        if(this.selectedValue == null) {
-            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
-        } else {
-            this.dbConnectService.post('noticias', 'remove', {noticia_id: this.noticia_id}).subscribe((data)=> {
-                this._get.subscribe((data)=> {
-                    this.noticias = data;
-                    this.inicilizarVariables();
-                    this.coreService.setToast({type: 'success', title: 'Éxito', body: 'Salvado con Éxito'});
-                })
+    remove(item){
+        this.dbConnectService.post('noticias', 'remove', {noticia_id: item.noticia_id}).subscribe((data)=> {
+            this._get.subscribe((data)=> {
+                this.noticias = data;
+                this.inicilizarVariables();
+                this.coreService.setToast({type: 'success', title: 'Éxito', body: 'Salvado con Éxito'});
             })
-        }
+        })
     }
 
     inicilizarVariables() {
@@ -162,13 +158,10 @@ export class NoticiasComponent implements OnInit {
         this.inicilizarVariables();
     }
 
-    modificar() {
-        if(this.selectedValue == null) {
-            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
-        } else {
-            this.showIndex = false;
-            this.showPanel = true;
-        }
+    modificar(item) {
+        this.selectedValue = item;
+        this.showIndex = false;
+        this.showPanel = true;
     }
 
     index() {

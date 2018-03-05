@@ -159,18 +159,14 @@ export class TratamientosComponent implements OnInit {
         });
     }
 
-    remove() {
-        if(this.selectedValue == null) {
-            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
-        } else {
-            this.dbConnectService.post('tratamientos', 'remove', {tratamiento_id: this.tratamiento_id}).subscribe((data) => {
-                this._get.subscribe((data) => {
-                    this.tratamientos = data;
-                    this.inicilizarVariables();
-                    this.coreService.setToast({type: 'success', title: 'Éxito', body: 'Salvado con Éxito'});
-                })
+    remove(item) {
+        this.dbConnectService.post('tratamientos', 'remove', {tratamiento_id: item.tratamiento_id}).subscribe((data) => {
+            this._get.subscribe((data) => {
+                this.tratamientos = data;
+                this.inicilizarVariables();
+                this.coreService.setToast({type: 'success', title: 'Éxito', body: 'Salvado con Éxito'});
             })
-        }
+        })
     }
 
     inicilizarVariables() {
@@ -186,13 +182,10 @@ export class TratamientosComponent implements OnInit {
         this.inicilizarVariables();
     }
 
-    modificar() {
-        if(this.selectedValue == null) {
-            this.coreService.setToast({type:'warning',title:'Advertencia',body:'Debe seleccionar un registro'});
-        } else {
-            this.showIndex = false;
-            this.showPanel = true;
-        }
+    modificar(item) {
+        this.selectedValue = item;
+        this.showIndex = false;
+        this.showPanel = true;
     }
 
     index() {
