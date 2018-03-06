@@ -4,11 +4,26 @@ $folder = $_SERVER['DOCUMENT_ROOT'];
 
 //$image_path = '../../images/';
 $image_path = '';
+$path_6 = '../../../../../../images/';
+$path_5 = '../../../../../images/';
+$path_4 = '../../../../images/';
 $path_3 = '../../../images/';
 $path_2 = '../../images/';
 $path_1 = '../images/';
 
-if (file_exists($path_3)) {
+if (file_exists($path_6)) {
+    $image_path = $path_6;
+    debug_to_console($path_6);
+}
+elseif (file_exists($path_5)) {
+    $image_path = $path_5;
+    debug_to_console($path_5);
+}
+elseif (file_exists($path_4)) {
+    $image_path = $path_4;
+    debug_to_console($path_4);
+}
+elseif (file_exists($path_3)) {
     $image_path = $path_3;
     debug_to_console($path_3);
 }
