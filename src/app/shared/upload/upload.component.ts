@@ -14,8 +14,8 @@ export class UploadComponent implements OnInit, OnChanges {
     loading: boolean = false;
     method = 'POST';
     url = './server/upload.php';
-    //images_url = 'http://localhost/doctorblanco/src/app/images/';
-    images_url = 'http://www.mateomaneff.com.ar/images/';
+    images_url = 'http://localhost/doctorblanco/src/app/images/';
+    //images_url = './images/';
     // @Output NgModuleCompileResult
 
     @ViewChild('fileInput') fileInput: ElementRef;
@@ -49,8 +49,6 @@ export class UploadComponent implements OnInit, OnChanges {
             preview.removeChild(preview.lastChild);
         }
         preview.appendChild(image);
-
-
     }
 
     onFileChange(event) {
@@ -76,7 +74,7 @@ export class UploadComponent implements OnInit, OnChanges {
     }
 
     private prepareSave(el): any {
-        // console.log(el);
+        //console.log(el);
         let input = new FormData();
         input.append('images', el);
         return input;
@@ -87,7 +85,6 @@ export class UploadComponent implements OnInit, OnChanges {
     }
 
     onSubmit() {
-
         if (this.fileInput.nativeElement.files[0] == undefined) {
             let percent = 100;
 
@@ -102,14 +99,10 @@ export class UploadComponent implements OnInit, OnChanges {
                 if (percent == 100) {
                     this.loading = false;
                 }
-
-
             }, 0);
             return;
         }
         const formModel = this.prepareSave(this.fileInput.nativeElement.files[0]);
-
-        // console.log(formModel);
 
         this.loading = true;
         // In a real-world app you'd have a http request / service call here like
@@ -167,8 +160,7 @@ export class UploadComponent implements OnInit, OnChanges {
             this.loading = false;
         }
 
-
-
+        console.log(this.url);
         xhr.open(this.method, this.url, true);
 
         let st = this.status;

@@ -51,8 +51,6 @@ export class DoctorComponent implements OnInit {
     }
     
     update() {
-        console.log(this.titulo);
-        console.log(this.detalles);
         this.fotoCtrl.onSubmit();
         let cn: any;
         this.fotoCtrl.status.subscribe((data) => {

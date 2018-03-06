@@ -2,13 +2,46 @@
 $folder = $_SERVER['DOCUMENT_ROOT'];
 
 
-$image_path = '../../images/';
+//$image_path = '../../images/';
+$image_path = '';
+$path_3 = '../../../images/';
+$path_2 = '../../images/';
+$path_1 = '../images/';
+
+if (file_exists($path_3)) {
+    $image_path = $path_3;
+    debug_to_console($path_3);
+}
+elseif (file_exists($path_2)) {
+    $image_path = $path_2;
+    debug_to_console($path_2);
+}
+elseif (file_exists($path_1)) {
+    $image_path = $path_1;
+    debug_to_console($path_1);
+}
+else {
+    debug_to_console("Path not found");
+}
+
+
+function debug_to_console($data) {
+    if(is_array($data) || is_object($data))
+    {
+        echo("<script>console.log('PHP: ".json_encode($data)."');</script>");
+    } else {
+        echo("<script>console.log('PHP: ".$data."');</script>");
+    }
+}
+
 
 
 if (isset($_FILES["folder"])) {
     $output_dir = $image_path . $_FILES["folder"];
+    echo($output_dir);
 } else {
     $output_dir = $image_path;
+    echo($output_dir);
 }
 
 if (isset($_FILES["images"])) {
