@@ -13,9 +13,9 @@ export class UploadComponent implements OnInit, OnChanges {
     form: FormGroup;
     loading: boolean = false;
     method = 'POST';
-    url = './server/upload.php';
-    images_url = 'http://localhost/doctorblanco/src/app/images/';
-    //images_url = './images/';
+    url = './server/upload/upload.php';
+    //images_url = 'http://localhost/doctorblanco/src/app/images/';
+    images_url = './images/';
     // @Output NgModuleCompileResult
 
     @ViewChild('fileInput') fileInput: ElementRef;
@@ -44,6 +44,7 @@ export class UploadComponent implements OnInit, OnChanges {
         image.height = 100;
         image.title = this.img;
         image.src = this.images_url + this.img;
+        console.log(image.src);
 
         while (preview.hasChildNodes()) {
             preview.removeChild(preview.lastChild);
@@ -74,7 +75,7 @@ export class UploadComponent implements OnInit, OnChanges {
     }
 
     private prepareSave(el): any {
-        //console.log(el);
+        console.log(el);
         let input = new FormData();
         input.append('images', el);
         return input;
@@ -127,11 +128,14 @@ export class UploadComponent implements OnInit, OnChanges {
                 xhr.statusText,
                 xhr.response
             );
+            console.log(uploadingFile)
             // this.removeFileFromQueue(queueIndex);
             st.emit(uploadingFile);
+            console.log(st);
         }
 
         xhr.upload.onprogress = (e) => {
+            console.log(e);
             if (e.lengthComputable) {
                 let percent = Math.round(e.loaded / e.total * 100);
                 uploadingFile.setProgres({
@@ -149,21 +153,25 @@ export class UploadComponent implements OnInit, OnChanges {
         }
 
         xhr.upload.onabort = (e) => {
+            console.log(e);
             uploadingFile.setAbort();
             this.status.emit(uploadingFile);
             this.loading = false;
         }
 
         xhr.upload.onerror = (e) => {
+            console.log(e);
             uploadingFile.setError();
             this.status.emit(uploadingFile);
             this.loading = false;
         }
 
+        console.log(this.method);
         console.log(this.url);
         xhr.open(this.method, this.url, true);
 
         let st = this.status;
+        console.log(st);
         xhr.onreadystatechange = () => {
             // if (xhr.readyState === XMLHttpRequest.DONE) {
             //     uploadingFile.onFinished(
@@ -174,6 +182,10 @@ export class UploadComponent implements OnInit, OnChanges {
             //     // this.removeFileFromQueue(queueIndex);
             //     st.emit(uploadingFile);
             // }
+            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                // Request finished. Do processing here.
+                console.log('Request finished. Do processing here.');
+            }
         }
         // xhr.withCredentials = this.withCredentials;
 
