@@ -38,6 +38,8 @@ class Principal extends Main
                 'foto' => $params->foto,
             );
 
+            $this->db->where('principal_id', $params->principal_id);
+
             if (!$this->db->update('principal', $data)) {
                 $this->db->rollback();
                 $this->sendError('Caught exception: ' . $this->db->getLastError() . "\n");

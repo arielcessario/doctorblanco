@@ -14,8 +14,8 @@ export class UploadComponent implements OnInit, OnChanges {
     loading: boolean = false;
     method = 'POST';
     url = './server/upload/upload.php';
-    //images_url = 'http://localhost/doctorblanco/src/app/images/';
-    images_url = './images/';
+    //images_url = 'http://localhost/doctorblanco/src/app/images/'; //ESTA LINEA ES SOLO PARA TEST
+    images_url = './images/';       //ESTA LINEA ES PARA PRODUCCION
     // @Output NgModuleCompileResult
 
     @ViewChild('fileInput') fileInput: ElementRef;
